@@ -1,6 +1,6 @@
 body {
   font-family:FontAwesome, Effra,sans-serif;
-  font-size: 1.5vw;
+  font-size: 2vw;
   font-weight: bolder;
   background-color:rgb(208,208,208);
   color: white;
@@ -15,7 +15,6 @@ body {
 }
 div.users{
 text-align: center;
-background-color: rgb(208,208,208);
 }
 .split{
   width: 50%;
@@ -43,18 +42,24 @@ ul {
 }
 ul.comments{
   color: black;
-  background-color: rgb(233,233,233);
-  padding: 5px;
+  background-color: rgb(208,208,208);
+  padding: 5px 0 5px 0;
   margin: 0;
 
 }
 ul.users{
   margin: 0;
-  padding: 2px;
+  padding: 2px 0 2px 0;
+  background-color: rgb(208,208,208);
+
 }
 ul.users li{
 box-sizing: border-box;
-margin: 2px 2px 2px 2px;
+margin: 2px 0 2px 0;
+font-size: 2vw;
+}
+ul.users a.active li{
+background-color: lightblue;
 }
 li{
   background-color: white;
@@ -64,8 +69,16 @@ li{
   margin: 5px 0 0 0;
   display: block;
   width: auto;
+  font-size: 2vw;
+
 }
 a{
   text-decoration: none;
   /*font-weight: 600;*/
+}
+div.form{
+  width: 100%;
+  float: none;
+  display: block;
+  margin: 5px;
 }

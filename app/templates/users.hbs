@@ -1,5 +1,5 @@
 <div class="split users">
-
+{{user-form create="createUser"}}
 <ul class="users">
   {{#each model as |user|}}
   {{#link-to "users.user" user}}<li>{{user.name}}</li>{{/link-to}}
