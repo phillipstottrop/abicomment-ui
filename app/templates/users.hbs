@@ -1,6 +1,12 @@
-{{outlet}}
-<ul>
+<div class="split users">
+
+<ul class="users">
   {{#each model as |user|}}
-  <li>{{user.name}} ist {{user.age}} Jahre alt</li>
+  {{#link-to "users.user" user}}<li>{{user.name}}</li>{{/link-to}}
   {{/each}}
 </ul>
+</div>
+<div class="split user">
+  {{outlet}}
+
+</div>

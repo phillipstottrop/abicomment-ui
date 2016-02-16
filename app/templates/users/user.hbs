@@ -1,0 +1,14 @@
+<h1 class="top">{{model.name}}</h1>
+<p>
+  Ich bin {{model.age}} Jahre alt
+
+</p>
+{{comment-form create="createComment" user=model}}
+<ul class="comments">
+  <h3>Kommentare</h3>
+  {{#each model.comments as |comment|}}
+    <li>{{comment.text}}</li>
+  {{/each}}
+</ul>
+
+{{outlet}}
