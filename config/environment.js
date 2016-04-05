@@ -2,10 +2,14 @@
 
 module.exports = function(environment) {
   var ENV = {
+
     modulePrefix: 'abicomment-ui',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+  'connect-src': "*"
+},
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -20,6 +24,11 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV['ember-simple-auth'] = {
+
+    identificationAttributeName: 'email',
+    tokenAttributeName: 'access-token',
+};
         // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
