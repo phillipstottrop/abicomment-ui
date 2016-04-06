@@ -8,8 +8,14 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
-  'connect-src': "*"
-},
+     'default-src': "'none'",
+     'script-src': "'self'",
+     'font-src': "'self'",
+     'connect-src': "'self' *",
+     'img-src': "'self'",
+     'style-src': "'self'",
+     'media-src': "'self'"
+   },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -25,17 +31,21 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     ENV['ember-simple-auth'] = {
-
+    crossOriginWhitelist: ['*'],
     identificationAttributeName: 'email',
     tokenAttributeName: 'access-token',
 };
+  ENV.APP.API_HOST = 'http://localhost:3000';
         // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
-
+  ENV['simple-auth-devise']={
+      crossOriginWhitelist: ['http://localhost:3000'],
+identificationAttributeName: 'email'
+  }
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
@@ -50,7 +60,11 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
 
+  }  ENV['ember-simple-auth'] = {
+    authorizer: 'authorizer:devise',
+    crossOriginWhitelist: ['*']
   }
+
 
   return ENV;
 };

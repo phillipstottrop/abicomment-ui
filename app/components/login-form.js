@@ -5,6 +5,7 @@ export default Ember.Component.extend({
     errorMessage:null,
       actions: {
         authenticate() {
+          alert("trying to authenticate");
           var credentials = this.getProperties(
         				'email', 'password'
         			);

@@ -8,5 +8,6 @@
   {{#link-to 'login'}}Login{{/link-to}}
 {{/if}}
 </div>
-
+{{session.isAuthenticated}}
+<a {{action 'debug'}}>debug</a>
 {{outlet}}
