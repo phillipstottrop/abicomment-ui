@@ -5,7 +5,7 @@ const { RSVP, isEmpty, run } = Ember;
 
 export default DeviseAuthenticator.extend({
   serverTokenEndpoint:"http://127.0.0.1:3000/auth/sign_in",
-
+host: 'http://127.0.0.1:3000',
 
   restore(data){
     return new RSVP.Promise((resolve, reject) => {
@@ -17,7 +17,19 @@ export default DeviseAuthenticator.extend({
       }
     });
   },
-
+  // authenticate(email, password) {
+  //    return new Promise((resolve, reject) => {
+  //      const { resourceName, identificationAttributeName } = this.getProperties('resourceName', 'identificationAttributeName');
+  //      const data         = {};
+  //      data.password =  password ;
+  //      data.email = email;
+  //
+  //      return this.makeRequest(data).then(
+  //        (response) => run(null, resolve, response),
+  //        (xhr) => run(null, reject, xhr.responseJSON || xhr.responseText)
+  //      );
+  //    });
+  //  },
   authenticate(identification, password) {
     return new RSVP.Promise((resolve, reject) => {
       const { identificationAttributeName } = this.getProperties('identificationAttributeName');
@@ -37,8 +49,8 @@ export default DeviseAuthenticator.extend({
 
         };
   console.log(result.accessToken);
-      //  run(null, resolve, result);
-      resolve(result);
+       run(null, resolve, result);
+
       }, function(xhr) {
         run(null, reject, xhr.responseJSON || xhr.responseText);
       });
