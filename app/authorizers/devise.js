@@ -8,13 +8,16 @@ export default Devise.extend({
 
       const userToken          = data.accessToken;
       const userIdentification = data.uid;
+      const client = data.client;
       console.log(data);
       console.log(userToken);
       console.log(userIdentification);
       if (!isEmpty(userToken) && !isEmpty(userIdentification)) {
         console.log("yay");
-        block('Authorization', `Bearer `+userToken);
-        block("uid",userIdentification);
+      //  block('Authorization', `Bearer `+"access-token="+userToken+","+"client="+client);
+      block("access-token", userToken);
+      block("uid",userIdentification);
+      block("client",client);
       }
     }
 
