@@ -3,6 +3,17 @@ const { RSVP: { Promise }, isEmpty, run, get, $ } = Ember;
 
 export default Devise.extend({
   serverTokenEndpoint: 'http://localhost:3000/auth/sign_in',
+  restore(data) {
+    const { tokenAttributeName, identificationAttributeName } = this.getProperties('tokenAttributeName', 'identificationAttributeName');
+    const tokenAttribute =  data.accessToken
+    const identificationAttribute = data.uid;
+
+    if (!isEmpty(tokenAttribute) && !isEmpty(identificationAttribute)) {
+      return Promise.resolve(data);
+    } else {
+      return Promise.reject();
+    }
+  },
   authenticate(identification, password) {
    return new Promise((resolve, reject) => {
      var data={email:identification,password:password};

@@ -5,13 +5,13 @@ export default Ember.Component.extend({
     errorMessage:null,
       actions: {
         authenticate() {
-          alert("trying to authenticate");
+
           var credentials = this.getProperties(
         				'identification', 'password'
         			);
           var identification = this.get("identification");
           var password = this.get("password");
-              console.log(credentials);
+          
         			this.get('session').authenticate(
         				'authenticator:devise',
         				identification,password
