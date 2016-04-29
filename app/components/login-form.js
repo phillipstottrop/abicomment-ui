@@ -7,14 +7,14 @@ export default Ember.Component.extend({
         authenticate() {
           alert("trying to authenticate");
           var credentials = this.getProperties(
-        				'email', 'password'
+        				'identification', 'password'
         			);
-              var email= this.get("email");
-              var password=this.get("password");
+          var identification = this.get("identification");
+          var password = this.get("password");
               console.log(credentials);
         			this.get('session').authenticate(
-        				'authenticator:application',
-        				email,password
+        				'authenticator:devise',
+        				identification,password
         			);
 
         }

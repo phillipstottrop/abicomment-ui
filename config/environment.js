@@ -33,7 +33,16 @@ module.exports = function(environment) {
     ENV['ember-simple-auth'] = {
     crossOriginWhitelist: ['*'],
     identificationAttributeName: 'email',
-    tokenAttributeName: 'access-token',
+    tokenAttributeName: 'accessToken',
+};
+ENV['ember-simple-auth-token'] = {
+  serverTokenEndpoint: 'http://localhost:3000/auth/sign_in',
+  identificationField: 'email',
+  passwordField: 'password',
+  tokenPropertyName: 'access-token',
+  authorizationPrefix: 'Bearer ',
+  authorizationHeaderName: 'Authorization',
+  headers:{}
 };
   ENV.APP.API_HOST = 'http://localhost:3000';
         // ENV.APP.LOG_RESOLVER = true;
