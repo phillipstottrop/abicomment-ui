@@ -1,6 +1,8 @@
 <div class="header">
 <h1 id="title">Willkomen auf der Abi Seite!</h1>
 {{#link-to 'users'}}Users{{/link-to}}
+{{#link-to 'quotes'}}Zitate{{/link-to}}
+
 {{#if session.isAuthenticated}}
   <a {{action 'invalidateSession'}}>Logout</a>
 

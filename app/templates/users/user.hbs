@@ -8,7 +8,14 @@
 <ul class="comments">
 
   {{#each model.comments as |comment|}}
-    <li>{{comment.text}}</li>
+    <li>{{comment.commentor.name}}:"{{comment.text}}"</li>
+  {{/each}}
+</ul>
+<h3>Zitate</h3>
+<ul class="quotes">
+
+  {{#each model.quotes as |quote|}}
+    <li>{{quote.quoted}}:"{{quote.text}}"</li>
   {{/each}}
 </ul>
 

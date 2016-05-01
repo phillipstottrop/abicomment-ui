@@ -1,0 +1,12 @@
+<div class="quotes">
+
+<h1>Zitate</h1>
+<ul>
+
+{{#each model as |quote|}}
+<li>[{{quote.user.name}}]: {{quote.quoted}}: "{{quote.text}}"</li>
+{{/each}}
+
+</ul>
+{{outlet}}
+</div>
