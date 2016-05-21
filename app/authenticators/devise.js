@@ -1,11 +1,12 @@
+import Ember from 'ember';
 import Devise from 'ember-simple-auth/authenticators/devise';
 const { RSVP: { Promise }, isEmpty, run, get, $ } = Ember;
+import config from '../config/environment';
 
 export default Devise.extend({
-  serverTokenEndpoint: 'http://localhost:3000/auth/sign_in',
+  serverTokenEndpoint: config.host+'/auth/sign_in',
   restore(data) {
-    const { tokenAttributeName, identificationAttributeName } = this.getProperties('tokenAttributeName', 'identificationAttributeName');
-    const tokenAttribute =  data.accessToken
+    const tokenAttribute =  data.accessToken;
     const identificationAttribute = data.uid;
 
     if (!isEmpty(tokenAttribute) && !isEmpty(identificationAttribute)) {

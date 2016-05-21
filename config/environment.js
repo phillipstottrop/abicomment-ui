@@ -30,21 +30,16 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.host="http://localhost:3000";
+    ENV.APP.API_HOST = 'http://localhost:3000';
+
     ENV['ember-simple-auth'] = {
     crossOriginWhitelist: ['*'],
     identificationAttributeName: 'email',
     tokenAttributeName: 'accessToken',
+
 };
-ENV['ember-simple-auth-token'] = {
-  serverTokenEndpoint: 'http://localhost:3000/auth/sign_in',
-  identificationField: 'email',
-  passwordField: 'password',
-  tokenPropertyName: 'access-token',
-  authorizationPrefix: 'Bearer ',
-  authorizationHeaderName: 'Authorization',
-  headers:{}
-};
-  ENV.APP.API_HOST = 'http://localhost:3000';
+
         // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -52,7 +47,6 @@ ENV['ember-simple-auth-token'] = {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
   ENV['simple-auth-devise']={
-      crossOriginWhitelist: ['http://localhost:3000'],
 identificationAttributeName: 'email'
   }
   if (environment === 'test') {
@@ -68,6 +62,9 @@ identificationAttributeName: 'email'
   }
 
   if (environment === 'production') {
+    ENV.host="https://abicomment-api.herokuapp.com/";
+    ENV.APP.API_HOST = 'https://abicomment-api.herokuapp.com/';
+
 
   }  ENV['ember-simple-auth'] = {
     authorizer: 'authorizer:devise',
