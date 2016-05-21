@@ -62,8 +62,8 @@ identificationAttributeName: 'email'
   }
 
   if (environment === 'production') {
-    ENV.host="https://abicomment-api.herokuapp.com/";
-    ENV.APP.API_HOST = 'https://abicomment-api.herokuapp.com/';
+    ENV.host="https://abicomment-api.herokuapp.com";
+    ENV.APP.API_HOST = 'https://abicomment-api.herokuapp.com';
 
 
   }  ENV['ember-simple-auth'] = {
