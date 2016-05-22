@@ -6,12 +6,23 @@ body {
   color: white;
 
 }
+.login{
+  margin: 10px ;
+  float: right;
+}
 .header {
   text-align: center;
   background-color: rgb(60,118,228);
   padding: 1px;
-  position: relative;
+  position: fixed;
   top: -10px;
+  left: 0;
+  right:0;
+}
+.header h1{
+  margin: 10px;
+  clear: both;
+  font-size: 2.5vw;
 }
 div.users{
 text-align: center;
@@ -85,4 +96,21 @@ div.form{
 .quotes{
   color: blue;
   text-align: center;
+}
+.quoted{
+text-align: left;
+color: grey;
+margin: 10px 0 10px 0;
+}
+.quote-listing{
+
+}
+.quote{
+  margin: 10px;
+  padding: 5px;
+}
+.maincontent{
+  margin: 15% 0 0 0 ;
+  width: 100%;
+  float: left;
 }

@@ -1,14 +1,26 @@
 <div class="header">
+  <div class="login">
+
+  {{#if session.isAuthenticated}}
+    <a {{action 'invalidateSession'}}>Logout</a>
+
+  {{else}}
+
+
+    {{#link-to 'login'}}Login{{/link-to}}
+  {{/if}}
+  </div>
+
 <h1 id="title">Willkomen auf der Abi Seite!</h1>
+<div class="navbar">
 {{#link-to 'users'}}Users{{/link-to}}
 {{#link-to 'quotes'}}Zitate{{/link-to}}
-
-{{#if session.isAuthenticated}}
-  <a {{action 'invalidateSession'}}>Logout</a>
-
-{{else}}
-  {{#link-to 'login'}}Login{{/link-to}}
-{{/if}}
 </div>
 
-{{outlet}}
+
+</div>
+
+<div class="maincontent">
+
+ {{outlet}}
+</div>

@@ -5,18 +5,6 @@
 </p>
 {{comment-form create="createComment" user=model}}
 <h3>Kommentare</h3>
-<ul class="comments">
-
-  {{#each model.comments as |comment|}}
-    <li>{{comment.text}}</li>
-  {{/each}}
-</ul>
-{{!-- <h3>Zitate</h3>
-<ul class="quotes">
-
-  {{#each model.quotes as |quote|}}
-    <li>{{quote.quoted}}:"{{quote.text}}"</li>
-  {{/each}}
-</ul> --}}
+{{comment-listing comments=model.comments}}
 
 {{outlet}}
