@@ -1,31 +1,50 @@
 body {
   font-family:FontAwesome, Effra,sans-serif;
   font-size: 2vw;
-  font-weight: bolder;
-  background-color:rgb(208,208,208);
-  color: white;
+
+  /*background-color:#faf4f1;*/
+  background: url(background2.png);
+  color: black;
+  background-repeat: repeat;
 
 }
+.navbar{
+  float: left;
+  margin: 10px 10px 10px 50px;
+}
+.navbar a{
+  display: inline-block;
+  float: left;
+  margin: 10px 20px 10px 20px;
+}
+.navbar a.active{
+  text-shadow: 3px 3px 0 black,-3px -3px 0 black,-3px 3px 0 black,3px -3px 0 black;
+}
+.login a.active{
+  text-shadow: 3px 3px 0 black,-3px -3px 0 black,-3px 3px 0 black,3px -3px 0 black;
+}
 .login{
+  display: inline-block;
   margin: 10px ;
   float: right;
+  cursor: pointer;
+}
+.login a{
+  margin: 10px 20px 10px 20px;
 }
 .header {
+  font-weight: bolder;
   text-align: center;
-  background-color: rgb(60,118,228);
-  padding: 1px;
-  position: fixed;
-  top: -10px;
-  left: 0;
-  right:0;
+  background-color: #dd6a58;
+  padding: 10px;
+  float: left;
+  width: 100%;
+  color: white;
 }
-.header h1{
-  margin: 10px;
-  clear: both;
-  font-size: 2.5vw;
-}
+
 div.users{
 text-align: center;
+padding: 10px;
 }
 .split{
   width: 50%;
@@ -33,16 +52,19 @@ text-align: center;
   padding: 0;
   display: inline-block;
   float: left;
-  background-color: white;
-  color: black;
-  border: 2px solid rgb(208,208,208);
   box-sizing: border-box;
   vertical-align:top;
+  box-sizing: border-box;
+
 }
 div.user{
 text-align: center;
 color: black;
 float: right;
+padding: 50px;
+box-sizing: border-box;
+border-left:1px solid grey;
+border-collapse: collapse;
 }
 .top{
   margin: 0 auto auto auto;
@@ -53,7 +75,6 @@ ul {
 }
 ul.comments{
   color: black;
-  background-color: rgb(208,208,208);
   padding: 5px 0 5px 0;
   margin: 0;
 
@@ -61,7 +82,6 @@ ul.comments{
 ul.users{
   margin: 0;
   padding: 2px 0 2px 0;
-  background-color: rgb(208,208,208);
 
 }
 ul.users li{
@@ -69,11 +89,16 @@ box-sizing: border-box;
 margin: 2px 0 2px 0;
 font-size: 2vw;
 }
+ul.users a{
+  display: inline-block;
+  width: 50%;
+  float: left;
+}
 ul.users a.active li{
-background-color: lightblue;
+background-color: rgb(153,186,138);
+color: black;
 }
 li{
-  background-color: white;
   display: block;
 }
 .comments li{
@@ -85,7 +110,9 @@ li{
 }
 a{
   text-decoration: none;
-  /*font-weight: 600;*/
+  color: inherit;
+  }
+a.active{
 }
 div.form{
   width: 100%;
@@ -94,12 +121,10 @@ div.form{
   margin: 5px;
 }
 .quotes{
-  color: blue;
   text-align: center;
 }
 .quoted{
 text-align: left;
-color: grey;
 margin: 10px 0 10px 0;
 }
 .quote-listing{
@@ -110,7 +135,8 @@ margin: 10px 0 10px 0;
   padding: 5px;
 }
 .maincontent{
-  margin: 15% 0 0 0 ;
   width: 100%;
   float: left;
+  margin: 30px ;
+  box-sizing: border-box;
 }
