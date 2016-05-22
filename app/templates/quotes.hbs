@@ -1,12 +1,6 @@
 <div class="quotes">
 
-<h1>Zitate</h1>
-<ul>
-
-{{#each model as |quote|}}
-<li> {{quote.quoted}}: "{{quote.text}}"</li>
-{{/each}}
-
-</ul>
+<h2>Zitate</h2>
+{{quote-listing quotes=model}}
 {{outlet}}
 </div>

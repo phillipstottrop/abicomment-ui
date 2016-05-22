@@ -1,0 +1,10 @@
+
+<ul class="comments">
+
+  {{#each comments as |comment|}}
+  <hr>
+    <li>{{comment.text}}</li>
+  {{/each}}
+</ul>
+
+{{yield}}
