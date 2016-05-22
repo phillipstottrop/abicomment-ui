@@ -1,10 +1,10 @@
 body {
   font-family:FontAwesome, Effra,sans-serif;
-  font-size: 2vw;
+  font-size: 20px;
 
-  /*background-color:#faf4f1;*/
-  background: url(background2.png);
-  color: black;
+  background-color:#faf4f1;
+  /*background: url(background.png);*/
+  color: #252525;
   background-repeat: repeat;
 
 }
@@ -18,10 +18,11 @@ body {
   margin: 10px 20px 10px 20px;
 }
 .navbar a.active{
-  text-shadow: 3px 3px 0 black,-3px -3px 0 black,-3px 3px 0 black,3px -3px 0 black;
+  -webkit-text-stroke: 2px black;
 }
 .login a.active{
-  text-shadow: 3px 3px 0 black,-3px -3px 0 black,-3px 3px 0 black,3px -3px 0 black;
+  -webkit-text-stroke: 2px black;
+
 }
 .login{
   display: inline-block;
@@ -34,17 +35,21 @@ body {
 }
 .header {
   font-weight: bolder;
+  font-size: 30px;
   text-align: center;
   background-color: #dd6a58;
   padding: 10px;
   float: left;
   width: 100%;
   color: white;
+
+
 }
 
 div.users{
 text-align: center;
 padding: 10px;
+width: 30%
 }
 .split{
   width: 50%;
@@ -59,12 +64,14 @@ padding: 10px;
 }
 div.user{
 text-align: center;
-color: black;
+color: #252525;
 float: right;
 padding: 50px;
 box-sizing: border-box;
 border-left:1px solid grey;
 border-collapse: collapse;
+width: 70%;
+min-width: 100px;
 }
 .top{
   margin: 0 auto auto auto;
@@ -74,7 +81,7 @@ ul {
   list-style: none;
 }
 ul.comments{
-  color: black;
+
   padding: 5px 0 5px 0;
   margin: 0;
 
@@ -82,21 +89,27 @@ ul.comments{
 ul.users{
   margin: 0;
   padding: 2px 0 2px 0;
-
+  width: 100%;
 }
 ul.users li{
 box-sizing: border-box;
 margin: 2px 0 2px 0;
-font-size: 2vw;
+
+
 }
 ul.users a{
+  vertical-align:top;
   display: inline-block;
-  width: 50%;
+  width: 100%;
   float: left;
+  border: 1px solid rgb(221, 241, 234);
+  box-sizing: border-box;
+  padding: 5px;
 }
-ul.users a.active li{
+ul.users a.active{
 background-color: rgb(153,186,138);
-color: black;
+
+
 }
 li{
   display: block;
@@ -105,7 +118,7 @@ li{
   margin: 5px 0 0 0;
   display: block;
   width: auto;
-  font-size: 2vw;
+
 
 }
 a{
@@ -139,4 +152,5 @@ margin: 10px 0 10px 0;
   float: left;
   margin: 30px ;
   box-sizing: border-box;
+
 }
