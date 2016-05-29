@@ -1,8 +1,8 @@
-
+{{#if comments}}<h3>Kommentare</h3>{{/if}}
 <ul class="comments">
 
   {{#each comments as |comment|}}
-  <hr>
+  <hr class="border">
     <li>{{comment.text}}</li>
   {{/each}}
 </ul>
