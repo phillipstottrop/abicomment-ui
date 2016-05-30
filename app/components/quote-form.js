@@ -2,17 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   session: Ember.inject.service('session'),
-  showing:false,
-  createable:function(){
-    var text=this.get("text");
-    var user=this.get("user");
-    return (text && user);
-  }.property("text","user"),
-
   getResponseJSON(){
     return this.get("session.data").authenticated.responseJSON;
   },
-
+  showing:false,
+  createable:function(){
+    var text=this.get("text");
+    var quoted=this.get("quoted");
+    return (text && quoted);
+  }.property("text","quoted"),
   actions:{
     toggleShowing(){
       var showing=this.get("showing")
@@ -21,16 +19,16 @@ export default Ember.Component.extend({
       this.set("showing",showing);
     },
     create(){
+      var userId=this.getResponseJSON().id;
       var text=this.get("text");
-      var user=this.get("user");
-      var commentorId=this.getResponseJSON().id;
-      if (text && user) {
+      var quoted=this.get("quoted");
+      if (userId && text && quoted) {
 
-         this.sendAction("create",text,user,commentorId);
+         this.sendAction("create",text,quoted,userId);
          this.set("text","");
+         this.set("quoted","");
       }
 
-
     }
-  }
+      }
 });

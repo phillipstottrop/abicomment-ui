@@ -2,8 +2,7 @@
 <ul class="comments">
 
   {{#each comments as |comment|}}
-  <hr class="border">
-    <li>{{comment.text}}</li>
+  {{single-comment comment=comment}}
   {{/each}}
 </ul>
 
