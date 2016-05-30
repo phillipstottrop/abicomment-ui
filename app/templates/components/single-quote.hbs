@@ -3,14 +3,15 @@
 <li>
 
   <h4 class="quoted">{{quote.quoted}}</h4>
-  <p class="quote-text">
-    {{quote.text}}
-  </p>
   {{#if administratable }}
     <a {{action 'delete'}} class="action">
       <i class="delete quote icon"></i>
     </a>
    {{/if}}
+  <p class="quote-text">
+    {{quote.text}}
+  </p>
+
 </li>
 {{/if}}
 {{yield}}
