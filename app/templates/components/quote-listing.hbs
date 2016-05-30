@@ -2,13 +2,7 @@
 <ul class="quote-listing">
 
 {{#each quotes as |quote|}}
-<li>
-  <hr class="border">
-  <h4 class="quoted">{{quote.quoted}}</h4>
-  <p class="quote">
-    {{quote.text}}
-  </p>
-</li>
+{{single-quote quote=quote}}
 {{/each}}
 
 </ul>

@@ -1,0 +1,11 @@
+{{#if comment.text}}
+<hr class="border">
+  <li>{{comment.text}}
+      {{#if administratable }}
+        <a {{action 'delete'}} class="action">
+          <i class="delete comment icon"></i>
+        </a>
+       {{/if}}
+  </li>
+{{/if}}
+{{yield}}
