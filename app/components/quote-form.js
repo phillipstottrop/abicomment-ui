@@ -12,14 +12,14 @@ export default Ember.Component.extend({
     create(){
 
       var text=this.get("text");
-      var user=this.get("user");
-      console.log(text);
-      if (text && user) {
+      var quoted=this.get("quoted");
+      if (text && quoted) {
 
-         this.sendAction("create",text,user);
+         this.sendAction("create",text,quoted);
          this.set("text","");
+         this.set("quoted","");
       }
 
     }
-  }
+      } 
 });
