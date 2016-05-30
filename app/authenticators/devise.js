@@ -27,9 +27,10 @@ export default Devise.extend({
          expiry: xhr.getResponseHeader('expiry'),
          tokenType: xhr.getResponseHeader('token-type'),
          uid: xhr.getResponseHeader('uid'),
-         client: xhr.getResponseHeader('client')
+         client: xhr.getResponseHeader('client'),
+         responseJSON:xhr.responseJSON.data
        };
-
+    
        run(null, resolve, result);
      }, function(xhr) {
        run(null, reject, xhr.responseJSON || xhr.responseText);

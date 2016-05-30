@@ -1,8 +1,11 @@
-<button type="button" class="toggleShowing" {{action "toggleShowing"}}>{{if showing 'hide' 'kommentieren'}}</button>
+<button type="button" class="toggleShowing" {{action "toggleShowing"}}>
+  {{if showing 'hide' 'kommentieren'}}
+</button>
 {{#if showing}}
-<form class="comment form" {{action 'create'}}>
-{{input action="create" type="text" value=text placeholder="Comment"}}
-<button type="button" name="button" {{action "create" }}>Senden</button>
-</form>
+  <form class="comment form" >
+
+    {{input type="text" value=text placeholder="Comment"}}
+    <button type="submit" class={{if createable 'ok' 'disabled'}} {{action "create"}} >Senden</button>
+  </form>
 {{/if}}
 {{yield}}
