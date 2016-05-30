@@ -2,12 +2,12 @@
   {{if showing 'hide' 'Zitat Verfassen'}}
 </button>
 {{#if showing}}
-  <form class="comment form" {{action 'create'}}>
+  <form class="comment form" >
 
-    {{input action="create" type="text" value=quoted placeholder="Wer?"}}
-    {{input action="create" type="text" value=text placeholder="Zitat"}}
+    {{input  type="text" value=quoted placeholder="Wer?"}}
+    {{input  type="text" value=text placeholder="Zitat"}}
 
-    <button type="button" name="button" {{action "create" }}>verfassen</button>
+    <button type="submit" name="button" {{action "create" }} class={{if createable 'ok' 'disabled'}}>verfassen</button>
   </form>
 {{/if}}
 {{yield}}

@@ -2,10 +2,7 @@
 <ul class="comments">
 
   {{#each comments as |comment|}}
-  {{#if comment.text}}
-  <hr class="border">
-    <li>{{comment.text}}</li>
-  {{/if}}
+  {{single-comment comment=comment}}
   {{/each}}
 </ul>
 

@@ -1,0 +1,17 @@
+{{#if quote.text}}
+<hr class="border">
+<li>
+
+  <h4 class="quoted">{{quote.quoted}}</h4>
+  {{#if administratable }}
+    <a {{action 'delete'}} class="action">
+      <i class="delete quote icon"></i>
+    </a>
+   {{/if}}
+  <p class="quote-text">
+    {{quote.text}}
+  </p>
+
+</li>
+{{/if}}
+{{yield}}
