@@ -12,6 +12,7 @@ Router.map(function() {
 
   this.route('login');
   this.route('quotes');
+  this.route('polls');
 });
 
 export default Router;

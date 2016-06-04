@@ -1,0 +1,18 @@
+<ul>
+
+{{#each model as |poll|}}
+<li>
+  {{poll.topic}}
+  <ul>
+    {{#each poll.options as |option|}}
+    <li>{{option.title}}</li>
+    {{/each}}
+  </ul>
+</li>
+
+{{/each}}
+</ul>
+
+
+
+{{outlet}}
