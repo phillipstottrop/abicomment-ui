@@ -11,12 +11,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
         var v=this.store.createRecord("vote",{
           option:option
         });
-        var that=this;
         v.save().then(function(){
         option.get("poll.options").reload();
         option.get("poll").then(function(p){
           p.reload();
-        })
+        });
         });
       }},
 

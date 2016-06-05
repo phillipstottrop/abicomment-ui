@@ -15,7 +15,7 @@ getResponseJSON(){
   return this.get("session.data").authenticated.responseJSON;
 },
 isCurrentUser(id){
-  return (this.getResponseJSON.id==id);
+  return (this.getResponseJSON.id.toString()===id);
 }
 
 });

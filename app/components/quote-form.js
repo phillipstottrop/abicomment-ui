@@ -13,9 +13,9 @@ export default Ember.Component.extend({
   }.property("text","quoted"),
   actions:{
     toggleShowing(){
-      var showing=this.get("showing")
-      if(showing)showing=false;
-      else        showing=true;
+      var showing=this.get("showing");
+      if(showing){showing=false;}
+      else        {showing=true;}
       this.set("showing",showing);
     },
     create(){

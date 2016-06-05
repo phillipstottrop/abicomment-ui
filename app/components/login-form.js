@@ -4,15 +4,10 @@ export default Ember.Component.extend({
     session: service('session'),
     errorMessage:null,
       actions: {
-        authenticate() {
-
-          var credentials = this.getProperties(
-        				'identification', 'password'
-        			);
+        authenticate(){
           var identification = this.get("identification");
           var password = this.get("password");
-          
-        			this.get('session').authenticate(
+	        this.get('session').authenticate(
         				'authenticator:devise',
         				identification,password
         			);
