@@ -134,8 +134,7 @@ a{
   text-decoration: none;
   color: inherit;
   }
-a.active{
-}
+
 div.form{
   width: 100%;
   float: none;
@@ -167,8 +166,9 @@ width: 100%;
 .form {
 width: 100%;
 max-width: 360px;
-margin: auto;
+margin: 10px auto;
 background-color:
+
 }
 .form input{
   width: 100%;
@@ -201,12 +201,10 @@ background-color:
 background: #e24c4c;
 
 }
-button{
 
-}
 
 .border{
-  border-color: #8DC76C;
+  border-color: #dee8d8;
   border-style: solid;
 }
 .toggleShowing{
@@ -214,7 +212,7 @@ button{
   outline: 0;
   background: #4CAF50;
   border: 0;
-  margin: 0 0 30px 0;
+  margin: 0 auto 30px auto;
   padding: 15px;
   color: #FFFFFF;
   -webkit-transition: all 0.3 ease;
@@ -227,6 +225,13 @@ button{
 .delete{
   background-image: url("delete_icon.png");
   float: right;
+}
+.plus{
+  background-image: url("plus.png");
+
+}
+.minus{
+  background-image: url("minus.png");
 }
 .delete.quote{
   margin: 0 10px 10px 0;
@@ -242,7 +247,26 @@ button{
 .action{
   cursor: pointer;
 }
-.action:hover i{
-  background-color:rgb(255,41,34);
 
+
+.poll{
+  text-align: center;
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+  }
+.poll-option{
+  display: inline-block;
+  padding: 10px;
+  border-width: 0;
+  border-radius: 5px;
+}
+.poll-option:hover{
+  background-color: #5e9540;
+}
+.poll-options a{
+  cursor: pointer;
+}
+.poll-container{
+  text-align: center;
 }

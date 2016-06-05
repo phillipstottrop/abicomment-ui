@@ -1,14 +1,10 @@
-<ul>
+<div class="poll-container">
 
+{{simple-form placeholder="Thema" create="createPoll"}}
+<h2>Umfragen</h2>
+<ul>
 {{#each model as |poll|}}
-<li>
-  {{poll.topic}}
-  <ul>
-    {{#each poll.options as |option|}}
-    <li>{{option.title}}</li>
-    {{/each}}
-  </ul>
-</li>
+{{single-poll poll=poll vote="voteForOption" create="createOption"}}
 
 {{/each}}
 </ul>
@@ -16,3 +12,4 @@
 
 
 {{outlet}}
+</div>

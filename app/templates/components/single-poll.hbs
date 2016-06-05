@@ -1,0 +1,15 @@
+<li class="poll">
+<h3 >  {{poll.topic}}  </h3>
+  <ul class="poll-options">
+    {{#each poll.options as |option|}}
+  <a {{action "vote" option}} >
+     <li class="poll-option">
+       {{option.title}} : {{option.voteamount}}
+     </li>
+  </a>
+    {{/each}}
+    {{simple-form placeholder="Auswahlmoeglichkeit" iconShow="plus" iconHide="minus" create="createOption"}}
+  </ul>
+</li>
+<hr class="border">
+{{yield}}

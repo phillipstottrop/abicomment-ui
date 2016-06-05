@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   session: Ember.inject.service('session'),
   administratable:function(){
-    console.log(this.getResponseJSON());
     var comment=this.get("comment");
     return ( this.isCurrentUser(comment.get("commentor.id")) || this.isCurrentUser(comment.get("user.id")) || this.isAdmin() );
   }.property("comment","session"),
