@@ -8,7 +8,9 @@
      </li>
   </a>
     {{/each}}
-    {{simple-form placeholder="Auswahlmoeglichkeit" iconShow="plus" iconHide="minus" create="createOption"}}
+    {{#if administratable}}
+      {{simple-form placeholder="Auswahlmoeglichkeit" iconShow="plus" iconHide="minus" create="createOption"}}
+    {{/if}}
   </ul>
 </li>
 <hr class="border">

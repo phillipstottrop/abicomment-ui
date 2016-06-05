@@ -1,14 +1,5 @@
 <div class="poll-container">
-
-{{simple-form placeholder="Thema" create="createPoll"}}
-<h2>Umfragen</h2>
-<ul>
-{{#each model as |poll|}}
-{{single-poll poll=poll vote="voteForOption" create="createOption"}}
-
-{{/each}}
-</ul>
-
+{{poll-listing polls=model createPoll="createPoll" createOption="createOption" voteForOption="voteForOption"}}
 
 
 {{outlet}}

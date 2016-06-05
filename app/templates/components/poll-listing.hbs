@@ -1,0 +1,13 @@
+
+{{#if administratable}}
+{{simple-form placeholder="Thema" create="createPoll"}}
+{{/if}}
+<h2>Umfragen</h2>
+<ul>
+{{#each polls as |poll|}}
+{{single-poll poll=poll vote="voteForOption" create="createOption" administratable=administratable}}
+
+{{/each}}
+</ul>
+
+{{yield}}

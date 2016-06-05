@@ -22,7 +22,6 @@ margin: 1px;
   font-weight: bolder;
   font-size: 30px;
   text-align: center;
-  padding: 10px;
   float: left;
   width: 100%;
   color: white;
@@ -33,12 +32,11 @@ margin: 1px;
 }
 .navbar{
   float: left;
-  margin: 10px 10px 10px 50px;
 }
 .navbar a{
   display: inline-block;
   float: left;
-  margin: 10px 20px 10px 20px;
+  margin: 10px 2vw;
 }
 .navbar a.active{
   -webkit-text-stroke: 1px black;
@@ -232,6 +230,10 @@ background: #e24c4c;
 }
 .minus{
   background-image: url("minus.png");
+
+}
+.moretop{
+  margin-top: 20px;
 }
 .delete.quote{
   margin: 0 10px 10px 0;
