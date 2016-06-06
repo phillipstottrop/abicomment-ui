@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('login');
   this.route('quotes');
   this.route('polls');
+  this.route('poll-creator');
 });
 
 export default Router;

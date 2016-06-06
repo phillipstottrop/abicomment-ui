@@ -1,0 +1,14 @@
+{{yield}}
+<form>
+
+{{input value=poll.topic placeholder="Umfrage Thema"}}
+<ul>
+
+{{#each poll.options as |option|}}
+<li>{{option.title}}</li>
+{{/each}}
+
+{{simple-form placeholder="Auswahlmoeglichkeit" iconShow="plus" iconHide="minus" create="createOption"}}
+<button type="button" {{action "savePoll"}}>Speichern</button>
+</ul>
+</form>

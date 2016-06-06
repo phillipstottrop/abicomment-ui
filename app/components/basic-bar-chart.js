@@ -64,8 +64,10 @@ this.update();
     var xScale=this.get("xScale");
     var yScale=this.get("yScale");
     var barHeight=this.get("height")/data.length/4*3;
-    var chartUpdate = chart.selectAll("rect").data(data);
     var tooltip=this.get("tooltip");
+
+    var chartUpdate = chart.selectAll("rect").data(data);
+
     chartUpdate.enter()
       .append('rect')
       .attr('x', 0)

@@ -2,17 +2,13 @@
 <h3 >  {{poll.topic}}  </h3>
   <ul class="poll-options">
     {{#each poll.options as |option|}}
-  <a {{action "vote" option}} >
-     <li class="poll-option">
-       {{option.title}} : {{option.voteamount}}
-     </li>
-  </a>
+      {{single-option class="poll-option-container" option=option vote="vote" blur="blur"}}
     {{/each}}
-    {{#if administratable}}
-      {{simple-form placeholder="Auswahlmoeglichkeit" iconShow="plus" iconHide="minus" create="createOption"}}
-    {{/if}}
+    
   </ul>
-  {{poll-chart options=poll.options}}
+  {{#if hasVotes}}
+    {{poll-chart options=poll.options}}
+  {{/if}}
 </li>
 <hr class="border">
 {{yield}}

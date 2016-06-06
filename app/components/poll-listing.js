@@ -22,16 +22,10 @@ export default Ember.Component.extend({
         this.sendAction("voteForOption",option);
       }},
 
-    createPoll(topic){
 
-    if(topic){
-      this.sendAction("createPoll",topic);
-    }
-  },
-  createOption(title,poll){
-    if(title && poll){
-      this.sendAction("createOption",title,poll);
-    }
+
+  blur(blur){
+  this.sendAction("blur",blur);
   }
   }
 });

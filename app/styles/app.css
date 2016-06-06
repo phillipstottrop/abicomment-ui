@@ -263,6 +263,9 @@ background: #e24c4c;
   border-width: 0;
   border-radius: 5px;
 }
+.poll-option-container{
+  display: inline-block;
+}
 .poll-option:hover{
   background-color: #5e9540;
 }
@@ -273,7 +276,7 @@ background: #e24c4c;
   text-align: center;
 }
 svg{
-  background-color:#a1b4a2;
+  /*background-color:#a1b4a2;*/
   border-radius: 10px;
 }
 svg g rect {
@@ -283,6 +286,9 @@ svg g rect {
 svg g rect:hover{
   fill:red;
 }
+ svg path{
+   stroke:black;
+ }
 .tooltip{
   position: absolute;
   text-align: center;
@@ -292,4 +298,35 @@ svg g rect:hover{
   border: 0px;
   border-radius: 8px;
   pointer-events: none;
+}
+.ember-modal-dialog{
+  max-width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -7.5em;
+  margin-left: -10em;
+  padding: 1em;
+  background-color: #778CBB;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 11; /* 1px higher than the overlay layer */
+  opacity: 1 !important;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.28);
+  -moz-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.28);
+  box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.28);
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+
+}
+.blur-background {
+  z-index: -999;
+  opacity: 0.3;
+  pointer-events: none;
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
 }
