@@ -19,7 +19,7 @@ export default Ember.Route.extend({
 
 
   beforeModel() {
-    if(this.isAdmin() && this.isModerator()){
+    if(this.isAdmin()  || this.isModerator()){
 
     }else{
       this.transitionTo('polls');
