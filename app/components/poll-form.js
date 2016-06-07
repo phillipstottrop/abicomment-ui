@@ -2,6 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
+  createable:function(){
+    var topic=this.get("poll.topic");
+
+    return (topic && this.get("poll.options").length>1);
+  }.property("poll.topic","poll.options"),
   actions:{
     createOption(title){
       var poll=this.get("poll");

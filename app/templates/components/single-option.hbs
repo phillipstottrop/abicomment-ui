@@ -7,8 +7,8 @@
 {{#if showingModal}}
 {{#modal-dialog close="close" clickOutsideToClose=true}}
 <h2>Moechtest du wirklich fuer {{option.title}} stimmen?</h2>
-<button type="button" {{action "vote" option}}>Ja</button>
-<button type="button" {{action "close"}}>Nein</button>
+<button class="positive" type="button" {{action "vote" option}}>Ja</button>
+<button class="negative" type="button" {{action "close"}}>Nein</button>
 {{/modal-dialog}}
 {{/if}}
 

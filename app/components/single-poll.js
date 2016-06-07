@@ -10,9 +10,15 @@ export default Ember.Component.extend({
         this.sendAction("vote",option);
       }
     },
-  
+
     blur(blur){
     this.sendAction("blur",blur);
+  },
+  delete(){
+    var poll=this.get("poll");
+    if(poll){
+      poll.destroyRecord();
     }
+  }
   },
 });

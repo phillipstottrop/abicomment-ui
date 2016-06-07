@@ -1,10 +1,17 @@
 <li class="poll">
 <h3 >  {{poll.topic}}  </h3>
+
+{{#if administratable }}
+  <a {{action 'delete'}} class="action">
+    <i class="delete comment icon"></i>
+  </a>
+ {{/if}}
+
   <ul class="poll-options">
     {{#each poll.options as |option|}}
       {{single-option class="poll-option-container" option=option vote="vote" blur="blur"}}
     {{/each}}
-    
+
   </ul>
   {{#if hasVotes}}
     {{poll-chart options=poll.options}}
