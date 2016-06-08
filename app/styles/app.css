@@ -22,7 +22,6 @@ margin: 1px;
   font-weight: bolder;
   font-size: 30px;
   text-align: center;
-  padding: 10px;
   float: left;
   width: 100%;
   color: white;
@@ -33,12 +32,11 @@ margin: 1px;
 }
 .navbar{
   float: left;
-  margin: 10px 10px 10px 50px;
 }
 .navbar a{
   display: inline-block;
   float: left;
-  margin: 10px 20px 10px 20px;
+  margin: 10px 2vw;
 }
 .navbar a.active{
   -webkit-text-stroke: 1px black;
@@ -134,8 +132,7 @@ a{
   text-decoration: none;
   color: inherit;
   }
-a.active{
-}
+
 div.form{
   width: 100%;
   float: none;
@@ -167,8 +164,9 @@ width: 100%;
 .form {
 width: 100%;
 max-width: 360px;
-margin: auto;
+margin: 10px auto;
 background-color:
+
 }
 .form input{
   width: 100%;
@@ -190,9 +188,9 @@ background-color:
   padding: 15px;
   color: #FFFFFF;
   font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
+
   cursor: pointer;
+  transition: all 400ms;
 }
 .form button:hover{
    background: #08740d;
@@ -201,12 +199,10 @@ background-color:
 background: #e24c4c;
 
 }
-button{
 
-}
 
 .border{
-  border-color: #8DC76C;
+  border-color: #dee8d8;
   border-style: solid;
 }
 .toggleShowing{
@@ -214,11 +210,11 @@ button{
   outline: 0;
   background: #4CAF50;
   border: 0;
-  margin: 0 0 30px 0;
+  margin: 0 auto 30px auto;
   padding: 15px;
   color: #FFFFFF;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
   cursor: pointer;
 }
 .toggleShowing:hover{
@@ -227,6 +223,17 @@ button{
 .delete{
   background-image: url("delete_icon.png");
   float: right;
+}
+.plus{
+  background-image: url("plus.png");
+
+}
+.minus{
+  background-image: url("minus.png");
+
+}
+.moretop{
+  margin-top: 20px;
 }
 .delete.quote{
   margin: 0 10px 10px 0;
@@ -242,7 +249,121 @@ button{
 .action{
   cursor: pointer;
 }
-.action:hover i{
-  background-color:rgb(255,41,34);
 
+
+.poll{
+  text-align: center;
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+  }
+.poll-option{
+  display: inline-block;
+  padding: 10px;
+  border-width: 0;
+  border-radius: 5px;
+  transition: all 400ms;
+}
+.poll-option-container{
+  display: inline-block;
+}
+.poll-option:hover{
+  background-color: #5e9540;
+}
+.poll-options a{
+  cursor: pointer;
+}
+.poll-container{
+  text-align: center;
+}
+svg{
+  /*background-color:#a1b4a2;*/
+  border-radius: 10px;
+}
+svg g rect {
+  fill:steelblue;
+
+}
+svg g rect:hover{
+  fill:red;
+}
+ svg path{
+   stroke:black;
+   transition: fill 400ms ,stroke-width 400ms;
+
+  }
+
+ svg path:hover{
+   fill:white;
+  stroke-width:5px;
+  stroke-alignment:inner;
+ }
+.tooltip{
+  position: absolute;
+  text-align: center;
+  padding: 5px;
+  font: 18px sans-serif;
+  background-color: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+.ember-modal-dialog{
+  max-width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -7.5em;
+  margin-left: -10em;
+  padding: 1em;
+  background-color: #778CBB;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 11; /* 1px higher than the overlay layer */
+  opacity: 1 !important;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.28);
+  -moz-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.28);
+  box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.28);
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+
+}
+.ember-modal-dialog button{
+  position: relative;
+  text-transform: uppercase;
+  outline: 0;
+  background: #158f1a;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.positive{
+  background: #158f1a !important;
+  transition: all 2s;
+}
+.positive:hover{
+  background: #229d26 !important;
+
+}
+.negative{
+  background:red !important;
+  transition: all 2s;
+}
+.negative:hover{
+  background:darkred !important;
+
+}
+.blur-background {
+  z-index: -999;
+  opacity: 0.3;
+  pointer-events: none;
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
 }

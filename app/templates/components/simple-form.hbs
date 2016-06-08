@@ -1,0 +1,22 @@
+{{#if iconShow}}
+<a {{action 'toggleShowing'}} class="action">
+  <i class={{classes}}></i>
+</a>
+{{else}}
+<button type="button" class="toggleShowing" {{action "toggleShowing"}}>
+
+  {{#if showing }}
+    {{if closeText closeText 'Hinzufügen'}}
+  {{else}}
+    {{if openText openText 'hide'}}
+  {{/if}}
+</button>
+{{/if}}
+{{#if showing}}
+  <form class="form" >
+
+    {{input type="text" value=text placeholder=placeholder}}
+    <button type="submit" class={{if createable 'ok' 'disabled'}} {{action "create"}} >{{if buttonText buttonText 'Senden'}}</button>
+  </form>
+{{/if}}
+{{yield}}

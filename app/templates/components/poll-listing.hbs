@@ -1,0 +1,14 @@
+
+{{#if administratable}}
+{{#link-to 'poll-creator'}}Umfrage erstellen{{/link-to}}
+
+{{/if}}
+<h2>Umfragen</h2>
+<ul>
+{{#each polls as |poll|}}
+{{single-poll poll=poll vote="voteForOption" administratable=administratable blur="blur"}}
+
+{{/each}}
+</ul>
+
+{{yield}}
