@@ -54,8 +54,8 @@ export default Ember.Component.extend({
 this.update();
   },
   update(){
-    var data=this.get("data");
-    var data = data.map(function(d){return d});
+
+    var data =this.get("data").map(function(d){return d;});
     var chart=this.get("chart");
     var tooltip=this.get("tooltip");
     var arc=this.get("arc");
@@ -82,7 +82,7 @@ this.update();
 
     var that=this;
     path=path.data(pie);
-    path.transition().duration(750).attrTween('d',function(a){return that.get("arcTween")(a,that,this)});
+    path.transition().duration(750).attrTween('d',function(a){return that.get("arcTween")(a,that,this);});
   },
   arcTween : function(a,that,thot) {
     var arc = that.get("arc");

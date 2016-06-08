@@ -24,7 +24,6 @@ export default Ember.Component.extend({
     return d3.scale.linear()
             .domain([0,d3.max(data,function(o){return o.value;})])
             .range([10,width]);
-            console.log("data chagned");
   }.property("data","width"),
   yScale:function(){
     var data=this.get("data");
@@ -87,7 +86,7 @@ this.update();
       .attr('width', function(d){return xScale(d.value);});
     chartUpdate
       .transition().duration(500)
-      .attr('width', function(d){return xScale(0);})
+      .attr('width', function(){return xScale(0);})
       .transition().duration(500)
       .attr('width', function(d){return xScale(d.value);})
       .attr('y', function(d){return yScale(d.key); })

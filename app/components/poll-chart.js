@@ -6,7 +6,6 @@ export default Ember.Component.extend({
 
     var options=this.get("options");
     var arr=[];
-    var notLoaded=false;
     options.forEach(function(o){
 
       if(o.get("title")){
@@ -20,6 +19,6 @@ export default Ember.Component.extend({
   lol:function(){
     console.log("observer");
   }.observes("options"),
-  
+
 
 });
