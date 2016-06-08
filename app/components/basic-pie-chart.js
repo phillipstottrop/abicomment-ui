@@ -38,6 +38,8 @@ export default Ember.Component.extend({
   didInsertElement(){
     var svg = d3.select(this.$().get(0)).append("svg")
         .attr('width', this.get("outerWidth"))
+        .attr('height',0);
+      svg.transition().duration(500)
         .attr('height', this.get("outerHeight"));
     var chart = svg.append('g')
         .attr('transform', 'translate('+(this.get("margins").left+this.get("width")/2)+","+(this.get("margins").top+this.get("height")/2)+")")

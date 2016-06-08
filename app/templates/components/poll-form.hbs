@@ -1,14 +1,14 @@
 {{yield}}
 <form class="form">
 
-{{input value=poll.topic placeholder="Umfrage Thema" action=""}}
+{{input value=poll.topic placeholder="Umfrage Thema" }}
 <ul>
 
 {{#each poll.options as |option|}}
 <li>{{option.title}}</li>
 {{/each}}
 
-{{simple-form placeholder="Auswahlmöglichkeit" buttonText="Möglichkeit Hinzufügen" iconShow="plus" iconHide="minus" create="createOption"}}
+{{simple-form placeholder="Auswahlmöglichkeit" buttonText="Möglichkeit Hinzufügen" iconShow="plus" iconHide="minus" create="createOption" showing=true}}
 <button type="submit" class={{if createable 'ok' 'disabled'}} {{action "savePoll"}}>Speichern</button>
 </ul>
 </form>

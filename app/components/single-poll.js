@@ -1,9 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  hasVotes:function(){
-    return this.get("poll.voteamount")>0;
-  }.property("poll.voteamount"),
+
   actions:{
     vote(option){
       if(option){

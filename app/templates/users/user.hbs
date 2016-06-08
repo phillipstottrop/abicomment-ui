@@ -1,9 +1,6 @@
 <div class="split user">
 <h2 class="top">{{model.name}}</h2>
-
-{{comment-form create="createComment" user=model}}
-
-{{comment-listing comments=model.comments}}
+{{single-user create="createComment" user=model comments=model.comments}}
 
 {{outlet}}
 

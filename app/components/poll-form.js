@@ -18,9 +18,9 @@ export default Ember.Component.extend({
     },
     savePoll(){
       var that=this;
-      var store=this.get("store");
       var poll=this.get("poll");
-      if(poll && poll.get("topic")){
+
+      if(this.get("createable")){
         poll.save().then(function(){
           poll.reload().then(function(){
             poll.get("options").forEach(function(o){
@@ -29,9 +29,10 @@ export default Ember.Component.extend({
               });
 
             });
-            that.sendAction("redirect");
+
           });
         });
+        that.sendAction("redirect");
       }
     }
   }

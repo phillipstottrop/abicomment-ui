@@ -6,14 +6,15 @@
     <i class="delete comment icon"></i>
   </a>
  {{/if}}
-
+{{#unless poll.hasvoted}}
   <ul class="poll-options">
     {{#each poll.options as |option|}}
       {{single-option class="poll-option-container" option=option vote="vote" blur="blur"}}
     {{/each}}
 
   </ul>
-  {{#if hasVotes}}
+  {{/unless}}
+  {{#if poll.hasvoted}}
     {{poll-chart options=poll.options}}
   {{/if}}
 </li>

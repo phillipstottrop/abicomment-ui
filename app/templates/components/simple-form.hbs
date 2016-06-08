@@ -4,7 +4,12 @@
 </a>
 {{else}}
 <button type="button" class="toggleShowing" {{action "toggleShowing"}}>
-  {{if showing 'hide' 'Hinzufuegen'}}
+
+  {{#if showing }}
+    {{if closeText closeText 'Hinzufügen'}}
+  {{else}}
+    {{if openText openText 'hide'}}
+  {{/if}}
 </button>
 {{/if}}
 {{#if showing}}
