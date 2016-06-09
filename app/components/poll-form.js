@@ -29,10 +29,10 @@ export default Ember.Component.extend({
               });
 
             });
-
+              that.sendAction("redirect");
           });
         });
-        that.sendAction("redirect");
+
       }
     }
   }
