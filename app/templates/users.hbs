@@ -1,8 +1,12 @@
 <div class="split users">
 <ul class="users">
+  <table>
+
   {{#each model as |user|}}
-  {{#link-to "users.user" user}}<li>{{user.name}}</li>{{/link-to}}
+  {{#link-to "users.user" user}}<li>{{user.forename}} {{user.name}}</li>{{/link-to}}
   {{/each}}
+</table>
+
 </ul>
 </div>
  {{outlet}}
