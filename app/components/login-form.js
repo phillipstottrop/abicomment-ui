@@ -10,8 +10,10 @@ export default Ember.Component.extend({
 	        this.get('session').authenticate(
         				'authenticator:devise',
         				identification,password
-        			);
-
+        			).catch((reason) => {
+                console.log(reason);
+        this.set('errorMessage', reason.errors || reason);
+      });
         }
       }
 
