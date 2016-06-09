@@ -1,0 +1,6 @@
+{{#each sortedUsers as |user|}}
+{{#link-to "users.user" user}}<li>{{user.forename}} {{user.name}}</li>{{/link-to}}
+{{/each}}
+
+
+{{yield}}
