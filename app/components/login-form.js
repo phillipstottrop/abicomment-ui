@@ -5,7 +5,7 @@ export default Ember.Component.extend({
     errorMessage:null,
       actions: {
         authenticate(){
-          var identification = this.get("identification");
+          var identification = this.get("identification").trim();
           var password = this.get("password");
 	        this.get('session').authenticate(
         				'authenticator:devise',
