@@ -26,10 +26,13 @@ margin: 1px;
   width: 100%;
   color: white;
   box-sizing: border-box;
-
   background-color: #5e9540;
 
 }
+.header div{
+  display: inline-block;
+}
+
 .navbar{
   float: left;
 }

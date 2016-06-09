@@ -15,7 +15,15 @@ getResponseJSON(){
   return this.get("session.data").authenticated.responseJSON;
 },
 isCurrentUser(id){
-  return (this.getResponseJSON.id.toString()===id);
-}
-
+  return (this.getResponseJSON().id.toString()===id);
+},
+id:function(){
+  return this.getResponseJSON().id;
+}.property("session"),
+name:function(){
+  return this.getResponseJSON().name;
+}.property("session"),
+forename:function(){
+  return this.getResponseJSON().forename;
+}.property("session"),
 });
