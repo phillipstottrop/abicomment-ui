@@ -5,7 +5,7 @@
 {{/if}}
 <h2>Umfragen</h2>
 <ul>
-{{#each polls as |poll|}}
+{{#each sortedPolls as |poll|}}
 {{single-poll poll=poll vote="voteForOption" administratable=administratable blur="blur"}}
 
 {{/each}}

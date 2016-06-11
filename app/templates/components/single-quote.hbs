@@ -4,7 +4,7 @@
 
   <h4 class="quoted">{{quote.quoted}}</h4>
   {{#if administratable }}
-    <a {{action 'delete'}} class="action">
+    <a {{action 'open'}} class="action">
       <i class="delete quote icon"></i>
     </a>
    {{/if}}
@@ -15,3 +15,10 @@
 </li>
 {{/if}}
 {{yield}}
+{{#if showingModal}}
+{{#modal-dialog close="close" clickOutsideToClose=true}}
+<h2>Wirklich löschen?</h2>
+<button class="positive" type="button" {{action "delete"}}>Ja</button>
+<button class="negative" type="button" {{action "close"}}>Nein</button>
+{{/modal-dialog}}
+{{/if}}

@@ -1,3 +1,9 @@
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
+
+
+
 body {
   font-family: "Roboto","FontAwesome", "Effra",sans-serif;
   font-size: 20px;
@@ -149,8 +155,8 @@ div.form{
 text-align: left;
 margin: 10px 0 10px 20px;
 }
-.quote-listing div{
-float: left;
+.quote-listing{
+
 width: 100%;
 }
 .quote-text{
@@ -168,7 +174,7 @@ width: 100%;
 width: 100%;
 max-width: 360px;
 margin: 10px auto;
-background-color:
+
 
 }
 .form input{
@@ -224,6 +230,10 @@ background: #e24c4c;
   background: #36993a;
 }
 .delete{
+  background-image: url("delete_icon.png");
+  float: right;
+}
+.option-delete{
   background-image: url("delete_icon.png");
   float: right;
 }
@@ -312,18 +322,11 @@ svg g rect:hover{
   pointer-events: none;
 }
 .ember-modal-dialog{
-  max-width: 100%;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -7.5em;
-  margin-left: -10em;
+
   padding: 1em;
   background-color: #778CBB;
   border-radius: 5px;
   text-align: center;
-  z-index: 11; /* 1px higher than the overlay layer */
-  opacity: 1 !important;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -339,7 +342,7 @@ svg g rect:hover{
   position: relative;
   text-transform: uppercase;
   outline: 0;
-  background: #158f1a;
+  /*background: #158f1a;*/
   border: 0;
   padding: 15px;
   color: #FFFFFF;
@@ -348,19 +351,19 @@ svg g rect:hover{
   cursor: pointer;
 }
 .positive{
-  background: #158f1a !important;
+  background: #158f1a ;
   transition: all 2s;
 }
 .positive:hover{
-  background: #229d26 !important;
+  background-color: #229d26 ;
 
 }
 .negative{
-  background:red !important;
+  background-color:red ;
   transition: all 2s;
 }
 .negative:hover{
-  background:darkred !important;
+  background-color:darkred ;
 
 }
 .blur-background {

@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  sortBy:['id:desc'],
+  sortedPolls:Ember.computed.sort("polls","sortBy"),
   session: Ember.inject.service('session'),
   administratable:function(){
 

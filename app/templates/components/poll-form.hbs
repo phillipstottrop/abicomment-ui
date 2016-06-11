@@ -5,10 +5,14 @@
 <ul>
 
 {{#each poll.options as |option|}}
-<li>{{option.title}}</li>
+<li>{{option.title}}
+<a {{action 'delete' option}} class="action">
+  <i class="minus option-delete icon"></i>
+</a>
+</li>
 {{/each}}
 
-{{simple-form placeholder="Auswahlmöglichkeit" buttonText="Möglichkeit Hinzufügen" iconShow="plus" iconHide="minus" create="createOption" showing=true}}
+{{simple-form placeholder="Auswahlmöglichkeit" buttonText="Möglichkeit Hinzufügen" iconShow="plus" iconHide="minus" create="createOption" showing=true noToggleShowing=true}}
 <button type="submit" class={{if createable 'ok' 'disabled'}} {{action "savePoll"}}>Speichern</button>
 </ul>
 </form>

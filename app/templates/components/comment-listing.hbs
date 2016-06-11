@@ -1,8 +1,8 @@
 {{#if comments}}<h3>Kommentare</h3>{{/if}}
 <ul class="comments">
 
-  {{#each comments as |comment|}}
-  {{single-comment comment=comment}}
+  {{#each sortedComments as |comment|}}
+  {{single-comment comment=comment blur="blur"}}
   {{/each}}
 </ul>
 

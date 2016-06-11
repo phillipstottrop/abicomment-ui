@@ -26,6 +26,11 @@ export default Ember.Component.extend({
       }
 
 
+    },
+    blur(blur){
+
+        this.sendAction("blur",blur);
+      
     }
   }
 });

@@ -22,6 +22,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       });
 
     },
-    }
 
+  blurBackground(blur) {
+     this.controllerFor('application').set('blur', blur);
+   }
+},
 });

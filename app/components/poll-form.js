@@ -34,6 +34,9 @@ export default Ember.Component.extend({
         });
 
       }
+    },
+    delete(option){
+      option.destroy();
     }
   }
 });

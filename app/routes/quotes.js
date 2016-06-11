@@ -23,6 +23,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       }else{
         console.log("arguments wrong");
       }
+    },
+    blurBackground(blur){
+      this.controllerFor("application").set('blur',blur);
     }
   }
 

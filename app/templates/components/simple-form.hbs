@@ -1,3 +1,4 @@
+{{#unless noToggleShowing }}
 {{#if iconShow}}
 <a {{action 'toggleShowing'}} class="action">
   <i class={{classes}}></i>
@@ -12,6 +13,7 @@
   {{/if}}
 </button>
 {{/if}}
+{{/unless}}
 {{#if showing}}
   <form class="form" >
 

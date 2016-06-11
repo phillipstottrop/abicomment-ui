@@ -18,9 +18,21 @@ export default Ember.Component.extend({
   },
   actions:{
     delete(){
+      this.set("showingModal",false);
+      this.sendAction("blur",false);
+
       var quote=this.get("quote");
       quote.deleteRecord();
       quote.save();
-    }
-  }
+    },
+
+  open(){
+    this.set("showingModal",true);
+    this.sendAction("blur",true);
+  },
+  close(){
+    this.set("showingModal",false);
+    this.sendAction("blur",false);
+}
+},
 });
