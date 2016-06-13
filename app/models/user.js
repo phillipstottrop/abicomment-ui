@@ -6,5 +6,7 @@ export default DS.Model.extend({
   age: DS.attr('number'),
   comments: DS.hasMany('comment',{inverse:"user"}),
   commentsWritten: DS.hasMany('comment',{inverse:"commentor"}),
-  quotes: DS.hasMany('quote')
+  quotes: DS.hasMany('quote'),
+  attendings: DS.hasMany('attendings'),
+  anecdotes: DS.hasMany('anecdote')
 });
