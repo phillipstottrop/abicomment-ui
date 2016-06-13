@@ -129,6 +129,7 @@ background-color: rgb(106, 171, 77);
 }
 li{
   display: block;
+  margin: 5px 0 0 0;
 }
 .comments li{
   margin: 5px 0 0 0;
@@ -137,10 +138,26 @@ li{
 
 
 }
+.course ul{
+  margin: 10px 0 0 0 ;
+  float: left;
+  width: 100%;
+  min-width: 200px;
+  display: inline-block;
+}
+.course .anecdotes{
+  width: 60%;
+}
+.course .students{
+  width: 40%;
+}
+
+
 a{
   text-decoration: none;
   color: inherit;
   }
+
 
 div.form{
   width: 100%;
@@ -207,6 +224,9 @@ margin: 10px auto;
 .form button.disabled{
 background: #e24c4c;
 
+}
+.min-width{
+  width: auto !important;
 }
 
 

@@ -1,0 +1,13 @@
+<a {{action 'open'}} class="action">
+  <i class="delete comment icon"></i>
+</a>
+
+
+
+{{#if showingModal}}
+{{#modal-dialog close="close" clickOutsideToClose=true}}
+{{yield}}
+<button class="positive" type="button" {{action "confirm" option}}>Ja</button>
+<button class="negative" type="button" {{action "close"}}>Nein</button>
+{{/modal-dialog}}
+{{/if}}

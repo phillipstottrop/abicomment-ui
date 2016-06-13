@@ -1,0 +1,50 @@
+<div class="split user course">
+  <h2 class="top">{{model.name}} bei {{model.teacher}}</h2>
+  <ul class="students">
+    {{#if model.isattending}}
+      {{!-- {{#confirm-button buttonText="austreten" confirm="leaveCourse"}}
+        <h3>Wirklich austreten?</h3>
+      {{/confirm-button}} --}}
+    {{else}}
+      {{#confirm-button buttonText="Beitreten" confirm="joinCourse"}}
+        <h3>Wirklich beitreten?</h3>
+        <form class="form" >
+                {{input value=note placeholder="Bemerkungen"}}
+              </form>
+
+      {{/confirm-button}}
+    {{/if}}
+
+    <h3>Schüler im Kurs</h3>
+    {{#each model.attendings as |attending|}}
+
+      <li>
+        {{#link-to 'users.user' attending.user }}
+            {{attending.user.forename}} {{attending.user.name}}
+        {{/link-to}}
+      {{#if-admin user=attending.user}}
+        {{#delete-dialogue confirm="leaveCourse" param=attending}}
+          <h3>Wirklich diesen Kurs verlassen?</h3>
+        {{/delete-dialogue}}
+      {{/if-admin}}
+      </li>
+
+    {{/each}}
+  </ul>
+
+  <ul class="anecdotes">
+    {{simple-form placeholder="Text" buttonText="Speichern" create="createAnecdote"}}
+    <h3>Anekdoten</h3>
+    {{#each model.anecdotes as |anecdote|}}
+
+      <li>{{anecdote.text}}</li>
+        {{#if-admin user=anecdote.user}}
+          {{#delete-dialogue confirm="deleteAnecdote" param=anecdote}}
+            <h3>Wirklich diese Anekdote löschen?</h3>
+          {{/delete-dialogue}}
+        {{/if-admin}}
+      <hr class="border">
+    {{/each}}
+  </ul>
+{{outlet}}
+</div>

@@ -1,3 +1,20 @@
+{{#if user.attendings }}
+  <h3>Kurse</h3>
+  <ul>
+    {{#each withNotes as |attending|}}
+    {{#link-to 'courses.course' attending.course}}
+      <li> <b>{{attending.note}}: </b>  {{attending.course.name}} {{attending.course.teacher}}</li>
+    {{/link-to}}
+    {{/each}}
+
+    {{#each withoutNotes as |attending|}}
+    {{#link-to 'courses.course' attending.course}}
+      <li>{{attending.course.name}} {{attending.course.teacher}}</li>
+    {{/link-to}}
+    {{/each}}
+  </ul>
+
+{{/if}}
 {{#unless currentUser}}
 {{simple-form create="create" placeholder="Kommentar" openText="kommentieren" }}
 {{/unless}}

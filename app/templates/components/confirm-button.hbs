@@ -1,0 +1,10 @@
+<form class="form">
+  <button type="button" name="button" class="min-width" {{action "open"}}>{{buttonText}}</button>
+</form>
+{{#if showingModal}}
+{{#modal-dialog close="close" clickOutsideToClose=true}}
+{{yield}}
+<button class="positive" type="button" {{action "confirm" option}}>Ja</button>
+<button class="negative" type="button" {{action "close"}}>Nein</button>
+{{/modal-dialog}}
+{{/if}}
