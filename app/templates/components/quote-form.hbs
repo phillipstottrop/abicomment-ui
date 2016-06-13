@@ -1,13 +1,17 @@
 <button type="button" class="toggleShowing" {{action "toggleShowing"}}>
-  {{if showing 'hide' 'Zitat Verfassen'}}
+  {{#if showing }}
+    {{if closeText closeText 'hide'}}
+  {{else}}
+    {{if openText openText 'verfassen'}}
+  {{/if}}
 </button>
 {{#if showing}}
   <form class="comment form" >
 
-    {{input  type="text" value=quoted placeholder="Wer?"}}
-    {{input  type="text" value=text placeholder="Zitat"}}
+    {{input  type="text" value=quoted placeholder=1stph}}
+    {{input  type="text" value=text placeholder=2ndph}}
 
-    <button type="submit" name="button" {{action "create" }} class={{if createable 'ok' 'disabled'}}>verfassen</button>
+    <button type="submit" name="button" {{action "create" }} class={{if createable 'ok' 'disabled'}}>{{if buttonText buttonText 'verfassen'}}</button>
   </form>
 {{/if}}
 {{yield}}

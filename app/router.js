@@ -14,6 +14,9 @@ Router.map(function() {
   this.route('quotes');
   this.route('polls');
   this.route('poll-creator');
+  this.route('courses', function() {
+    this.route('course',{path:":course_id"});
+  });
 });
 
 export default Router;

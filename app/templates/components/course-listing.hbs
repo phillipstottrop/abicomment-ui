@@ -1,0 +1,6 @@
+{{#each sortedCourses as |course|}}
+{{#link-to "courses.course" course}}<li>{{course.name}} {{course.teacher}}</li>{{/link-to}}
+{{/each}}
+
+
+{{yield}}
