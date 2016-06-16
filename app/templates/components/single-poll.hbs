@@ -1,11 +1,11 @@
 <li class="poll">
 <h3 >  {{poll.topic}}  </h3>
 
-{{#if administratable }}
+{{#if-moderator}}
   <a {{action 'open'}} class="action">
     <i class="delete comment icon"></i>
   </a>
- {{/if}}
+{{/if-moderator}}
 {{#unless poll.hasvoted}}
   <ul class="poll-options">
     {{#each poll.options as |option|}}
