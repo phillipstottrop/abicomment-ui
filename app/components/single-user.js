@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     withNotes:function(){
+      console.log("compute with notes");
       var attendings = this.get("user.attendings");
       var arr=[];
       attendings.forEach(function(a){
@@ -9,9 +10,12 @@ export default Ember.Component.extend({
           arr.push(a);
         }
       });
+      console.log(arr);
       return arr;
-    }.property('user.attendings'),
+    }.property('user.attendings.@each.note'),
     withoutNotes:function(){
+      console.log("compute without notes");
+
       var attendings = this.get("user.attendings");
       var arr=[];
       attendings.forEach(function(a){
@@ -19,8 +23,9 @@ export default Ember.Component.extend({
           arr.push(a);
         }
       });
+
       return arr;
-    }.property('user.attendings'),
+    }.property('user.attendings.@each.note'),
     session: Ember.inject.service('session'),
     getResponseJSON(){
       return this.get("session.data").authenticated.responseJSON;
