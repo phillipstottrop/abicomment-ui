@@ -1,3 +1,4 @@
+{{!--
 {{#unless noToggleShowing }}
 {{#if iconShow}}
 <a {{action 'toggleShowing'}} class="action">
@@ -14,11 +15,13 @@
 </button>
 {{/if}}
 {{/unless}}
-{{#if showing}}
+{{#if showing}}--}}
+<div class="createComment">
   <form class="form" >
 
     {{input type="text" value=text placeholder=placeholder}}
     <button type="submit" class={{if createable 'ok' 'disabled'}} {{action "create"}} >{{if buttonText buttonText 'Senden'}}</button>
   </form>
-{{/if}}
+</div>
+{{!--{{/if}}--}}
 {{yield}}

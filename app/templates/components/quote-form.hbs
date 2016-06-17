@@ -1,3 +1,4 @@
+{{!--
 <button type="button" class="toggleShowing" {{action "toggleShowing"}}>
   {{#if showing }}
     {{if closeText closeText 'hide'}}
@@ -5,7 +6,9 @@
     {{if openText openText 'verfassen'}}
   {{/if}}
 </button>
-{{#if showing}}
+--}}
+
+{{!--{{#if showing}}--}}
   <form class="comment form" >
 
     {{input  type="text" value=quoted placeholder=1stph}}
@@ -13,5 +16,5 @@
 
     <button type="submit" name="button" {{action "create" }} class={{if createable 'ok' 'disabled'}}>{{if buttonText buttonText 'verfassen'}}</button>
   </form>
-{{/if}}
+{{!--{{/if}}--}}
 {{yield}}

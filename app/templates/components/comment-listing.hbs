@@ -1,9 +1,12 @@
-{{#if comments}}<h3>Kommentare</h3>{{/if}}
+{{#if comments}}
+<div class="comment-listing">
+  <h3>Kommentare</h3>
 <ul class="comments">
 
   {{#each sortedComments as |comment|}}
   {{single-comment comment=comment blur="blur"}}
   {{/each}}
 </ul>
-
+</div>
+{{/if}}
 {{yield}}

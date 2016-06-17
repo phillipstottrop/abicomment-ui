@@ -1,7 +1,13 @@
-<div class="split user">
-<h2 class="top">{{model.forename}} {{model.name}}</h2>
-{{single-user create="createComment" user=model comments=model.comments blur="blurBackground"}}
-
-{{outlet}}
-
+<div class="user">
+  {{single-user user=model}}
+  <div class="user-data">
+    <div class="name card">
+      <p id="forname">{{model.forename}}</p>
+      <p id="lastname">{{model.name}}</p>
+    </div>
+  </div>
+  <div class="user-comment">
+    {{user-comment create="create" user=model comments=model.comments blur="blurBackground"}}
+  </div>
+  {{outlet}}
 </div>
