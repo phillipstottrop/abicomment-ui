@@ -1,8 +1,8 @@
 
-{{#if administratable}}
+{{#if-moderator}}
 {{#link-to 'poll-creator'}}Umfrage erstellen{{/link-to}}
 
-{{/if}}
+{{/if-moderator}}
 <h2>Umfragen</h2>
 <ul>
 {{#each sortedPolls as |poll|}}

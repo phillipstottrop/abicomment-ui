@@ -8,9 +8,9 @@
     {{else}}
       {{#confirm-button buttonText="Beitreten" confirm="joinCourse"}}
         <h3>Wirklich beitreten?</h3>
-        <form class="form" >
-                {{input value=note placeholder="Bemerkungen"}}
-              </form>
+        <div class="form" >
+                {{input value=note placeholder="Bemerkungen" enter=""}}
+              </div>
 
       {{/confirm-button}}
     {{/if}}

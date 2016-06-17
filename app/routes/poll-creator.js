@@ -30,8 +30,18 @@ export default Ember.Route.extend({
     return this.store.createRecord("poll");
   },
   actions:{
+    willTransition: function(transition) {
+      var poll = this.controllerFor("poll-creator").get("model");
+      
+      if(!poll.id){
+
+        poll.unloadRecord();
+
+      }
+    },
     redirect(){
       this.transitionTo("polls");
     }
-  }
+  },
+
 });

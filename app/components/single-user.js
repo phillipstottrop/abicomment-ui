@@ -10,8 +10,9 @@ export default Ember.Component.extend({
         }
       });
       return arr;
-    }.property('user.attendings'),
+    }.property('user.attendings.@each.note'),
     withoutNotes:function(){
+
       var attendings = this.get("user.attendings");
       var arr=[];
       attendings.forEach(function(a){
@@ -19,9 +20,11 @@ export default Ember.Component.extend({
           arr.push(a);
         }
       });
+
       return arr;
-    }.property('user.attendings'),
-  
+
+    }.property('user.attendings.@each.note'),
+
 
   actions:{
     create(text){
