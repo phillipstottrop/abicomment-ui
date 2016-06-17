@@ -21,18 +21,7 @@ export default Ember.Component.extend({
       });
       return arr;
     }.property('user.attendings'),
-    session: Ember.inject.service('session'),
-    getResponseJSON(){
-      return this.get("session.data").authenticated.responseJSON;
-    },
-    isCurrentUser(id){
-      return (this.getResponseJSON().id.toString()===id);
-    },
-    currentUser:function(){
-      var id=this.get("user").id;
-      return this.isCurrentUser(id);
-    }.property("user"),
-
+  
 
   actions:{
     create(text){

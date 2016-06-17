@@ -1,8 +1,8 @@
 {{!--{{#if user.attendings }}--}}
 
-  {{!--{{#unless currentUser}}--}}
+  {{#unless currentUser}}
       {{simple-form create="create" placeholder="Kommentar" openText="kommentieren" }}
-  {{!--{{/unless}}--}}
+  {{/unless}}
     {{comment-listing comments=comments blur="blur"}}
 
 {{!--{{/if}}--}}
