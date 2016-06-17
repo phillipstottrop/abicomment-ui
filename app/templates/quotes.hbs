@@ -1,8 +1,13 @@
-<div class="quotes card">
-  <h2>Zitate</h2>
-  {{quote-listing quotes=model blur="blurBackground"}}
+<div class="flexContainer">
+  <div class="flexChild quotes card">
+    <h2>Zitate</h2>
+    {{quote-listing quotes=model blur="blurBackground"}}
+  </div>
+  <div class="flexChild createQuotesFlex">
+    <div class="createQuotes card">
+    {{quote-form create="createQuote" 1stph="Wer?" 2ndph="Zitat"}}
+    </div>
+  </div>
 </div>
-<div class="createQuotes card">
-  {{quote-form create="createQuote" 1stph="Wer?" 2ndph="Zitat"}}
-</div>
+
 {{outlet}}
