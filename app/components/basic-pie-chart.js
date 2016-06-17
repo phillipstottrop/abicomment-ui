@@ -37,9 +37,7 @@ export default Ember.Component.extend({
           .value(function(d){return d.value;}),
   didInsertElement(){
     var svg = d3.select(this.$().get(0)).append("svg");
-        svg.attr('viewBox', '0 0 '+this.get("outerWidth")+" "+"0")
-        .transition().duration(500)
-        .attr('viewBox', '0 0 '+this.get("outerWidth")+" "+this.get("outerHeight"))
+        svg.attr('viewBox', '0 0 '+this.get("outerWidth")+" "+this.get("outerHeight"))
         //.attr('width', this.get("outerWidth"))
         .attr('class', 'responsive-svg')
         .attr('preserveAspectRatio', 'xMinYMin meet');
