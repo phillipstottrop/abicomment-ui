@@ -12,7 +12,7 @@ export default Ember.Component.extend({
       var poll=this.get("poll");
       var store=this.get("store");
       if(title && poll){
-        var option= store.createRecord("option",{title:title,poll:poll});
+        var option= store.createRecord("option",{title:title});
         poll.get("options").pushObject(option);
       }
     },
@@ -37,6 +37,28 @@ export default Ember.Component.extend({
     },
     delete(option){
       option.destroy();
-    }
+    },
+  allUsers(){
+    var poll=this.get("poll");
+    var store=this.get("store");
+
+    store.findAll("user").then(function(users){
+      users.forEach(function(user){
+        var fullName=user.get("forename")+" "+user.get("name");
+        var option=store.createRecord("option",{
+          title:fullName,
+        });
+        poll.get("options").pushObject(option);
+
+      });
+    });
+  },
+  removeAll(){
+    var poll=this.get('poll');
+    poll.get('options').forEach(function(option){
+      option.destroy();
+    });
   }
+},
+
 });
