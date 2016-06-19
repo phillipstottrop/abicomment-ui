@@ -4,5 +4,8 @@ import config from '../config/environment';
 
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
    host: config.host,
-  authorizer: 'authorizer:devise'
+  authorizer: 'authorizer:devise' ,
+  pathForType: function(type) {
+   return Ember.String.pluralize(Ember.String.underscore(type));
+ }
 });

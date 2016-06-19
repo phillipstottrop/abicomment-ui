@@ -1,3 +1,6 @@
+{{#power-select placeholder="Nach Person suchen" searchField="fullname" options=users selected=selected onchange=(action "look") as |user| }}
+{{user.fullname}}
+{{/power-select}}
 {{#each sortedUsers as |user|}}
 {{#link-to "users.user" user.id}}<li>{{user.forename}} {{user.name}}</li>{{/link-to}}
 {{/each}}
