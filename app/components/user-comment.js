@@ -12,5 +12,12 @@ export default Ember.Component.extend({
     var id=this.get("user").id;
     return this.isCurrentUser(id);
   }.property("user"),
-
+  actions:{
+    create(text){
+      var user=this.get("user");
+      if(text && user){
+        this.sendAction("create",text,user);
+      }
+    }
+  }
 });

@@ -7,13 +7,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
     return this.store.findRecord("user",params.user_id);
   },
   actions:{
-    createComment(text,user,commentorId){
-      var commentor=this.store.peekRecord("user",commentorId);
+    createComment(text,user){
       var comment=this.store.createRecord("comment",{
         text:text,
-        user:user,
-        commentor:commentor
-      });
+        user:user
+            });
       var that=this;
       comment.save().then(function(){
 
