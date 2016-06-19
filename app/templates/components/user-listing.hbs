@@ -1,4 +1,4 @@
-{{#power-select placeholder="Nach Person suchen" searchField="fullname" options=users selected=selected onchange=(action "look") as |user| }}
+{{#power-select placeholder="Nach Person suchen" searchField="fullname" options=sortedUsers selected=selected onchange=(action "look") as |user| }}
 {{user.fullname}}
 {{/power-select}}
 {{#each sortedUsers as |user|}}
