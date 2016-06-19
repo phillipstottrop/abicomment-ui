@@ -32,10 +32,13 @@ export default Ember.Route.extend({
   actions:{
     willTransition: function(transition) {
       var poll = this.controllerFor("poll-creator").get("model");
-      
-      if(!poll.id){
 
-        poll.unloadRecord();
+      if(!poll.id){
+        console.log("shuld delete");
+        poll.get('options').forEach(function(option){
+          option.deleteRecord();
+        });
+        poll.deleteRecord();
 
       }
     },
