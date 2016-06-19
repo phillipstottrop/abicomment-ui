@@ -13,6 +13,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       var id=transition.params["users.user"]["user_id"]
       var user=this.store.peekRecord("user",id);
       this.controllerFor("users").set("selected",user);
+    }else{
+      this.controllerFor("users").set("selected",null);
     }
     }
   }
