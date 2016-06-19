@@ -4,7 +4,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
   model(params){
 
-    return this.store.findRecord("user",params.user_id);
+    return this.store.findRecord("user",params.user_id,{ adapterOptions: { query: { limit:2 } } });
   },
   actions:{
     createComment(text,user,commentorId){
