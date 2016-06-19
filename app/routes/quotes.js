@@ -3,24 +3,42 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
   session: Ember.inject.service('session'),
-  model(){
-    this.store.findRecord("user",this.get("session.data").authenticated.responseJSON.id);
-    return this.store.findAll("quote");
+
+  queryParams: {
+    limit: {
+      refreshModel: true
+    }
+  },
+
+  model(params){
+    return this.store.query("quote",params);
 
   },
   actions:{
-    createQuote(text,quoted,userId){
-
+    showMore(){
+      var increment=10;
+      const total = this.controllerFor('quotes').get('total');
+      const limit = this.controllerFor('quotes').get('limit');
+      if(limit+increment <total){
+      this.transitionTo({queryParams: { limit: limit+increment}});
+      }
+      else{
+        this.transitionTo({queryParams: { limit: total}});
+      }
+    },
+    createQuote(text,quoted){
       if(text && quoted){
-        var user=this.store.peekRecord("user",userId);
 
         var q = this.store.createRecord("quote",{
           text:text,
           quoted:quoted,
-          user:user
         });
-        q.save();
-      }else{
+        var that=this;
+        q.save().then(function(){
+          that.refresh();
+
+        });
+            }else{
         console.log("arguments wrong");
       }
     },

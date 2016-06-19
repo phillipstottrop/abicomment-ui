@@ -1,6 +1,10 @@
 <div class="quotes">
 {{quote-form create="createQuote" 1stph="Wer?" 2ndph="Zitat"}}
 <h2>Zitate</h2>
-{{quote-listing quotes=model blur="blurBackground"}}
+{{#quote-listing quotes=model blur="blurBackground"}}
+{{#if notShowingAll}}
+  <button {{action 'showMore'}}>Mehr laden</button>
+{{/if}}
+{{/quote-listing}}
 {{outlet}}
 </div>

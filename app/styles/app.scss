@@ -234,7 +234,7 @@ background: #e24c4c;
   border-color: #dee8d8;
   border-style: solid;
 }
-.toggleShowing{
+button{
   text-transform: uppercase;
   outline: 0;
   background: #4CAF50;
@@ -246,8 +246,8 @@ background: #e24c4c;
   transition: all 400ms ease;
   cursor: pointer;
 }
-.toggleShowing:hover{
-  background: #36993a;
+.button:hover{
+    background: #36993a;
 }
 .delete{
   background-image: url("delete_icon.png");

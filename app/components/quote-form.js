@@ -19,12 +19,11 @@ export default Ember.Component.extend({
       this.set("showing",showing);
     },
     create(){
-      var userId=this.getResponseJSON().id;
       var text=this.get("text");
       var quoted=this.get("quoted");
-      if (userId && text && quoted) {
+      if (text && quoted) {
 
-         this.sendAction("create",text,quoted,userId);
+         this.sendAction("create",text,quoted);
          this.set("text","");
          this.set("quoted","");
       }

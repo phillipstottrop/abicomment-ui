@@ -1,6 +1,7 @@
 <div class="poll-container">
-{{poll-listing polls=model createPoll="createPoll" createOption="createOption" voteForOption="voteForOption" blur="blurBackground"}}
-
-
+{{#poll-listing polls=model createPoll="createPoll" createOption="createOption" voteForOption="voteForOption" blur="blurBackground"}}
+{{#if notShowingAll}}
+  <button {{action 'showMore'}}>Mehr laden</button>
+{{/if}}{{/poll-listing}}
 {{outlet}}
 </div>
