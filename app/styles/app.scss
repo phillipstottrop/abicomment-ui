@@ -1,4 +1,7 @@
-@import "power-select-variables.scss";
+
+.course-name-search{
+
+}@import "power-select-variables.scss";
 @import "ember-power-select";
 
 .ember-power-select-search input{
@@ -420,4 +423,12 @@ svg g rect:hover{
 
 	top: 0;
 	left: 0;
+}
+.course-name-search{
+
+}
+.course-teacher-search{
+  font-weight: 100;
+  text-align: right;
+  color: #8e8b8b
 }
