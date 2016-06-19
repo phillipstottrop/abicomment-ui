@@ -1,6 +1,6 @@
 import Ember from 'ember';
-
-export default Ember.Route.extend({
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+export default Ember.Route.extend(AuthenticatedRouteMixin,{
   model(params){
     return this.store.findRecord("course",params.course_id);
   },
@@ -31,7 +31,7 @@ export default Ember.Route.extend({
     });
   },
   deleteAnecdote(anecdote){
-    
+
     anecdote.destroyRecord();
   }
   }
