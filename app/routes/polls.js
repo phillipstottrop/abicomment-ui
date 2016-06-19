@@ -2,10 +2,26 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
-  model(){
-    return this.store.findAll("poll");
+  queryParams: {
+    limit: {
+      refreshModel: true
+    }
+  },
+  model(params){
+    return this.store.query("poll",params);
   },
   actions:{
+    showMore(){
+      var increment=10;
+      const total = this.controllerFor('polls').get('total');
+      const limit = this.controllerFor('polls').get('limit');
+      if(limit+increment <total){
+      this.transitionTo({queryParams: { limit: limit+increment}});
+      }
+      else{
+        this.transitionTo({queryParams: { limit: total}});
+      }
+    },
     voteForOption(option){
       if(option){
         var v=this.store.createRecord("vote",{
