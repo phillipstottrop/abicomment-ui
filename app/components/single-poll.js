@@ -29,9 +29,12 @@ export default Ember.Component.extend({
     this.sendAction("blur",false);
 
   },
-  startReload(poll){
+  startReload(){
 
-   poll.startAutoReloading();
-  }
+   this.get("poll").startAutoReloading();
+ },
+ stopReload(){
+   this.get("poll"). stopAutoReloading()
+ },
   },
 });
