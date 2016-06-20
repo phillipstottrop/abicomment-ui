@@ -1,6 +1,6 @@
 <li class="poll">
 <h3 >  {{poll.topic}}  </h3>
-
+<button {{action 'startReload' poll}}>StartReload</button>
 {{#if-moderator}}
   <a {{action 'open'}} class="action">
     <i class="delete comment icon"></i>

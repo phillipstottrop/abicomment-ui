@@ -14,6 +14,14 @@
 .ember-power-select-option[aria-selected="true"] {
     background-color: #b6f29c;
 }
+.ember-power-select-options[role="listbox"]{
+  height: 25vh;
+  max-height: 300px;
+}
+
+
+
+
 
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
