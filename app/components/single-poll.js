@@ -34,7 +34,7 @@ export default Ember.Component.extend({
    this.get("poll").startAutoReloading();
  },
  stopReload(){
-   this.get("poll"). stopAutoReloading()
+   this.get("poll").stopAutoReloading()
  },
   },
 });
