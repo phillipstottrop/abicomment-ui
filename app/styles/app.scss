@@ -2,14 +2,14 @@
 @import "ember-power-select";
 
 .ember-power-select-search input{
-  background-color: #2ce05c
+  background-color: #aee897
 }
 .ember-power-select-option[aria-current="true"] {
-    background-color: #b1a60e;
+    // background-color: #14da91;
     color: #ffffff;
 }
 .ember-power-select-option[aria-selected="true"] {
-    background-color: #b6f29c;
+    // background-color: #b5f29c;
 }
 .ember-power-select-options[role="listbox"] {
     overflow-y: auto;
@@ -551,6 +551,7 @@ svg path:hover{
 .positive{
   background: #158f1a ;
   transition: all 2s;
+  width: auto;
 }
 
 .positive:hover{
@@ -560,6 +561,7 @@ svg path:hover{
 .negative{
   background-color:red ;
   transition: all 2s;
+    width: auto;
 }
 
 .negative:hover{
