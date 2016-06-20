@@ -14,6 +14,14 @@
 .ember-power-select-option[aria-selected="true"] {
     background-color: #b6f29c;
 }
+.ember-power-select-options[role="listbox"]{
+  height: 25vh;
+  max-height: 300px;
+}
+
+
+
+
 
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
@@ -279,6 +287,9 @@ button{
   background-image: url("minus.png");
 
 }
+.eye{
+  background-image: url("eye.png");
+}
 .moretop{
   margin-top: 20px;
 }
@@ -292,6 +303,7 @@ button{
   height: 20px;
   display: inline-block;
   border-radius: 4px;
+  background-repeat: no-repeat;
 }
 .action{
   cursor: pointer;
@@ -431,4 +443,11 @@ svg g rect:hover{
   font-weight: 100;
   text-align: right;
   color: #8e8b8b
+}
+.active.action .icon{
+  border: 3px solid rgba(#5a82d0,.76);
+
+}
+.active.action{
+  padding: 2px;
 }
