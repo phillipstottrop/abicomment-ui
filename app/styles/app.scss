@@ -84,7 +84,18 @@ body {
 .login a{
   margin: 10px 20px 10px 20px;
 }
+.flexContainer{
+  display: flex;
+  flex-flow: row wrap;
+}
+.flexChild{
+  flex: 1 1;
 
+
+}
+.flexChildMin{
+  flex: 1 1 0;
+}
 
 .card {
   border-left: 1px solid rgba(90,117,152,0.01);
@@ -105,7 +116,6 @@ margin: auto;
 div.users-listing{
   text-align: center;
   padding: 10px;
-  width: 28%;
   float: left;
   margin-left: 15px;
   background: rgba(90,117,152,0.2);
@@ -118,13 +128,11 @@ div.user{
   box-sizing: border-box;
   //background-color: rgba(255,0,0,0.4);
   margin-right: 15px;
-  width: 67%;
   min-width: 100px;
 }
 
 .name {
   text-align: left;
-  width: 26%;
   padding: 20px 0px 20px 20px;
   float: left;
   background-color: rgba(90, 117, 152, 0.2);
@@ -151,7 +159,6 @@ width: 100%;
 }
 
 .user-courses {
-  width: 70%;
   height: 100%;
   float: right;
   background-color: rgba(90, 117, 152, 0.2);
@@ -172,12 +179,10 @@ width: 100%;
 
 .createComment {
   float: right;
-  width: 40%;
   background-color: rgba(90, 117, 152, 0.2);
 }
 
 .comment-listing {
-  width: 59%;
   float: left;
   margin: 0px;
   background-color: rgba(90, 117, 152, 0.2);
@@ -266,7 +271,6 @@ div.form{
 
 .quotes{
   text-align: center;
-  width: 68%;
   margin: 0px 0px 15px 15px;
   float: left;
   background-color: rgba(90, 117, 152, 0.2);
@@ -281,10 +285,11 @@ div.form{
 .createQuotes{
   text-align: center;
   background-color: rgba(90, 117, 152, 0.2);
-  margin-right: 20px;
-  padding: 10px 0px;
-  float: right;
-  width: 28%;
+  margin: 20px;
+  padding: 10px;
+}
+.createQuotesFlex{
+  flex:0;
 }
 
 .quoted{
