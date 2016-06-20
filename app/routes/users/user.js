@@ -1,18 +1,29 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
-
+  queryParams: {
+    limit: {
+      refreshModel: true
+    }
+  },
   model(params){
 
-    return this.store.findRecord("user",params.user_id,{ adapterOptions: { query: { limit:2 } } });
+    return this.store.findRecord("user",params.user_id,{ adapterOptions: { query: {limit:params.limit} } });
   },
   actions:{
-    createComment(text,user,commentorId){
-      var commentor=this.store.peekRecord("user",commentorId);
+    loadMore(){
+      var increment=10;
+
+      const limit = this.controllerFor('users.user').get('limit');
+    
+      this.transitionTo({queryParams: { limit: limit+increment}});
+
+    },
+    createComment(text,user){
+
       var comment=this.store.createRecord("comment",{
         text:text,
-        user:user,
-        commentor:commentor
+        user:user
       });
       var that=this;
       comment.save().then(function(){
