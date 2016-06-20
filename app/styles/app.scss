@@ -15,6 +15,14 @@
     overflow-y: auto;
     max-height: 25vh;
 }
+.ember-power-select-options[role="listbox"]{
+  height: 25vh;
+  max-height: 300px;
+}
+
+
+
+
 
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
@@ -432,6 +440,10 @@ min-width: 200px;
 
 }
 
+.eye{
+  background-image: url("eye.png");
+}
+
 .moretop{
   margin-top: 20px;
 }
@@ -446,6 +458,7 @@ min-width: 200px;
   height: 20px;
   display: inline-block;
   border-radius: 4px;
+  background-repeat: no-repeat;
 }
 
 .action{
@@ -596,4 +609,11 @@ svg path:hover{
   font-weight: 100;
   text-align: right;
   color: #8e8b8b;
+}
+.active.action .icon{
+  border: 3px solid rgba(#5a82d0,.76);
+
+}
+.active.action{
+  padding: 2px;
 }
