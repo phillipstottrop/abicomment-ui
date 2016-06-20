@@ -13,6 +13,9 @@ return this.store.findAll("course");
       c.save().then(function(){
         c.reload();
       });
+    },
+    transition(course){
+      this.transitionTo("courses.course",course.get("id"));
     }
   }
 });

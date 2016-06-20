@@ -1,6 +1,5 @@
-{{#each sortedUsers as |user|}}
-{{#link-to "users.user" user.id}}<li>{{user.forename}} {{user.name}}</li>{{/link-to}}
-{{/each}}
-
+{{#power-select placeholder="Person auswählen" searchField="fullname" options=sortedUsers selected=selected onchange=(action "look") as |user| }}
+{{user.fullname}}
+{{/power-select}}
 
 {{yield}}

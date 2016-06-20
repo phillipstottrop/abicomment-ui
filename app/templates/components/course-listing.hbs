@@ -1,6 +1,7 @@
-{{#each sortedCourses as |course|}}
-{{#link-to "courses.course" course}}<li>{{course.name}} {{course.teacher}}</li>{{/link-to}}
-{{/each}}
+{{#power-select placeholder="Kurs auswählen" searchField="name" options=sortedCourses selected=selected onchange=(action "look") as |course| }}
+  <span class="course-name-search"> {{course.name}} </span> <span class="course-teacher-search">bei {{course.teacher}}</span>
+{{/power-select}}
+
 
 
 {{yield}}
