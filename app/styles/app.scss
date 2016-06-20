@@ -291,6 +291,7 @@ div.form{
   margin: 0px 0px 15px 15px;
     flex: 2;
   background-color: rgba(90, 117, 152, 0.2);
+  min-width: 300px;
 }
 
 .quotes h2 {
@@ -305,10 +306,12 @@ div.form{
   margin: 20px;
   padding: 10px;
   min-width: 300px;
+      box-sizing: border-box;
 }
 .createQuotesFlex{
   flex:1;
-  max-width: 500px;
+  max-width: 400px;
+min-width: 200px;
 }
 
 .quoted{
