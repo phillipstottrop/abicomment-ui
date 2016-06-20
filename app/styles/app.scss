@@ -90,6 +90,7 @@ body {
 .flexContainer{
   display: flex;
   flex-flow: row wrap;
+  margin-top: 20px;
 }
 .flexChild{
   flex: 1 1;
@@ -305,8 +306,7 @@ div.form{
   background-color: rgba(90, 117, 152, 0.2);
   margin: 20px;
   padding: 10px;
-  min-width: 300px;
-      box-sizing: border-box;
+  box-sizing: border-box;
 }
 .createQuotesFlex{
   flex:1;
