@@ -1,5 +1,5 @@
-{{#if user.attendings }}
-  <div class="user-courses card">
+
+  <div class="user-courses card flexChild">
     <h3>Kurse</h3>
     <ul>
       {{#each withNotes as |attending|}}
@@ -15,6 +15,6 @@
       {{/each}}
     </ul>
   </div>
-{{/if}}
+
 
 {{yield}}

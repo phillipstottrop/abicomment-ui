@@ -20,8 +20,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       this.transitionTo({queryParams: { limit: limit+increment}});
 
     },
-    createComment(text,user){
-
+    createComment(text){
+      if(text){
+      var user=this.controllerFor('users.user').get("model");
       var comment=this.store.createRecord("comment",{
         text:text,
         user:user
@@ -33,7 +34,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
         that.refresh();
 
       });
-
+    }
     },
 
   blurBackground(blur) {

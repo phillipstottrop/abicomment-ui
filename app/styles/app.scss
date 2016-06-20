@@ -11,7 +11,10 @@
 .ember-power-select-option[aria-selected="true"] {
     background-color: #b6f29c;
 }
-
+.ember-power-select-options[role="listbox"] {
+    overflow-y: auto;
+    max-height: 25vh;
+}
 
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
@@ -103,7 +106,8 @@ body {
   border-right: 1px solid rgba(90,117,152,0.05);
   border-bottom: 1px solid rgba(90,117,152,0.05);
   box-shadow: 2px 2px 0px 0px rgba(90,117,152,0.35);
-
+  background-color: rgba(90, 117, 152, 0.2);
+  margin:10px;
 }
 div.users{
 text-align: center;
@@ -116,42 +120,34 @@ margin: auto;
 div.users-listing{
   text-align: center;
   padding: 10px;
-  float: left;
-  margin-left: 15px;
+  margin: auto;
+max-width: 500px;
   background: rgba(90,117,152,0.2);
 }
 
 div.user{
   text-align: center;
   color: inherit;
-  float: right;
   box-sizing: border-box;
-  //background-color: rgba(255,0,0,0.4);
-  margin-right: 15px;
-  min-width: 100px;
+
 }
 
 .name {
   text-align: left;
-  padding: 20px 0px 20px 20px;
-  float: left;
+  padding: 20px;
   background-color: rgba(90, 117, 152, 0.2);
+  max-width: 200px;
+  margin: 20px auto;
 }
-
+.user-data{
+flex: 0.5;
+}
 
 #forname{
   margin: 0px;
   font-size: 16px;
 }
-div.user{
-text-align: center;
-color: inherit;
-padding: 50px;
-box-sizing: border-box;
-margin: auto;
-width: 100%;
 
-}
 
 #lastname{
   margin: 0px;
@@ -159,8 +155,9 @@ width: 100%;
 }
 
 .user-courses {
-  height: 100%;
-  float: right;
+  max-width: 700px;
+  min-width: 300px;
+  margin: auto;
   background-color: rgba(90, 117, 152, 0.2);
 }
 
@@ -172,19 +169,26 @@ width: 100%;
 }
 
 .user-comment {
-  margin: 10px 0px 0px 0px;
-  width: 100%;
-  float: left;
+  margin: 10px;
+
 }
 
-.createComment {
-  float: right;
-  background-color: rgba(90, 117, 152, 0.2);
+.createCommentFlex {
+  flex: 1;
+}
+.createComment{
+  padding: 10px;
+  max-width: 400px;
+  margin:auto;
+}
+.simpleForm{
+  min-width: 300px;
 }
 
 .comment-listing {
-  float: left;
-  margin: 0px;
+  min-width: 300px;
+  margin: auto;
+  max-width: 700px;
   background-color: rgba(90, 117, 152, 0.2);
 }
 
@@ -240,23 +244,36 @@ li{
   padding: 10px 0px;
   border-bottom: 2px dotted rgba(90, 117, 152, 0.4);
 }
-
+.course{
+  text-align: center;
+}
 .course ul{
-  margin: 10px 0 0 0 ;
-  float: left;
-  width: 100%;
+
   min-width: 200px;
-  display: inline-block;
-}
 
+}
+.flexContainer .flexChild{
+  margin: 20px;
+}
 .course .anecdotes{
-  width: 60%;
+margin: 20px auto;
+padding: 20px;
 }
-
+.anecdotesFlex{
+  margin: 20px;
+  flex: 2;
+}
 .course .students{
-  width: 40%;
+  margin: 20px auto;
 }
-
+.course-data{
+  margin: auto;
+  max-width: 500px;
+}
+.course .createAnecdotes{
+  max-width: 500px;
+  margin: 20px auto;
+}
 a{
   text-decoration: none;
   color: inherit;
@@ -272,7 +289,7 @@ div.form{
 .quotes{
   text-align: center;
   margin: 0px 0px 15px 15px;
-  float: left;
+    flex: 2;
   background-color: rgba(90, 117, 152, 0.2);
 }
 
@@ -287,9 +304,11 @@ div.form{
   background-color: rgba(90, 117, 152, 0.2);
   margin: 20px;
   padding: 10px;
+  min-width: 300px;
 }
 .createQuotesFlex{
-  flex:0;
+  flex:1;
+  max-width: 500px;
 }
 
 .quoted{
@@ -341,23 +360,26 @@ div.form{
   box-sizing: border-box;
   font-size: 14px;
 }
+  form button{
 
-.form button {
+  }
+ button {
   text-transform: uppercase;
   outline: 0;
-  background: #158f1a;
-  width: 100%;
+  background: #0968b5;
+  box-sizing: border-box;
+  width: 90%;
   border: 0;
   padding: 15px;
   color: #FFFFFF;
   font-size: 14px;
-
+  margin: 10px;
   cursor: pointer;
   transition: all 400ms;
 }
 
-.form button:hover{
-   background: #08740d;
+ button:hover{
+   background: #0712ac;
 }
 
 .form button.disabled{

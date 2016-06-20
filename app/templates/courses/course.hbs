@@ -1,11 +1,16 @@
-<div class="user course">
-  <h2 class="top">{{model.name}} bei {{model.teacher}}</h2>
-  <ul class="students">
-    {{#if model.isattending}}
-      {{!-- {{#confirm-button buttonText="austreten" confirm="leaveCourse"}}
-        <h3>Wirklich austreten?</h3>
-      {{/confirm-button}} --}}
-    {{else}}
+<div class="course">
+  <div class="course-data card">
+      <h2 class="top">{{model.name}} bei {{model.teacher}}</h2>
+  </div>
+<div class="flexContainer courseFlexContainer">
+
+<div class="flexChild">
+
+
+  <ul class="students card">
+    {{#unless model.isattending}}
+
+
       {{#confirm-button buttonText="Beitreten" confirm="joinCourse"}}
         <h3>Wirklich beitreten?</h3>
         <div class="form" >
@@ -13,7 +18,7 @@
               </div>
 
       {{/confirm-button}}
-    {{/if}}
+    {{/unless}}
 
     <h3>Schüler im Kurs</h3>
     {{#each model.attendings as |attending|}}
@@ -31,9 +36,11 @@
 
     {{/each}}
   </ul>
+</div>
+{{#if model.anecdotes}}
+<div class="flexChild anecdotesFlex">
+  <ul class="anecdotes card">
 
-  <ul class="anecdotes">
-    {{simple-form placeholder="Text" buttonText="Speichern" create="createAnecdote"}}
     <h3>Anekdoten</h3>
     {{#each model.anecdotes as |anecdote|}}
 
@@ -46,5 +53,11 @@
       <hr class="border">
     {{/each}}
   </ul>
+  </div>
+{{/if}}
+  <div class="flexChild">
+    {{simple-form placeholder="Anekdote" buttonText="Speichern" create="createAnecdote" class="createAnecdotes card"}}
+  </div>
 {{outlet}}
+</div>
 </div>
