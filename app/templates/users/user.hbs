@@ -1,6 +1,7 @@
 <div class="user">
 <h2 class="top">{{model.forename}} {{model.name}}</h2>
 {{single-user create="createComment" user=model comments=model.comments blur="blurBackground"}}
+{{#unless limitTooHigh}}<button type="button" {{action "loadMore"}}>Mehr laden</button> {{/unless}}
 
 {{outlet}}
 
