@@ -1,6 +1,21 @@
+@import "power-select-variables.scss";
 @import "ember-power-select";
+
+.ember-power-select-search input{
+  background-color: #2ce05c
+}
+.ember-power-select-option[aria-current="true"] {
+    background-color: #b1a60e;
+    color: #ffffff;
+}
+.ember-power-select-option[aria-selected="true"] {
+    background-color: #b6f29c;
+}
+
+
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
+
 
 
 body {
@@ -70,12 +85,21 @@ body {
   margin: 10px 20px 10px 20px;
 }
 
+
 .card {
   border-left: 1px solid rgba(90,117,152,0.01);
   border-top: 1px solid rgba(90,117,152,0.01);
   border-right: 1px solid rgba(90,117,152,0.05);
   border-bottom: 1px solid rgba(90,117,152,0.05);
   box-shadow: 2px 2px 0px 0px rgba(90,117,152,0.35);
+
+}
+div.users{
+text-align: center;
+padding: 10px;
+max-width: 500px;
+margin: auto;
+
 }
 
 div.users-listing{
@@ -106,9 +130,19 @@ div.user{
   background-color: rgba(90, 117, 152, 0.2);
 }
 
+
 #forname{
   margin: 0px;
   font-size: 16px;
+}
+div.user{
+text-align: center;
+color: inherit;
+padding: 50px;
+box-sizing: border-box;
+margin: auto;
+width: 100%;
+
 }
 
 #lastname{
@@ -329,10 +363,7 @@ div.form{
   width: auto !important;
 }
 
-/*.border{
-  border-color: #dee8d8;
-  border-style: dashed;
-}*/
+
 
 .toggleShowing{
   text-transform: uppercase;
@@ -527,4 +558,10 @@ svg path:hover{
 
 	top: 0;
 	left: 0;
+}
+
+.course-teacher-search{
+  font-weight: 100;
+  text-align: right;
+  color: #8e8b8b;
 }
