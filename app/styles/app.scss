@@ -277,6 +277,9 @@ button{
   background-image: url("delete_icon.png");
   float: right;
 }
+.delete:hover{
+  background-image: url("open_delete_icon.png");
+}
 .option-delete{
   background-image: url("delete_icon.png");
   float: right;
