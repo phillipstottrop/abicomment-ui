@@ -6,6 +6,9 @@
 {{#each model as |fact|}}
   {{single-fact fact=fact}}
 {{/each}}
+{{#if notShowingAll}}
+  <button {{action "showMore"}}>Mehr laden</button>
+{{/if}}
 </ul>
 
   {{outlet}}
