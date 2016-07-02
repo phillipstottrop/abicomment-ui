@@ -456,7 +456,7 @@ svg g rect:hover{
   color: #8e8b8b
 }
 .active.action .icon{
-  border: 3px solid rgba(#5a82d0,.76);
+  box-shadow: 0 0 3px 3px #5a82d0;
 
 }
 .active.action{
