@@ -1,0 +1,13 @@
+<div class="facts">
+<h3>Wusstest du schon ... ?</h3>
+{{simple-form placeholder="Fakt" buttonText="Hinzufügen" iconShow="plus" iconHide="minus" create="createFact"}}
+<ul class="fact-list">
+
+{{#each model as |fact|}}
+  {{single-fact fact=fact}}
+{{/each}}
+</ul>
+
+  {{outlet}}
+
+</div>

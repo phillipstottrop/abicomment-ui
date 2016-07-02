@@ -1,0 +1,10 @@
+{{yield}}
+<li class="single-fact">
+  {{fact.text}}
+  {{#if-admin user=fact.user}}
+  {{#delete-dialogue param=fact confirm="delete"}}
+    <h3>Wirklich löschen?</h3>
+  {{/delete-dialogue}}
+  {{/if-admin}}
+</li>
+<hr class="border">
