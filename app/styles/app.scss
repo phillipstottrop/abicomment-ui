@@ -164,16 +164,15 @@ li{
 }
 .course ul{
   margin: 10px 0 0 0 ;
-  float: left;
   width: 100%;
   min-width: 200px;
   display: inline-block;
 }
 .course .anecdotes{
-  width: 60%;
+  width: 100%;
 }
 .course .students{
-  width: 40%;
+  width: 100%;
 }
 
 
@@ -462,4 +461,7 @@ svg g rect:hover{
 }
 .facts{
   text-align: center;
+}
+.inline-block{
+  display: inline-block;
 }

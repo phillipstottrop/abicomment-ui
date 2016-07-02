@@ -22,7 +22,7 @@
         {{#link-to 'users.user' attending.user }}
             {{attending.user.forename}} {{attending.user.name}}
         {{/link-to}}
-      {{#if-admin user=attending.user}}
+      {{#if-admin user=attending.user class="inline-block"}}
         {{#delete-dialogue confirm="leaveCourse" param=attending}}
           <h3>Wirklich diesen Kurs verlassen?</h3>
         {{/delete-dialogue}}
@@ -31,18 +31,20 @@
 
     {{/each}}
   </ul>
-
   <ul class="anecdotes">
-    {{simple-form placeholder="Text" buttonText="Speichern" create="createAnecdote"}}
     <h3>Anekdoten</h3>
+    {{simple-form placeholder="Text" buttonText="Speichern" create="createAnecdote"}}
+
     {{#each model.anecdotes as |anecdote|}}
 
-      <li>{{anecdote.text}}</li>
-        {{#if-admin user=anecdote.user}}
+      <li>{{anecdote.text}}
+
+        {{#if-admin user=anecdote.user class="inline-block"}}
           {{#delete-dialogue confirm="deleteAnecdote" param=anecdote}}
             <h3>Wirklich diese Anekdote löschen?</h3>
           {{/delete-dialogue}}
         {{/if-admin}}
+      </li>
       <hr class="border">
     {{/each}}
   </ul>
