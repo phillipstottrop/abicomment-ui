@@ -19,7 +19,7 @@
     {{#each model.attendings as |attending|}}
 
       <li>
-        {{#link-to 'users.user' attending.user }}
+        {{#link-to 'users.user' attending.user.id }}
             {{attending.user.forename}} {{attending.user.name}}
         {{/link-to}}
       {{#if-admin user=attending.user class="inline-block"}}
