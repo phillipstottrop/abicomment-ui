@@ -1,12 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  saving:false,
   store: Ember.inject.service(),
   createable:function(){
     var topic=this.get("poll.topic");
 
-    return (topic && this.get("poll.options").length>1);
-  }.property("poll.topic","poll.options"),
+    return (topic && this.get("poll.options").length>1 && !this.get("saving"));
+  }.property("poll.topic","poll.options","saving"),
   actions:{
     createOption(title){
       var poll=this.get("poll");
@@ -20,16 +21,17 @@ export default Ember.Component.extend({
       var that=this;
       var poll=this.get("poll");
 
-      if(this.get("createable")){
+      if(this.get("createable") ){
+        this.set("saving",true);
         poll.save().then(function(){
           poll.reload().then(function(){
-            poll.get("options").forEach(function(o){
+          Ember.RSVP.Promise.all(  poll.get("options").map(function(o){
               o.set("poll",poll);
-              o.save().then(function(){
-              });
+            return o.save();
+          }) ).then(function(){
+            that.sendAction("redirect");
 
-            });
-              that.sendAction("redirect");
+          });
           });
         });
 

@@ -34,7 +34,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       var poll = this.controllerFor("poll-creator").get("model");
 
       if(!poll.id){
-        console.log("shuld delete");
+        console.log("should delete");
         poll.get('options').forEach(function(option){
           option.deleteRecord();
         });
