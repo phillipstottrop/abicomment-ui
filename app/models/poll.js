@@ -5,5 +5,5 @@ export default DS.Model.extend(AutoReload, {
   hasvoted:DS.attr('boolean', 'value'),
   topic: DS.attr('string'),
   options: DS.hasMany('option',{async:false}),
-  autoReloadDelay: 5000,
+  autoReloadDelay: 1000,
 });

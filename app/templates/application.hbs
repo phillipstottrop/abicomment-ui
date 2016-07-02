@@ -2,13 +2,15 @@
 
 
 <div class="navbar">
-  {{#if session.isAuthenticated}}
-    {{#link-to 'users.user' id}}    {{forename}} {{name}} {{/link-to}}
-  {{/if}}
   {{#link-to 'users'}}Nutzer{{/link-to}}
+  {{#if session.isAuthenticated}}
+    {{#link-to 'users.user' id}} Ich {{/link-to}}
+  {{/if}}
   {{#link-to 'quotes'}}Zitate{{/link-to}}
   {{#link-to 'polls'}}Umfragen{{/link-to}}
   {{#link-to 'courses'}}Kurse{{/link-to}}
+  {{#link-to 'facts'}}Fakten{{/link-to}}
+
 
 </div>
 
