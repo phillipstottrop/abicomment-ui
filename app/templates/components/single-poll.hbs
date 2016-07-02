@@ -1,4 +1,4 @@
-<li class="poll">
+<li class="poll border">
 <h3 >  {{poll.topic}}  </h3>
 {{#toggle-action on="startReload" off="stopReload"}}
   <i class="icon eye"></i>
@@ -20,7 +20,6 @@
     {{poll-chart options=poll.options}}
   {{/if}}
 </li>
-<hr class="border">
 {{yield}}
 
 

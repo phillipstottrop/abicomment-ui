@@ -315,10 +315,17 @@ button{
 
 
 .poll{
+  background-color: rgba(#c98f0e,.31);
+  box-shadow: 0 0 5px 5px rgba(51,50,50,.28);
   text-align: center;
-  width: 100%;
   float: left;
   box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 10px;
+  margin:10px;
+  padding: 10px;
   }
 .poll-option{
   display: inline-block;
@@ -464,4 +471,9 @@ svg g rect:hover{
 }
 .inline-block{
   display: inline-block;
+}
+.load-more-container{
+float: left;
+clear: both;
+width: 100%;
 }
