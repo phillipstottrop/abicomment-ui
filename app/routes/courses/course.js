@@ -8,7 +8,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
     joinCourse(){
     var note =  this.controllerFor('courses.course').get("note");
     var course = this.controllerFor('courses.course').get("model");
-    console.log(course);
     var attending=this.store.createRecord("attending",{note:note,course:course});
     attending.save().then(function(){
       course.reload();
@@ -19,6 +18,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
     attending.destroyRecord().then(function(){
       course.reload();
     });
+  },
+  deleteCourse(course){
+    course.destroyRecord();
+    this.controllerFor("courses").set("selected",null);
+    this.transitionTo("courses");
   },
   createAnecdote(text){
     var course = this.controllerFor('courses.course').get("model");

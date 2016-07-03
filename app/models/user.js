@@ -9,4 +9,5 @@ export default DS.Model.extend({
   quotes: DS.hasMany('quote'),
   attendings: DS.hasMany('attendings'),
   anecdotes: DS.hasMany('anecdote'),
+  courses: DS.hasMany('course')
 });
