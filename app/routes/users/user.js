@@ -15,7 +15,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       var increment=10;
 
       const limit = this.controllerFor('users.user').get('limit');
-    
+
       this.transitionTo({queryParams: { limit: limit+increment}});
 
     },
@@ -27,8 +27,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       });
       var that=this;
       comment.save().then(function(){
+        comment.reload().then(function(){
+          that.refresh();
 
-        that.refresh();
+        });
 
       });
 

@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   administratable:function(){
     var comment=this.get("comment");
     return ( this.isCurrentUser(comment.get("commentor.id")) || this.isCurrentUser(comment.get("user.id")) || this.isAdmin() );
-  }.property("comment","session"),
+  }.property("comment","session","comment.commentor.id","comment.user.id"),
   getResponseJSON(){
 
     return this.get("session.data").authenticated.responseJSON;
