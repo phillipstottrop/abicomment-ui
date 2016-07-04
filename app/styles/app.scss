@@ -327,7 +327,14 @@ button{
   max-width: 450px;
   border-radius: 10px;
   margin:10px;
-  padding: 10px;
+  padding: 5px 0;
+  }
+.poll-options{
+  max-height: 330px;
+  overflow-y: scroll;
+  width: 100%;
+  background-color: rgba(200, 208, 167, 0.47);
+  border-radius: 10px;
   }
 .poll-option{
   display: inline-block;
@@ -478,4 +485,22 @@ svg g rect:hover{
 float: left;
 clear: both;
 width: 100%;
+}
+.poll-options::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 5px;
+    background-color: rgba(171,181,129,.8);
+    border: 0;
+}
+.poll-options::-webkit-scrollbar-thumb{
+background-color:#7f745b;
+border-radius:10px;
+}
+.poll-options::-webkit-scrollbar-thumb:hover{
+background-color:#42413f;
+border:1px solid #171717;
+}
+.poll-options::-webkit-scrollbar-thumb:active{
+background-color:#464646;
+border:1px solid #171717;
 }

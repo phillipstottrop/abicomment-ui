@@ -1,13 +1,12 @@
 <li class="poll border">
-<h3 >  {{poll.topic}}  </h3>
-{{#toggle-action on="startReload" off="stopReload"}}
-  <i class="icon eye"></i>
-{{/toggle-action}}
-{{#if-moderator}}
+<h3>  {{poll.topic}}
+
+{{#if-moderator class="inline-block"}}
   <a {{action 'open'}} class="action">
     <i class="delete comment icon"></i>
   </a>
 {{/if-moderator}}
+</h3>
 {{#unless poll.hasvoted}}
   <ul class="poll-options">
     {{#each poll.options as |option|}}
@@ -17,7 +16,13 @@
   </ul>
   {{/unless}}
   {{#if poll.hasvoted}}
+
+    {{#toggle-action on="startReload" off="stopReload"}}
+      <i class="icon eye"></i>
+    {{/toggle-action}}
+
     {{poll-chart options=poll.options}}
+
   {{/if}}
 </li>
 {{yield}}
