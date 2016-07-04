@@ -6,8 +6,8 @@ export default Ember.Component.extend({
   createable:function(){
     var topic=this.get("poll.topic");
 
-    return (topic && this.get("poll.options").length>1 && !this.get("saving"));
-  }.property("poll.topic","poll.options","saving"),
+    return (topic && this.get("poll.options.length")>1 && !this.get("saving"));
+  }.property("poll.topic","poll.options.length","saving"),
   fuzzyCompare(term1,term2){
     term1=term1.toLowerCase();
     term1=term1.replace("frau","");
@@ -37,7 +37,7 @@ export default Ember.Component.extend({
       var poll=this.get("poll");
       var store=this.get("store");
       if(title && poll){
-        var option= store.createRecord("option",{title:title});
+        var option= store.createRecord("option",{title:title,poll:poll});
         poll.get("options").pushObject(option);
       }
     },

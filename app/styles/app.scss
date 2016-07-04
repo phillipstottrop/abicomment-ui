@@ -316,6 +316,7 @@ button{
 
 
 .poll{
+  min-height: 460px;
   background-color: rgba(#c98f0e,.31);
   box-shadow: 0 0 5px 5px rgba(51,50,50,.28);
   text-align: center;
@@ -330,7 +331,7 @@ button{
   padding: 5px 0;
   }
 .poll-options{
-  max-height: 330px;
+  max-height: 340px;
   overflow-y: scroll;
   width: 100%;
   background-color: rgba(200, 208, 167, 0.47);
