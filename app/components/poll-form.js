@@ -93,17 +93,20 @@ export default Ember.Component.extend({
   allTeachers(){
     var poll=this.get("poll");
     var store=this.get("store");
-    var options=poll.get("options");
 
-    var names=options.map(function(o){
-      return o.get("title")
-    });
 
     var arr=[];
     var that=this;
     store.findAll("course").then(function(courses){
       courses.forEach(function(course){
 
+        var options=poll.get("options");
+
+        var names=options.map(function(o){
+          return o.get("title")
+        });
+
+        
         var teacher=course.get("teacher");
         //console.log(that.fuzzySearch(teacher,names));
         if(!that.fuzzySearch(teacher,names)){
