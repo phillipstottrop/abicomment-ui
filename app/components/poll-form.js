@@ -10,8 +10,14 @@ export default Ember.Component.extend({
   }.property("poll.topic","poll.options","saving"),
   fuzzyCompare(term1,term2){
     term1=term1.toLowerCase();
-    term2=term2.toLowerCase();
+    term1=term1.replace("frau","");
+    term1=term1.replace("herr","");
+    term1=term1.trim();
 
+    term2=term2.toLowerCase();
+    term2=term2.replace("frau","");
+    term2=term2.replace("herr","");
+    term2=term2.trim();
     return (term1===term2);
   },
   fuzzySearch(term,arr){
@@ -106,7 +112,7 @@ export default Ember.Component.extend({
           return o.get("title")
         });
 
-        
+
         var teacher=course.get("teacher");
         //console.log(that.fuzzySearch(teacher,names));
         if(!that.fuzzySearch(teacher,names)){
