@@ -12,7 +12,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   },
   actions:{
     showMore(){
-      var increment=10;
+      var increment=5;
       const total = this.controllerFor('polls').get('total');
       const limit = this.controllerFor('polls').get('limit');
       if(limit+increment <total){
