@@ -15,7 +15,7 @@ export default Ember.Component.extend({
     });
    return arr;
 
- }.property("options.@each"),
+ }.property("options.@each.voteamount"),
   lol:function(){
     console.log("observer");
   }.observes("options"),
