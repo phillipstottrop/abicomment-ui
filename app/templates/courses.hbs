@@ -1,5 +1,7 @@
 <div class="users">
+  {{#if-moderator}}
     {{quote-form create="createCourse" 1stph="Kursbezeichnung" 2ndph="Lehrer" buttonText="Hinzufügen" openText="Kurs hinzufügen" closeText="abbrechen"}}
+  {{/if-moderator}}
     {{course-listing courses=model transition="transition" selected=selected}}
 
 </div>
