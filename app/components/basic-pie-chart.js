@@ -54,8 +54,8 @@ export default Ember.Component.extend({
 this.update();
   },
   update(){
-
     var data =this.get("data").map(function(d){return d;});
+
     var chart=this.get("chart");
     var tooltip=this.get("tooltip");
     var arc=this.get("arc");
@@ -64,10 +64,14 @@ this.update();
     var colors=this.get("colors");
     var path = chart.datum(data).selectAll("path").data(pie);
 
+    //enter
     path.enter().append("path")
     .attr("fill", function(d, i) { return colors(i); })
     .attr("d", arc)
     .on("mouseover",function(d){
+      console.log(data);
+      console.log(d3.sum(data,function(o){return o.value;}));
+      console.log(Math.round(100*(d.data.value*100/d3.sum(data,function(o){return o.value;})))/100+"%)");
       tooltip.transition().duration(200)
       .style("opacity",0.9);
       tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/d3.sum(data,function(o){return o.value;})))/100+"%)")
@@ -80,9 +84,22 @@ this.update();
     })
     .each(function(d) { this._current = d; });
 
+    //update
+    path.on("mouseover",function(d){
+      tooltip.transition().duration(200)
+      .style("opacity",0.9);
+      tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/d3.sum(data,function(o){return o.value;})))/100+"%)")
+      .style("left",d3.event.pageX+10+"px")
+      .style("top",d3.event.pageY+"px");
+    })
+    .on("mouseout",function(){
+      tooltip.transition().duration(500)
+      .style("opacity",0);
+    })
+
     var that=this;
     path=path.data(pie);
-    path.transition().duration(750).attrTween('d',function(a){return that.get("arcTween")(a,that,this);});
+   path.transition().duration(750).attrTween('d',function(a){return that.get("arcTween")(a,that,this);});
   },
   arcTween : function(a,that,thot) {
     var arc = that.get("arc");
