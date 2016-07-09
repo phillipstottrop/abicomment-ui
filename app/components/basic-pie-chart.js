@@ -54,7 +54,9 @@ export default Ember.Component.extend({
 this.update();
   },
   update(){
-    var data =this.get("data").map(function(d){return d;});
+    var data =this.get("data").map(function(d){return d;}).sort(function(a,b){
+      return b.value-a.value;
+    });
 
     var chart=this.get("chart");
     var tooltip=this.get("tooltip");
