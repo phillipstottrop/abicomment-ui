@@ -5,8 +5,8 @@ export default Ember.Controller.extend({
   limit: 10,
 
   total: function(){
-    var total =this.get('model.meta').total || 20;
-    return total;
+        var total =this.get('model.meta.total') || 20;
+        return total;
   }.property('model.meta'),
 
   notShowingAll:function(){
