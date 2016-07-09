@@ -1,4 +1,11 @@
+<div class="second-header">
+  <div class="navbar">
+      {{#link-to 'anecdotes'}}Alle Anekdoten{{/link-to}}
+  </div>
+
+</div>
 <div class="users">
+
   {{#if-moderator}}
     {{quote-form create="createCourse" 1stph="Kursbezeichnung" 2ndph="Lehrer" buttonText="Hinzufügen" openText="Kurs hinzufügen" closeText="abbrechen"}}
   {{/if-moderator}}

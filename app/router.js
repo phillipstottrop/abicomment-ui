@@ -18,6 +18,7 @@ Router.map(function() {
     this.route('course',{path:":course_id"});
   });
   this.route('facts');
+  this.route('anecdotes');
 });
 
 export default Router;

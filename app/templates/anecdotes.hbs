@@ -1,0 +1,25 @@
+<div class="quotes">
+  <h3>Alle Anekdoten</h3>
+  <ul class="quote-listing">
+
+  {{#each model as |anecdote|}}
+  <hr class="border">
+  <li>
+
+      {{#link-to 'courses.course' anecdote.course.id}}  <h4 class="quoted">{{anecdote.course.name}} bei {{anecdote.course.teacher}}</h4> {{/link-to}}
+
+        <p class="quote-text">
+          {{anecdote.text}}
+        </p>
+
+      </li>
+  {{/each}}
+  {{#if notShowingAll}}
+    <button {{action "showMore"}}>Mehr laden</button>
+  {{/if}}
+  </ul>
+
+    {{outlet}}
+</div>
+
+{{outlet}}
