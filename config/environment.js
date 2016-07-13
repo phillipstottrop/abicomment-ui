@@ -30,7 +30,8 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.host="http://localhost:3000";
+    ENV.host="https://abicomment-api.herokuapp.com";
+    //ENV.host= 'http://localhost:3000';
     ENV.APP.API_HOST = 'http://localhost:3000';
 
     ENV['ember-simple-auth'] = {
