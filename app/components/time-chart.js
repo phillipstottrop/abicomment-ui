@@ -28,9 +28,12 @@ export default Ember.Component.extend({
   xScale:function(){
     var data=this.get("data");
     var width=this.get("width");
-
+    var lowest=d3.min(data,function(datum){return datum.time;});
+    var now=new Date();
+    var min = new Date().setDate( lowest.getDate()-1);
+    var max= new Date().setDate( now.getDate()+1);
     return d3.time.scale()
-            .domain([d3.min(data,function(datum){return datum.time;}),new Date()])
+            .domain([min, max])
             .range([0,width]);
   }.property("data","width"),
 
