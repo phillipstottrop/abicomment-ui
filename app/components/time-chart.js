@@ -114,8 +114,10 @@ export default Ember.Component.extend({
 
 
     chart.selectAll(".x.axis")
+    .transition()
   .call(  this.get("xAxis"));
     chart.selectAll(".y.axis")
+    .transition()
   .call(  this.get("yAxis"));
 
 
@@ -155,6 +157,7 @@ export default Ember.Component.extend({
     chartUpdate.exit()
       .transition().duration(500)
       .attr('height', 0)
+      .attr('y', height)
       .transition()
       .remove();
   },

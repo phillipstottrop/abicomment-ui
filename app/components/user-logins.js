@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   rawData:[],
+  selected:[],
   store: Ember.inject.service(),
   didInsertElement(){
     var that = this;
@@ -11,7 +12,7 @@ export default Ember.Component.extend({
   })
 },
   data:function(){
-    var raw=this.get("rawData");
+    var raw=this.get("selected");
     var arr=[];
     arr=raw.map(function(user){
       if(user.get("currentsigninat")){
@@ -35,5 +36,18 @@ export default Ember.Component.extend({
       console.log(arr);
   return  arr;
 
-  }.property("rawData")
+}.property("rawData","selected"),
+actions:{
+  setCurrentUsers(user){
+    console.log(user);
+    console.log(this.get("selected"));
+    this.set("selected",user);
+  },
+  addAllUsers(){
+    this.set("selected",this.get("rawData"));
+  },
+  removeAllUsers(){
+    this.set("selected",[]);
+  }
+}
 });
