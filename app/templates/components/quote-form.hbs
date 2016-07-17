@@ -5,7 +5,7 @@
     {{if openText openText 'verfassen'}}
   {{/if}}
 </button>
-{{#if showing}}
+{{#liquid-if showing}}
   <form class="comment form" >
 
     {{input  type="text" value=quoted placeholder=1stph}}
@@ -13,5 +13,5 @@
 
     <button type="submit" name="button" {{action "create" }} class={{if createable 'ok' 'disabled'}}>{{if buttonText buttonText 'verfassen'}}</button>
   </form>
-{{/if}}
+{{/liquid-if}}
 {{yield}}

@@ -1,24 +1,24 @@
 {{#unless noToggleShowing }}
-{{#if iconShow}}
-<a {{action 'toggleShowing'}} class="action">
-  <i class={{classes}}></i>
-</a>
-{{else}}
-<button type="button" class="toggleShowing" {{action "toggleShowing"}}>
+  {{#if iconShow}}
+    <a {{action 'toggleShowing'}} class="action">
+      <i class={{classes}}></i>
+    </a>
+    {{else}}
+    <button type="button" class="toggleShowing" {{action "toggleShowing"}}>
 
-  {{#if showing }}
-    {{if closeText closeText 'hide'}}
-  {{else}}
-    {{if openText openText 'Hinzufügen'}}
+      {{#if showing }}
+        {{if closeText closeText 'hide'}}
+      {{else}}
+        {{if openText openText 'Hinzufügen'}}
+      {{/if}}
+    </button>
   {{/if}}
-</button>
-{{/if}}
 {{/unless}}
-{{#if showing}}
+{{#liquid-if showing}}
   <form class="form" >
 
     {{input type="text" value=text placeholder=placeholder}}
     <button type="submit" class={{if createable 'ok' 'disabled'}} {{action "create"}} >{{if buttonText buttonText 'Senden'}}</button>
   </form>
-{{/if}}
+{{/liquid-if}}
 {{yield}}

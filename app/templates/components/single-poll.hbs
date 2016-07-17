@@ -7,15 +7,15 @@
   </a>
 {{/if-moderator}}
 </h3>
-{{#unless poll.hasvoted}}
+{{#liquid-unless poll.hasvoted}}
   <ul class="poll-options">
     {{#each poll.options as |option|}}
       {{single-option class="poll-option-container" option=option vote="vote" blur="blur"}}
     {{/each}}
 
   </ul>
-  {{/unless}}
-  {{#if poll.hasvoted}}
+  {{/liquid-unless}}
+  {{#liquid-if poll.hasvoted}}
 
     {{#toggle-action on="startReload" off="stopReload"}}
       <i class="icon eye"></i>
@@ -23,7 +23,7 @@
 
     {{poll-chart options=poll.options}}
 
-  {{/if}}
+  {{/liquid-if}}
 </li>
 {{yield}}
 
