@@ -71,11 +71,12 @@ this.update();
     .attr("fill", function(d, i) { return colors(i); })
     .attr("d", arc)
     .on("mouseover",function(d){
+      console.log(d3.event);
       tooltip.transition().duration(200)
       .style("opacity",0.9);
       tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/d3.sum(data,function(o){return o.value;})))/100+"%)")
-      .style("left",d3.event.pageX+10+"px")
-      .style("top",d3.event.pageY+"px");
+      .style("left",d3.event.layerX+20+"px")
+      .style("top",d3.event.layerY+"px");
     })
     .on("mouseout",function(){
       tooltip.transition().duration(500)
@@ -85,11 +86,12 @@ this.update();
 
     //update
     path.on("mouseover",function(d){
+      console.log(d3.event);
       tooltip.transition().duration(200)
       .style("opacity",0.9);
       tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/d3.sum(data,function(o){return o.value;})))/100+"%)")
-      .style("left",d3.event.pageX+10+"px")
-      .style("top",d3.event.pageY+"px");
+      .style("left",d3.event.layerX+20+"px")
+      .style("top",d3.event.layerY+"px");
     })
     .on("mouseout",function(){
       tooltip.transition().duration(500)
