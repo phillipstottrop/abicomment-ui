@@ -445,14 +445,14 @@ svg g rect:hover{
   -webkit-filter: blur(3px);
 }
 .responsive-container{
-
+  position: relative;
 	display: inline-block;
   max-width: 500px;
 	width: 70%;
 
 
 	vertical-align: middle;
-	overflow: hidden;
+	overflow: visible;
 
 }
 .responsive-svg {
