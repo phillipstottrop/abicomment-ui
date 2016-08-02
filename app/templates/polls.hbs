@@ -2,8 +2,11 @@
 {{#poll-listing polls=model createPoll="createPoll" createOption="createOption" voteForOption="voteForOption" blur="blurBackground"}}
 {{#if notShowingAll}}
 <div class="load-more-container">
+  <div class="element">
     <button class="load-more" {{action 'showMore'}}>Mehr laden</button>
+
   </div>
+</div>
 
 {{/if}}{{/poll-listing}}
  {{liquid-outlet}}

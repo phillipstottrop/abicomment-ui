@@ -2,7 +2,7 @@ div.users{
 text-align: center;
 padding: 10px;
 max-width: 500px;
-margin: 60px auto;
+margin: 0 auto;
 }
 .split{
   width: 50%;
@@ -66,6 +66,8 @@ li{
   margin: 5px 0 0 0;
   display: block;
   width: auto;
-
-
+}
+.users-container{
+  float: left;
+  width: 100%;
 }

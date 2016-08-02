@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   classes:function(){
-    if(!this.get("showing")){ return this.get("iconShow")+" icon moretop";}
-    else {return this.get("iconHide")+" icon moretop";}
+    if(!this.get("showing")){ return this.get("iconShow")+" icon";}
+    else {return this.get("iconHide")+" icon";}
   }.property("iconShow","iconHide","showing"),
   createable:function(){
     var text=this.get("text");

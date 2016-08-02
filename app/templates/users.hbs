@@ -1,7 +1,9 @@
-<div class="users">
+<div class="users-container">
 
-
-{{user-listing users=model transition="transition" selected=selected}}
-
-</div>
+  <div class="users">
+    <div class="element">
+      {{user-listing users=model transition="transition" selected=selected}}
+    </div>
+  </div>
 {{liquid-outlet}}
+</div>

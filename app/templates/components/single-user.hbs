@@ -1,5 +1,7 @@
 {{#if user.attendings }}
-  <h3>Kurse</h3>
+  <div class="element">
+
+  <h3 class="marginless">Kurse</h3>
   <ul>
     {{#each withNotes as |attending|}}
     {{#link-to 'courses.course' attending.course}}
@@ -13,12 +15,25 @@
     {{/link-to}}
     {{/each}}
   </ul>
+</div>
 
 {{/if}}
+{{#if comments}}
+<div class="element">
+
+<h3 class="marginless">Kommentare</h3>
 {{#unless currentUser}}
-{{simple-form create="create" placeholder="Kommentar" openText="kommentieren" }}
+{{simple-form create="create" placeholder="Kommentar" iconShow="plus" iconHide="minus" class="moretop"}}
 {{/unless}}
 {{comment-listing comments=comments blur="blur"}}
 
+</div>
+{{else}}
+{{#unless currentUser}}
+<div class="element">
+  {{simple-form create="create" placeholder="Kommentar" openText="Kommentar hinzufügen"}}
+</div>
+{{/unless}}
 
+{{/if}}
 {{yield}}

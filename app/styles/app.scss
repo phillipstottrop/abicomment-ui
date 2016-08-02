@@ -1,16 +1,16 @@
 @import "power-select-variables.scss";
 @import "ember-power-select";
 
-.ember-power-select-search input{
-  background-color: #2ce05c
-}
-.ember-power-select-option[aria-current="true"] {
-    background-color: #b1a60e;
-    color: #ffffff;
-}
-.ember-power-select-option[aria-selected="true"] {
-    background-color: #b6f29c;
-}
+// .ember-power-select-search input{
+// //  background-color: #2ce05c
+// }
+// .ember-power-select-option[aria-current="true"] {
+//     // background-color: #b1a60e;
+//     // color: #ffffff;
+// }
+// .ember-power-select-option[aria-selected="true"] {
+//     background-color: #b6f29c;
+// }
 .ember-power-select-options[role="listbox"]{
   height: 25vh;
   max-height: 300px;
@@ -19,29 +19,29 @@
 
 
 
-$primary-color:#76b852;
-$secondary-color:#8DC26F;
-$tertiary-color:#6aab4d;
-$quartenary-color:#c8d0a7;
-$primary-header-color:#5e9540;
-$secondary-header-color: #72a855;
+$primary-color:#bbb;
+$secondary-color:#b0a4a4;
+$tertiary-color:#ddd;
+$quartenary-color:#767772;
+$primary-header-color:#205ada;
+$secondary-header-color: #7196e8;
 
-$primary-font-color:#383838;
+$primary-font-color:#2a2929;
 $primary-header-font-color:white;
-$weak-font-color:#8e8b8b;
+$weak-font-color:#a4a0a0;
 
-$primary-border-color:#dee8d8;
+$primary-border-color:#cbd4c6;
 
 $primary-shadow-color:#333232;
 $secondary-shadow-color:#5a82d0;
-$active-link-border-color:#fccc8c;
+$active-link-border-color:#f2e9dc;
 
-$primary-button-color:#4CAF50;
-$primary-button-hover-color:#36993a;
+$primary-button-color:#3d3d94;
+$primary-button-hover-color:#000090;
 $disabled-button-color:#e24c4c;
 
 $primary-button-font:white;
-
+$primary-input-color:#f2f2f2;
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
 
