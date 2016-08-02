@@ -24,7 +24,12 @@ export default function(){
     this.use('toLeft'),
     this.reverse('toRight')
   );
-
+  this.transition(
+    this.fromRoute('anecdotes'),
+    this.toRoute(['facts']),
+    this.use('toLeft'),
+    this.reverse('toRight')
+  );
 
 
 
