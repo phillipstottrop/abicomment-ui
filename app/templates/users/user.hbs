@@ -4,9 +4,9 @@
     <h2 class="top">{{currentModel.forename}} {{currentModel.name}}</h2>
 
   </div>
-{{single-user create="createComment" user=currentModel comments=currentModel.comments blur="blurBackground"}}
+{{#single-user create="createComment" user=currentModel comments=currentModel.comments blur="blurBackground"}}
 {{#unless limitTooHigh}}<button type="button" {{action "loadMore"}}>Mehr laden</button> {{/unless}}
-
+{{/single-user}}
 {{outlet}}
 
 </div>
