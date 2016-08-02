@@ -18,25 +18,20 @@
 svg{
   /*background-color:#a1b4a2;*/
   border-radius: 10px;
-}
-svg g rect {
-  fill:steelblue;
+
+  path{
+    stroke:black;
+    transition: fill 400ms ,stroke-width 400ms;
+
+   }
+   path:hover{
+     fill:white;
+    stroke-width:5px;
+    stroke-alignment:inner;
+   }
+
 
 }
-svg g rect:hover{
-  fill:red;
-}
- svg path{
-   stroke:black;
-   transition: fill 400ms ,stroke-width 400ms;
-
-  }
-
- svg path:hover{
-   fill:white;
-  stroke-width:5px;
-  stroke-alignment:inner;
- }
 .tooltip{
   position: absolute;
   text-align: center;
