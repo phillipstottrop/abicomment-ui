@@ -10,11 +10,12 @@
   <div class="element">
     {{course-listing courses=model transition="transition" selected=selected}}
   </div>
-  <div class="element">
     {{#if-moderator}}
-      {{quote-form create="createCourse" 1stph="Kursbezeichnung" 2ndph="Lehrer" buttonText="Hinzufügen" iconShow="plus" iconHide="minus"}}
+      <div class="element">
+        {{quote-form create="createCourse" 1stph="Kursbezeichnung" 2ndph="Lehrer" buttonText="Hinzufügen" iconShow="plus" iconHide="minus"}}
+      </div>
     {{/if-moderator}}
-  </div>
+
 </div>
 
 

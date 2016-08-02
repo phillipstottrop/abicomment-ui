@@ -3,16 +3,17 @@
 <div class="element">
   <h2 class="marginless">Umfragen</h2>
 </div>
-<div class="element">
-  {{#if-moderator}}
-  {{#link-to 'poll-creator'}}
-    <a class="action">
-      <i class="plus icon"></i>
-    </a>
-  {{/link-to}}
 
+  {{#if-moderator}}
+    <div class="element">
+      {{#link-to 'poll-creator'}}
+        <a class="action">
+          <i class="plus icon"></i>
+        </a>
+      {{/link-to}}
+    </div>
   {{/if-moderator}}
-</div>
+
 <ul>
 {{#each sortedPolls as |poll|}}
 {{single-poll poll=poll vote="voteForOption" administratable=administratable blur="blur"}}
