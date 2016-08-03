@@ -13,3 +13,27 @@ border-radius: 5px;
 .marginless{
   margin:0;
 }
+.min-width{
+  width: auto !important;
+}
+.border{
+  border-color: $primary-border-color;
+  border-style: dotted;
+}
+.action{
+  cursor: pointer;
+}
+
+.active.action .icon{
+  box-shadow: 0 0 3px 3px $secondary-shadow-color;
+
+}
+.active.action{
+  padding: 2px;
+}
+
+.load-more-container{
+float: left;
+clear: both;
+width: 100%;
+}
