@@ -1,16 +1,16 @@
 @import "power-select-variables.scss";
 @import "ember-power-select";
 
-.ember-power-select-search input{
-  background-color: #2ce05c
-}
-.ember-power-select-option[aria-current="true"] {
-    background-color: #b1a60e;
-    color: #ffffff;
-}
-.ember-power-select-option[aria-selected="true"] {
-    background-color: #b6f29c;
-}
+// .ember-power-select-search input{
+// //  background-color: #2ce05c
+// }
+// .ember-power-select-option[aria-current="true"] {
+//     // background-color: #b1a60e;
+//     // color: #ffffff;
+// }
+// .ember-power-select-option[aria-selected="true"] {
+//     background-color: #b6f29c;
+// }
 .ember-power-select-options[role="listbox"]{
   height: 25vh;
   max-height: 300px;
@@ -19,29 +19,32 @@
 
 
 
-$primary-color:#76b852;
-$secondary-color:#8DC26F;
-$tertiary-color:#6aab4d;
-$quartenary-color:#c8d0a7;
-$primary-header-color:#5e9540;
-$secondary-header-color: #72a855;
+$primary-color:#bbb;
+$secondary-color:#b0a4a4;
+$tertiary-color:#ddd;
+//$quartenary-color:#767772;
+$quartenary-color:#59646d;
+$primary-header-color:indigo;
+$secondary-header-color: darkslateblue;
 
-$primary-font-color:#383838;
+$primary-font-color:#2a2929;
 $primary-header-font-color:white;
-$weak-font-color:#8e8b8b;
+$weak-font-color:#a4a0a0;
 
-$primary-border-color:#dee8d8;
+$primary-border-color:$primary-color;
 
 $primary-shadow-color:#333232;
 $secondary-shadow-color:#5a82d0;
-$active-link-border-color:#fccc8c;
+$active-link-border-color:#f2e9dc;
 
-$primary-button-color:#4CAF50;
-$primary-button-hover-color:#36993a;
+$primary-button-color:#020294;
+$primary-button-hover-color:#02025d;
 $disabled-button-color:#e24c4c;
 
 $primary-button-font:white;
+$primary-input-color:#f2f2f2;
 
+$positive-color:$secondary-header-color;
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
 
@@ -78,30 +81,8 @@ a{
   box-sizing: border-box;
 
 }
-.min-width{
-  width: auto !important;
-}
-.border{
-  border-color: $primary-border-color;
-  border-style: solid;
-}
-.action{
-  cursor: pointer;
-}
 
-.active.action .icon{
-  box-shadow: 0 0 3px 3px $secondary-shadow-color;
 
-}
-.active.action{
-  padding: 2px;
-}
-
-.load-more-container{
-float: left;
-clear: both;
-width: 100%;
-}
 @import "form-items.scss";
 @import "general.scss";
 @import "modal-dialog.scss";
@@ -114,3 +95,4 @@ width: 100%;
 @import "polls.scss";
 @import "courses.scss";
 @import "facts.scss";
+@import "mottos.scss";

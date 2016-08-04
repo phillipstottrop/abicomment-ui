@@ -1,57 +1,64 @@
 <div class="user course">
-  <h2 class="top">{{model.name}} bei {{model.teacher}}</h2>
-  {{#if-admin user=model.creator class="inline-block"}}
-    {{#delete-dialogue confirm="deleteCourse" param=model}}
-      <h3>Wirklich diesen Kurs löschen?</h3>
-   {{/delete-dialogue}}
-  {{/if-admin}}
-  <ul class="students">
-    {{#if model.isattending}}
-      {{!-- {{#confirm-button buttonText="austreten" confirm="leaveCourse"}}
-        <h3>Wirklich austreten?</h3>
-      {{/confirm-button}} --}}
-    {{else}}
-      {{#confirm-button buttonText="Beitreten" confirm="joinCourse"}}
-        <h3>Wirklich beitreten?</h3>
-        <div class="form" >
-                {{input value=note placeholder="Bemerkungen" enter=""}}
-              </div>
+  <div class="element">
+    <h2 class="top">{{model.name}} bei {{model.teacher}}</h2>
+    {{#if-admin user=model.creator class="inline-block"}}
+      {{#delete-dialogue confirm="deleteCourse" param=model}}
+        <h3>Wirklich diesen Kurs löschen?</h3>
+     {{/delete-dialogue}}
+    {{/if-admin}}
+  </div>
+  <div class="element">
+    <ul class="students">
+      <h3 class="marginless">Schüler im Kurs</h3>
 
-      {{/confirm-button}}
-    {{/if}}
+      {{#if model.isattending}}
+        {{!-- {{#confirm-button buttonText="austreten" confirm="leaveCourse"}}
+          <h3>Wirklich austreten?</h3>
+        {{/confirm-button}} --}}
+      {{else}}
+        {{#confirm-button buttonText="Beitreten" confirm="joinCourse" class="moretop"}}
+          <h3>Wirklich beitreten?</h3>
 
-    <h3>Schüler im Kurs</h3>
-    {{#each model.attendings as |attending|}}
+                  {{input value=note placeholder="Bemerkungen" enter=""}}
 
-      <li>
-        {{#link-to 'users.user' attending.user.id }}
-            {{attending.user.forename}} {{attending.user.name}}
-        {{/link-to}}
-      {{#if-admin user=attending.user class="inline-block"}}
-        {{#delete-dialogue confirm="leaveCourse" param=attending}}
-          <h3>Wirklich diesen Kurs verlassen?</h3>
-        {{/delete-dialogue}}
-      {{/if-admin}}
-      </li>
 
-    {{/each}}
-  </ul>
-  <ul class="anecdotes">
-    <h3>Anekdoten</h3>
-    {{simple-form placeholder="Text" buttonText="Speichern" create="createAnecdote"}}
+        {{/confirm-button}}
+      {{/if}}
 
-    {{#each model.anecdotes as |anecdote|}}
+      {{#each model.attendings as |attending|}}
 
-      <li>{{anecdote.text}}
-
-        {{#if-admin user=anecdote.user class="inline-block"}}
-          {{#delete-dialogue confirm="deleteAnecdote" param=anecdote}}
-            <h3>Wirklich diese Anekdote löschen?</h3>
+        <li>
+          {{#link-to 'users.user' attending.user.id }}
+              {{attending.user.forename}} {{attending.user.name}}
+          {{/link-to}}
+        {{#if-admin user=attending.user class="inline-block"}}
+          {{#delete-dialogue confirm="leaveCourse" param=attending}}
+            <h3>Wirklich diesen Kurs verlassen?</h3>
           {{/delete-dialogue}}
         {{/if-admin}}
-      </li>
-      <hr class="border">
-    {{/each}}
-  </ul>
+        </li>
+
+      {{/each}}
+    </ul>
+  </div>
+  <div class="element">
+    <ul class="anecdotes">
+      <h3 class="marginless">Anekdoten</h3>
+      {{simple-form placeholder="Text" buttonText="Speichern" create="createAnecdote" iconShow="plus" iconHide="minus"}}
+
+      {{#each model.anecdotes as |anecdote|}}
+        <hr class="border">
+        <li>{{anecdote.text}}
+
+          {{#if-admin user=anecdote.user class="inline-block"}}
+            {{#delete-dialogue confirm="deleteAnecdote" param=anecdote}}
+              <h3>Wirklich diese Anekdote löschen?</h3>
+            {{/delete-dialogue}}
+          {{/if-admin}}
+        </li>
+
+      {{/each}}
+    </ul>
+  </div>
 {{outlet}}
 </div>

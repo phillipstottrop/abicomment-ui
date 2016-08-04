@@ -10,4 +10,5 @@ export default Ember.Controller.extend({
 
     return this.get('model.comments.length') < this.get('limit');
   }.property('limit','model.comments.length'),
+  
 });

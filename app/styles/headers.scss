@@ -9,10 +9,13 @@
   background-color: $primary-header-color;
 
 }
+
 .header div,.second-header div{
   display: inline-block;
 }
 .second-header{
+width: calc(100% - 10px);
+margin: 0 5px 10px 5px;
 font-size: 25px;
 background-color: $secondary-header-color;
 }

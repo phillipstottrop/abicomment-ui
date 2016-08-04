@@ -1,9 +1,11 @@
+// Variables
+
 // Backgrounds
-$ember-power-select-background-color: #8ded66 !default;
+$ember-power-select-background-color: #ffffff !default;
 $ember-power-select-disabled-background-color: #eeeeee !default;
 $ember-power-select-multiple-selection-background-color: #e4e4e4 !default;
 $ember-power-select-highlighted-background: #5897fb !default;
-$ember-power-select-selected-background: #97f76f !default;
+$ember-power-select-selected-background: #dddddd !default;
 
 // Texts
 $ember-power-select-text-color: inherit !default;
@@ -54,6 +56,10 @@ $ember-power-select-clear-btn-margin: 25px !default;
 $ember-power-select-option-padding: 8px !default;
 $ember-power-select-number-of-visible-options: 7 !default;
 $ember-power-select-focus-outline: null !default;
-$ember-power-select-trigger-ltr-padding: 0 16px 0 8px !default;
-$ember-power-select-trigger-rtl-padding: 0 8px 0 16px !default;
+$ember-power-select-trigger-ltr-padding: 0 16px 0 0 !default;
+$ember-power-select-trigger-rtl-padding: 0 0 0 16px !default;
 $ember-power-select-multiple-option-padding: 0 4px !default;
+
+
+
+//------------------ Costum variables

@@ -3,13 +3,11 @@
 
 <div class="navbar">
   {{#link-to 'users'}}Nutzer{{/link-to}}
-  {{#if session.isAuthenticated}}
-    {{#link-to 'users.user' id}} Ich {{/link-to}}
-  {{/if}}
   {{#link-to 'quotes'}}Zitate{{/link-to}}
   {{#link-to 'polls'}}Umfragen{{/link-to}}
   {{#link-to 'courses'}}Kurse{{/link-to}}
   {{#link-to 'facts'}}Fakten{{/link-to}}
+  {{#link-to 'mottos'}}Mottos{{/link-to}}
 
 
 </div>

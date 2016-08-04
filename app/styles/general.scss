@@ -4,3 +4,45 @@
 .moretop{
   margin-top: 20px;
 }
+.element{
+background: $tertiary-color;
+margin: 10px;
+padding: 10px;
+border-radius: 5px;
+}
+.float-element{
+  background: $tertiary-color;
+    margin: 10px;
+    padding: 10px;
+    float: left;
+    box-sizing: border-box;
+    width: calc(100% - 20px);
+    border-radius: 5px;
+}
+.marginless{
+  margin:0;
+}
+.min-width{
+  width: auto !important;
+}
+.border{
+  border-color: $primary-border-color;
+  border-style: dotted;
+}
+.action{
+  cursor: pointer;
+}
+
+.active.action .icon{
+  box-shadow: 0 0 3px 3px $secondary-shadow-color;
+
+}
+.active.action{
+  padding: 2px;
+}
+
+.load-more-container{
+float: left;
+clear: both;
+width: 100%;
+}

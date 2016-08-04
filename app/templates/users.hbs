@@ -1,7 +1,14 @@
-<div class="users">
-
-
-{{user-listing users=model transition="transition" selected=selected}}
-
+<div class="second-header">
+  <div class="navbar">
+{{#link-to 'users.user' currentUserId}} Ich {{/link-to}}
+  </div>
 </div>
+<div class="users-container">
+
+  <div class="users">
+    <div class="element">
+      {{user-listing users=model transition="transition" selected=selected}}
+    </div>
+  </div>
 {{liquid-outlet}}
+</div>

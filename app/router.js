@@ -19,6 +19,7 @@ Router.map(function() {
   });
   this.route('facts');
   this.route('anecdotes');
+  this.route('mottos');
 });
 
 export default Router;
