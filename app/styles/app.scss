@@ -43,6 +43,8 @@ $disabled-button-color:#e24c4c;
 
 $primary-button-font:white;
 $primary-input-color:#f2f2f2;
+
+$positive-color:$secondary-header-color;
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
 
@@ -93,3 +95,4 @@ a{
 @import "polls.scss";
 @import "courses.scss";
 @import "facts.scss";
+@import "mottos.scss";
