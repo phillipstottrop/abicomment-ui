@@ -1,0 +1,20 @@
+{{#if allUsers}}
+{{#power-select-multiple
+      options=allUsers
+      selected=selected
+      searchField="fullname"
+      placeholder="Select a user"
+      onchange=(action 'setCurrentUsers' )
+      as |user|
+    }}
+      {{user.fullname}}
+    {{/power-select-multiple}}
+  <button {{action "addAllUsers"}}>Alle ansehen</button>
+  <button {{action "removeAllUsers"}}>Niemanden ansehen</button>
+{{/if}}
+{{yield}}
+
+<button {{action "toggleShowing"}}>Show</button>
+{{#if showing}}
+{{force-chart data=graph}}
+{{/if}}

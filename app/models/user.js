@@ -9,7 +9,7 @@ export default DS.Model.extend({
   signincount:DS.attr('number'),
   status:DS.attr('string'),
   comments: DS.hasMany('comment',{inverse:"user"}),
-  commentsWritten: DS.hasMany('comment',{inverse:"commentor"}),
+  commentswritten: DS.hasMany('comment',{inverse:"commentor"}),
   quotes: DS.hasMany('quote'),
   attendings: DS.hasMany('attendings'),
   anecdotes: DS.hasMany('anecdote'),

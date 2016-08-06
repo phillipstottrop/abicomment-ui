@@ -138,8 +138,8 @@ export default Ember.Component.extend({
         tooltip.html(
           d.fullname+", id: "+d.id+", sign ins: "+d.value+", time:"+d3.time.format("%X")(d.time)
         )
-        .style("left",d3.event.pageX+10+"px")
-        .style("top",d3.event.pageY+"px");
+        .style("left",d3.event.layerX+20+"px")
+        .style("top",d3.event.layerY+"px");
       })
       .on("mouseout",function(){
         tooltip.transition().duration(500)
