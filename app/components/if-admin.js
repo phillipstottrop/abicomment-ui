@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   session: Ember.inject.service('session'),
   admin:function(){
 
-    var id=this.get("user").get('id') || -1;
+    var id=this.get("user.id") || -1;
     return (this.getResponseJSON().status === "admin" || this.getResponseJSON().id.toString()===id );
   }.property("session","user"),
   getResponseJSON(){
