@@ -1,11 +1,20 @@
-<button type="button" class="toggleShowing" {{action "toggleShowing"}}>
-  {{#if showing }}
-    {{if closeText closeText 'hide'}}
-  {{else}}
-    {{if openText openText 'verfassen'}}
+{{#unless noToggleShowing }}
+  {{#if iconShow}}
+    <a {{action 'toggleShowing'}} class="action">
+      <i class={{classes}}></i>
+    </a>
+    {{else}}
+    <button type="button" class="toggleShowing" {{action "toggleShowing"}}>
+
+      {{#if showing }}
+        {{if closeText closeText 'hide'}}
+      {{else}}
+        {{if openText openText 'Hinzufügen'}}
+      {{/if}}
+    </button>
   {{/if}}
-</button>
-{{#if showing}}
+{{/unless}}
+{{#liquid-if showing}}
   <form class="comment form" >
 
     {{input  type="text" value=quoted placeholder=1stph}}
@@ -13,5 +22,5 @@
 
     <button type="submit" name="button" {{action "create" }} class={{if createable 'ok' 'disabled'}}>{{if buttonText buttonText 'verfassen'}}</button>
   </form>
-{{/if}}
+{{/liquid-if}}
 {{yield}}

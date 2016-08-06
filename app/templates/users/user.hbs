@@ -1,8 +1,13 @@
+{{#liquid-bind model use="toLeft" class="user-model-bind" as |currentModel|}}
 <div class="user">
-<h2 class="top">{{model.forename}} {{model.name}}</h2>
-{{single-user create="createComment" user=model comments=model.comments blur="blurBackground"}}
-{{#unless limitTooHigh}}<button type="button" {{action "loadMore"}}>Mehr laden</button> {{/unless}}
+  <div class="user-name-container element">
+    <h2 class="top">{{currentModel.fullname}}</h2>
 
+  </div>
+{{#single-user create="createComment" user=currentModel comments=currentModel.comments blur="blurBackground"}}
+{{#unless limitTooHigh}}<button type="button" {{action "loadMore"}}>Mehr laden</button> {{/unless}}
+{{/single-user}}
 {{outlet}}
 
 </div>
+{{/liquid-bind}}

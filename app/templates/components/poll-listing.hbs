@@ -1,9 +1,19 @@
 
-{{#if-moderator}}
-{{#link-to 'poll-creator'}}Umfrage erstellen{{/link-to}}
 
-{{/if-moderator}}
-<h2>Umfragen</h2>
+<div class="element">
+  <h2 class="marginless">Umfragen</h2>
+</div>
+
+  {{#if-moderator}}
+    <div class="element">
+      {{#link-to 'poll-creator'}}
+        <a class="action">
+          <i class="plus icon"></i>
+        </a>
+      {{/link-to}}
+    </div>
+  {{/if-moderator}}
+
 <ul>
 {{#each sortedPolls as |poll|}}
 {{single-poll poll=poll vote="voteForOption" administratable=administratable blur="blur"}}

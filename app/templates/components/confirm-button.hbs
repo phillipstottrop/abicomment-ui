@@ -1,6 +1,5 @@
-<form class="form">
   <button type="button" name="button" class="min-width" {{action "open"}}>{{buttonText}}</button>
-</form>
+
 {{#if showingModal}}
 {{#modal-dialog close="close" clickOutsideToClose=true}}
 {{yield}}

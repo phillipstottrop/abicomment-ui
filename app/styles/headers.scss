@@ -1,0 +1,48 @@
+.header,.second-header {
+  font-weight: bolder;
+  font-size: 30px;
+  text-align: center;
+  float: left;
+  width: 100%;
+  color: $primary-header-font-color;
+  box-sizing: border-box;
+  background-color: $primary-header-color;
+
+}
+
+.header div,.second-header div{
+  display: inline-block;
+}
+.second-header{
+width: calc(100% - 10px);
+margin: 0 5px 10px 5px;
+font-size: 25px;
+background-color: $secondary-header-color;
+}
+.navbar{
+  float: left;
+}
+.navbar a{
+  display: inline-block;
+  float: left;
+  margin: 10px 2vw;
+  border-bottom: 3px solid rgba(255, 255, 255, 0);
+}
+.navbar a.active{
+  border-bottom: 3px solid $active-link-border-color;
+  border-radius: 3px;
+}
+.login a.active{
+
+  border-bottom: 3px solid $active-link-border-color;
+  border-radius: 3px;
+}
+.login{
+  display: inline-block;
+  margin: 10px ;
+  float: right;
+  cursor: pointer;
+}
+.login a{
+  margin: 10px 20px 10px 20px;
+}

@@ -4,15 +4,23 @@
   </div>
 
 </div>
-<div class="users">
+<div class="users-container">
 
-  {{#if-moderator}}
-    {{quote-form create="createCourse" 1stph="Kursbezeichnung" 2ndph="Lehrer" buttonText="Hinzufügen" openText="Kurs hinzufügen" closeText="abbrechen"}}
-  {{/if-moderator}}
+<div class="users">
+  <div class="element">
     {{course-listing courses=model transition="transition" selected=selected}}
+  </div>
+    {{#if-moderator}}
+      <div class="element">
+        {{quote-form create="createCourse" 1stph="Kursbezeichnung" 2ndph="Lehrer" buttonText="Hinzufügen" iconShow="plus" iconHide="minus"}}
+      </div>
+    {{/if-moderator}}
 
 </div>
 
 
 
-{{outlet}}
+
+
+ {{liquid-outlet}}
+</div>

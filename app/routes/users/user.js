@@ -10,6 +10,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
     return this.store.findRecord("user",params.user_id,{ adapterOptions: { query: {limit:params.limit} } });
   },
+
   actions:{
     loadMore(){
       var increment=10;

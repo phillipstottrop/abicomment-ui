@@ -5,6 +5,10 @@ export default Ember.Component.extend({
   getResponseJSON(){
     return this.get("session.data").authenticated.responseJSON;
   },
+  classes:function(){
+    if(!this.get("showing")){ return this.get("iconShow")+" icon";}
+    else {return this.get("iconHide")+" icon";}
+  }.property("iconShow","iconHide","showing"),
   showing:false,
   createable:function(){
     var text=this.get("text");

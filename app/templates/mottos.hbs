@@ -1,0 +1,25 @@
+<div class="mottos">
+  <div class="element">
+    <h2 class="marginless">Mottos</h2>
+  </div>
+
+  <div class="element">
+    {{simple-form placeholder="Motto" buttonText="Motto vorschlagen" create="createMotto" iconShow="plus" iconHide="minus"}}
+  </div>
+
+  <div class="float-element">
+
+    <ul class="motto-list">
+      {{#each orderedMottos as |motto|}}
+        {{single-motto motto=motto delete="deleteMotto" voteFor="voteFor"}}
+      {{/each}}
+    </ul>
+    {{#if notShowingAll}}
+    <button {{action "showMore"}}>Mehr laden</button>
+      {{/if}}
+  </div>
+
+
+</div>
+
+{{outlet}}

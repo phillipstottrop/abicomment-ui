@@ -1,10 +1,17 @@
 <div class="quotes">
-{{quote-form create="createQuote" 1stph="Wer?" 2ndph="Zitat"}}
-<h2>Zitate</h2>
-{{#quote-listing quotes=model blur="blurBackground"}}
-{{#if notShowingAll}}
-  <button {{action 'showMore'}}>Mehr laden</button>
-{{/if}}
-{{/quote-listing}}
-{{outlet}}
+  <div class="element">
+    <h2 class="marginless">Zitate</h2>
+  </div>
+  <div class="element">
+    {{quote-form create="createQuote" 1stph="Wer?" 2ndph="Zitat" iconShow="plus" iconHide="minus" }}
+  </div>
+  <div class="element">
+
+    {{#quote-listing quotes=model blur="blurBackground"}}
+    {{#if notShowingAll}}
+      <button {{action 'showMore'}}>Mehr laden</button>
+    {{/if}}
+    {{/quote-listing}}
+    {{liquid-outlet}}
+  </div>
 </div>

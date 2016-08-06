@@ -1,0 +1,73 @@
+div.users{
+text-align: center;
+padding: 10px;
+max-width: 500px;
+margin: 0 auto;
+}
+.split{
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  float: left;
+  box-sizing: border-box;
+  vertical-align:top;
+  box-sizing: border-box;
+
+}
+div.user{
+text-align: center;
+color: inherit;
+box-sizing: border-box;
+margin: auto;
+width: 100%;
+}
+.top{
+  margin: 0 auto auto auto;
+}
+ul {
+  padding: 0;
+  list-style: none;
+}
+ul.comments{
+  padding: 5px 0 5px 0;
+  margin: 20px 0;
+
+}
+ul.users{
+  margin: 0;
+  padding: 2px 0 2px 0;
+  width: 100%;
+}
+ul.users li{
+box-sizing: border-box;
+margin: 2px 0 2px 0;
+
+
+}
+ul.users a{
+  vertical-align:top;
+  display: inline-block;
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+  padding: 5px;
+}
+ul.users a.active{
+background-color: $tertiary-color;
+
+
+}
+li{
+  display: block;
+  margin: 5px 0 0 0;
+}
+.comments li{
+  margin: 5px 0 0 0;
+  display: block;
+  width: auto;
+}
+.users-container{
+  float: left;
+  width: 100%;
+}

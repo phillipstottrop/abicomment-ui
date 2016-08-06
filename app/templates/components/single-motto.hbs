@@ -1,0 +1,29 @@
+<hr class="border">
+<li class="single-motto">
+  <p class="motto-votes marginless">
+  {{motto.upvotes}}  👍:
+  </p>
+  {{#unless motto.hasupvoted}}
+  <span class="motto-upvote marginless">
+    <a class="action" {{action "voteFor" motto}}>
+      👍
+    </a>
+  </span>
+  {{/unless}}
+  <p class="motto-text marginless {{if motto.hasupvoted 'upvoted' ''}}">
+    {{motto.text}}
+  </p>
+
+
+  {{#if-moderator user=motto.user}}
+  <p class="motto-delete marginless">
+    {{#delete-dialogue confirm="deleteMotto"}}
+      <h3> Wirklich das Motto " {{motto.text}}" löschen? </h3>
+    {{/delete-dialogue}}
+  </p>
+  {{/if-moderator}}
+  <p class="motto-user marginless">
+     von {{motto.user.fullname}}
+  </p>
+{{yield}}
+</li>

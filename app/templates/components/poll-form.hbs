@@ -11,12 +11,12 @@
 </a>
 </li>
 {{/each}}
-
+</ul>
 {{simple-form placeholder="Auswahlmöglichkeit" buttonText="Möglichkeit Hinzufügen" iconShow="plus" iconHide="minus" create="createOption" showing=true noToggleShowing=true}}
 <button type="button" {{action "allUsers"}}>Alle Nutzer als Möglichkeit</button>
 <button type="button" {{action "allCourses"}}>Alle Kurse als Möglichkeit</button>
 <button type="button" {{action "allTeachers"}}>Alle Lehrer als Möglichkeit</button>
 <button type="button" {{action "removeAll"}}>Alle Möglichkeiten entfernen</button>
 <button type="submit" class={{if createable 'ok' 'disabled'}} {{action "savePoll"}}>Speichern</button>
-</ul>
+
 </form>

@@ -3,9 +3,6 @@
 
 <div class="navbar">
   {{#link-to 'users'}}Nutzer{{/link-to}}
-  {{#if session.isAuthenticated}}
-    {{#link-to 'users.user' id}} Ich {{/link-to}}
-  {{/if}}
   {{#link-to 'quotes'}}Zitate{{/link-to}}
   {{#link-to 'polls'}}Umfragen{{/link-to}}
   {{#link-to 'courses'}}Kurse{{/link-to}}
@@ -15,6 +12,10 @@
     {{#link-to 'stats'}} Statistiken {{/link-to}}
   {{/if-admin}}
 {{/if}}
+  {{#link-to 'mottos'}}Mottos{{/link-to}}
+
+
+>>>>>>> master
 </div>
 
 
@@ -33,5 +34,5 @@
 
 <div class="maincontent {{if blur 'blur-background' ''}}">
     {{!-- <button type="button" name="button" {{action "debugSession"}}>bla </button> --}}
- {{outlet}}
+ {{liquid-outlet}}
 </div>
