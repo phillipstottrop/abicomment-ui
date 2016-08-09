@@ -5,7 +5,6 @@ store:Ember.inject.service(),
 allUsers:[],
 directComments:[],
 indirectUsers:[],
-showing:false,
 didInsertElement(){
   var store=this.get("store");
   var that= this;
@@ -17,13 +16,14 @@ relevantUsers:function(){
   var rev = [];
   var selected = this.get("selected") || [];
   var indirectUsers=this.get("indirectUsers");
+  console.log(indirectUsers);
   var that = this;
   selected.forEach(function(user){
     rev.push(user);
   });
   indirectUsers.forEach(function(user){
     var contains = that.arrayContainsUser(rev,user);
-    console.log(contains);
+
     if(!contains){
       rev.push(user);
     }
@@ -33,12 +33,15 @@ relevantUsers:function(){
 updateIndirectUsers:function(){
   var directComments=this.get("directComments");
   var that = this;
+  that.set("indirectUsers",[]);
   directComments.forEach(function(comment){
     comment.get("user").then(function(user){
+      if(user){
       var users = that.get("indirectUsers");
       var _users = users.copy();
       _users.push(user);
       that.set("indirectUsers",_users);
+    }
     });
   })
 }.observes("directComments.@each"),
@@ -48,16 +51,14 @@ updateDirectComments:function(){
   var that = this;
 
   selected.forEach(function(user){
-    console.log("adding commentswritten");
     user.get("commentswritten").then(function(comments){
       comments.forEach(function(comment){
-        console.log("adding: "+comment.get("text"));
-
+        if(comment.get("user.id") && comment.get("commentor.id")){
         var directComments=that.get("directComments");
         var directs = directComments.copy();
         directs.push(comment);
         that.set("directComments",directs);
-
+      }
       });
     });
   });
@@ -65,7 +66,6 @@ updateDirectComments:function(){
 arrayContainsUser:function(arr,u){
   var temp = false;
   arr.forEach(function(item){
-    console.log("item id: "+item.id+" user id: "+ u.get('id'));
     if(item.get("id")==u.get("id")){
       console.log("huh?");
       temp= true;
@@ -86,30 +86,64 @@ var that= this;
       id:user.get("id"),
       name:user.get("fullname"),
       index:i,
+      connections:0,
     };
     i++;
     return node;
   });
-  links=directComments.map(function(comment){
+  directComments.forEach(function(comment){
+    var source = that.getIndexOfUserID(comment.get("commentor.id"),nodes);
+    var target = that.getIndexOfUserID(comment.get("user.id"),nodes);
+    var _comment = {
+        id:comment.get("id"),
+        text:comment.get("text")
+      };
+    var sameLink = that.getSameLink(source,target,links);
+  //  console.log(sameLink);
+    if(sameLink != null){
+      console.log("pushed same link");
+      sameLink.comments.push(comment);
+    }else {
+
+
     var link={
-      id:comment.get("id"),
-      text:comment.get("text"),
-      source:that.getIndexOfUserID(comment.get("commentor.id"),nodes),
-      target:that.getIndexOfUserID(comment.get("user.id"),nodes)
+      comments:[_comment],
+      source:source,
+      target:target
     }
-    console.log(link);
-    return link;
+    links.push(link);
+  }
+
+    //that.addConnectionToIdInNodes(comment.get("commentor.id"),nodes);
+
   });
 
 
 
 
-  console.log(nodes);
+//  console.log(nodes);
   _graph.nodes=nodes;
   _graph.links=links;
   console.log(_graph);
   return _graph;
 }.property("directComments","relevantUsers"),
+addConnectionToIdInNodes(id,nodes){
+  nodes[this.getIndexOfUserID(id,nodes)].connections++;
+},
+getSameLink(source,target,links){
+
+  var _link = null;
+  links.forEach(function(link){
+    // console.log(source +":"+link.source);
+    // console.log(target +":"+link.target);
+    // console.log("....");
+
+    if(link.source==source && link.target==target){
+      _link=link;
+    }
+  });
+  return _link;
+},
 getIndexOfUserID:function(id,arr){
   var index = -1;
   arr.forEach(function(item){
@@ -124,8 +158,8 @@ getIndexOfUserID:function(id,arr){
 },
 actions:{
   setCurrentUsers(user){
-    console.log(user);
-    console.log(this.get("selected"));
+    // console.log(user);
+    // console.log(this.get("selected"));
     this.set("selected",user);
   },
   addAllUsers(){
@@ -134,8 +168,6 @@ actions:{
   removeAllUsers(){
     this.set("selected",[]);
   },
-  toggleShowing(){
-    this.set("showing", this.get("showing") ? false:true);
-  }
+
 }
 });
