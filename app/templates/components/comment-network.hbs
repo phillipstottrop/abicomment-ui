@@ -13,6 +13,9 @@
   <button {{action "removeAllUsers"}}>Niemanden ansehen</button>
 {{/if}}
 {{yield}}
-
-
-{{force-chart data=graph}}
+{{input type="range" min=-300 max=300 value=charge}}
+{{input type="range" min=0 max=300 value=linkDistance}}
+{{!-- {{input type="number" value=width placeholder="width"}} --}}
+{{!-- {{input type="number" value=height placeholder="height"}} --}}
+{{force-chart dblclick="showNodeInfo" data=graph charge=charge linkDistance=linkDistance class="force-chart-container"}}
+{{show-node id=showNodeId}}

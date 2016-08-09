@@ -5,77 +5,85 @@ store:Ember.inject.service(),
 allUsers:[],
 directComments:[],
 indirectUsers:[],
+selected:[],
+charge:-120,
+linkDistance:50,
+width:2000,
+height:2000,
+showNodeId:-1,
 didInsertElement(){
   var store=this.get("store");
   var that= this;
   store.findAll("user").then(function(users){
-    that.set("allUsers",users);
+    store.query("comment",{limit:5000}).then(function(){
+      that.set("allUsers",users);
+    });
   })
 },
-relevantUsers:function(){
-  var rev = [];
-  var selected = this.get("selected") || [];
-  var indirectUsers=this.get("indirectUsers");
-  console.log(indirectUsers);
-  var that = this;
-  selected.forEach(function(user){
-    rev.push(user);
-  });
-  indirectUsers.forEach(function(user){
-    var contains = that.arrayContainsUser(rev,user);
-
-    if(!contains){
-      rev.push(user);
-    }
-  });
-  return rev;
-}.property("selected","indirectUsers.@each"),
-updateIndirectUsers:function(){
-  var directComments=this.get("directComments");
-  var that = this;
-  that.set("indirectUsers",[]);
-  directComments.forEach(function(comment){
-    comment.get("user").then(function(user){
-      if(user){
-      var users = that.get("indirectUsers");
-      var _users = users.copy();
-      _users.push(user);
-      that.set("indirectUsers",_users);
-    }
-    });
-  })
-}.observes("directComments.@each"),
-updateDirectComments:function(){
-  this.set("directComments",[]);
-  var selected=this.get("selected");
-  var that = this;
-
-  selected.forEach(function(user){
-    user.get("commentswritten").then(function(comments){
-      comments.forEach(function(comment){
-        if(comment.get("user.id") && comment.get("commentor.id")){
-        var directComments=that.get("directComments");
-        var directs = directComments.copy();
-        directs.push(comment);
-        that.set("directComments",directs);
-      }
-      });
-    });
-  });
-}.observes("selected"),
+// relevantUsers:function(){
+//   var rev = [];
+//   var selected = this.get("selected") || [];
+//   var indirectUsers=this.get("indirectUsers");
+//   console.log(indirectUsers);
+//   var that = this;
+//   selected.forEach(function(user){
+//     rev.push(user);
+//   });
+//   indirectUsers.forEach(function(user){
+//     var contains = that.arrayContainsUser(rev,user);
+//
+//     if(!contains){
+//       rev.push(user);
+//     }
+//   });
+//   return rev;
+// }.property("selected","indirectUsers.@each"),
+// updateIndirectUsers:function(){
+//   var directComments=this.get("directComments");
+//   var that = this;
+//   that.set("indirectUsers",[]);
+//   directComments.forEach(function(comment){
+//     comment.get("user").then(function(user){
+//       if(user){
+//       var users = that.get("indirectUsers");
+//       var _users = users.copy();
+//       _users.push(user);
+//       that.set("indirectUsers",_users);
+//     }
+//     });
+//   })
+// }.observes("directComments.@each"),
+// updateDirectComments:function(){
+//   this.set("directComments",[]);
+//   var selected=this.get("selected");
+//   var that = this;
+//
+//   selected.forEach(function(user){
+//     user.get("commentswritten").then(function(comments){
+//       comments.forEach(function(comment){
+//         if(comment.get("user.id") && comment.get("commentor.id")){
+//         var directComments=that.get("directComments");
+//         var directs = directComments.copy();
+//         directs.push(comment);
+//         that.set("directComments",directs);
+//       }
+//       });
+//     });
+//   });
+// }.observes("selected"),
 arrayContainsUser:function(arr,u){
   var temp = false;
   arr.forEach(function(item){
     if(item.get("id")==u.get("id")){
-      console.log("huh?");
+      // console.log("huh?");
       temp= true;
     }
   });
   return temp;
 },
 graph:function(){
-var directComments=this.get("directComments");
-var relevantUsers=this.get("relevantUsers");
+var directComments=this.get("data.directComments");
+var relevantUsers=this.get("data.relevantUsers");
 var _graph = {};
 var nodes=[];
 var links=[];
@@ -87,6 +95,7 @@ var that= this;
       name:user.get("fullname"),
       index:i,
       connections:0,
+      status:user.get("status")
     };
     i++;
     return node;
@@ -96,13 +105,15 @@ var that= this;
     var target = that.getIndexOfUserID(comment.get("user.id"),nodes);
     var _comment = {
         id:comment.get("id"),
-        text:comment.get("text")
+        text:comment.get("text"),
+        source:comment.get("commentor.fullname"),
+        target:comment.get("user.fullname")
       };
     var sameLink = that.getSameLink(source,target,links);
   //  console.log(sameLink);
     if(sameLink != null){
-      console.log("pushed same link");
-      sameLink.comments.push(comment);
+      // console.log("pushed same link");
+      sameLink.comments.push(_comment);
     }else {
 
 
@@ -114,7 +125,7 @@ var that= this;
     links.push(link);
   }
 
-    //that.addConnectionToIdInNodes(comment.get("commentor.id"),nodes);
+    that.addConnectionToIdInNodes(comment.get("commentor.id"),nodes);
 
   });
 
@@ -126,7 +137,7 @@ var that= this;
   _graph.links=links;
   console.log(_graph);
   return _graph;
-}.property("directComments","relevantUsers"),
+}.property("data.directComments","data.relevantUsers"),
 addConnectionToIdInNodes(id,nodes){
   nodes[this.getIndexOfUserID(id,nodes)].connections++;
 },
@@ -138,7 +149,7 @@ getSameLink(source,target,links){
     // console.log(target +":"+link.target);
     // console.log("....");
 
-    if(link.source==source && link.target==target){
+    if((link.source==source && link.target==target) || (link.source==target && link.target==source)){
       _link=link;
     }
   });
@@ -156,10 +167,42 @@ getIndexOfUserID:function(id,arr){
   }
   return index;
 },
+data:function(){
+  var selected=this.get("selected");
+ var directComments=[];
+ var relevantUsers=[];
+ var that=this;
+ selected.forEach(function(user){
+   relevantUsers.push(user);
+    user.get("commentswritten").forEach(function (comment){
+      if(comment.get("user.id") && comment.get("commentor.id")){
+        directComments.push(comment);
+      }
+
+    });
+ });
+    console.log("directComments");
+    console.log(directComments);
+
+  directComments.forEach(function(comment){
+    var receiver=comment.get("user");
+    if(!that.arrayContainsUser(relevantUsers,receiver)){
+      relevantUsers.push(receiver);
+    }
+  });
+
+  console.log("relevantUsers");
+  console.log(relevantUsers);
+
+  return {
+    relevantUsers:relevantUsers,
+    directComments:directComments
+  };
+
+}.property("selected"),
 actions:{
   setCurrentUsers(user){
-    // console.log(user);
-    // console.log(this.get("selected"));
+
     this.set("selected",user);
   },
   addAllUsers(){
@@ -168,6 +211,9 @@ actions:{
   removeAllUsers(){
     this.set("selected",[]);
   },
-
+  showNodeInfo(d){
+    console.log(d);
+    this.set("showNodeId",d.id);
+  },
 }
 });

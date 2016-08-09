@@ -81,6 +81,19 @@ svg g rect:hover{
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
 .link{
   stroke:black;
+}
+.node{
+  stroke:black;
+}
+.node.normal{
+  fill:steelblue;
+}
+.node.moderator{
+  fill:red;
+}
+.node.admin{
+  fill:yellow;
 }

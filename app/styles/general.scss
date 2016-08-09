@@ -25,6 +25,9 @@ border-radius: 5px;
 .min-width{
   width: auto !important;
 }
+.max-width{
+  width: 100%;
+}
 .border{
   border-color: $primary-border-color;
   border-style: dotted;
