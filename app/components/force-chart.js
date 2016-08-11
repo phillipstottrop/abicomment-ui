@@ -12,6 +12,8 @@ export default Ember.Component.extend({
   linkedByIndex:{},
   charge:-120,
   linkDistance:100,
+  threshold:0,
+  highlighted:[],
   didInsertElement(){
     var data=this.get("data");
     var svg = d3.select(this.$().get(0)).append('svg');
@@ -20,13 +22,28 @@ export default Ember.Component.extend({
     .scaleExtent([1, 10])
     .on("zoom",zoomed);
 
-
+    svg.append("defs").selectAll("marker")
+        .data(["suit", "licensing", "resolved"])
+      .enter().append("marker")
+        .attr("id", function(d) { return d; })
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 25)
+        .attr("refY", 0)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto")
+      .append("path")
+        .attr("d", "M0,-5L10,0L0,5 L10,0 L0, -5")
+        .style("stroke", "black")
+        .style("opacity", "1");
     svg = svg.attr('viewBox', '0 0 '+this.get("width")+" "+this.get("height"))
     //.attr('width', this.get("outerWidth"))
     .attr('class', 'responsive-svg')
     .attr('preserveAspectRatio', 'xMinYMin meet')
     .append("g").call(zoom)
     .on("dblclick.zoom", null);
+
+    //rect for zoom registration
     var rect = svg.append("rect")
     .attr("width", this.get("width"))
     .attr("height", this.get("height"))
@@ -34,13 +51,18 @@ export default Ember.Component.extend({
     .style("pointer-events", "all");
 
     var container = svg.append('g');
+
     var tooltip=d3.select(this.$().get(0)).append('div')
         .attr('class', 'tooltip')
         .style("opacity",0);
     var force = d3.layout.force()
         .charge(this.get("charge"))
         .linkDistance(this.get("linkDistance"))
-        .size([this.get("width"),this.get("height")]);
+        .gravity(this.get("gravity")/100)
+        .size([this.get("width"),this.get("height")])
+        .nodes(this.get("data.nodes"))
+        .links(this.get("data.links"))
+        .start();
 
 
       console.log(data);
@@ -62,8 +84,14 @@ export default Ember.Component.extend({
     var tooltip=this.get("tooltip");
     var nodes = this.get("data.nodes");
     var links= this.get("data.links");
+    var threshold=this.get("threshold")
     var that=this;
-
+    console.log(threshold);
+    console.log(links);
+    var filteredLinks=links.filter(function(link){
+      return link.comments.length >= threshold;
+    });
+    console.log(filteredLinks);
     //prepare Node drag for pinning
     // var node_drag = d3.behavior.drag()
     //         .on("dragstart", dragstart)
@@ -89,33 +117,66 @@ export default Ember.Component.extend({
 
     this.set("toggle",0);
     console.log(data);
-     force.nodes(nodes)
-          .links(links)
+     force
+          .nodes(nodes)
+          .links(filteredLinks)
           .start();
-          var drag = d3.behavior.drag()
-    .origin(function(d) { return d; })
-    .on("dragstart", dragstarted)
-    .on("drag", dragged)
-    .on("dragend", dragended);
+          var drag = force.drag()
+    // .origin(function(d) { return d; })
+    .on("dragstart", dragstarted);
+    // .on("drag", dragged)
+    // .on("dragend", dragended);
 
-    var linkedByIndex={};
+
 
 
           var linksUpdate = svg.selectAll(".link")
-            .data(links)
-             .style("stroke-width",  function(d){return Math.sqrt(d.comments.length) || 1});
-            //.style("stroke-width",  1);
+            .data(filteredLinks)
+            .style("marker-end",  "url(."+window.location.pathname+"#suit)")
+          //  .style("stroke-width",  function(d){return Math.sqrt(d.comments.length) || 2});
 
             linksUpdate.enter().insert('line',":first-child")
             .attr('class', 'link')
-            .style("stroke-width",  function(d){return d.comments.length || 2});
+          //  .style("stroke-width",  function(d){return Math.sqrt(d.comments.length) || 2})
+            .style("stroke-width",1)
+            .style("marker-end",  "url(."+window.location.pathname+"#suit)")
+            .style("opacity",0.7);
             linksUpdate.exit().remove();
           var nodesUpdate = svg.selectAll(".node")
-            .data(nodes)
-            .attr('class', function(d){return "node "+d.status;});
+            .data(nodes,function(d){return d.id})
+            //.classed("highlighted",function(d){return d.highlighted;})
+            .attr('class', function(d){return "node "+d.status;})
+            .style('fill',function(d){
+
+              if(that.isHighlighted(d.id)){
+                return "orange";
+              }
+              if(d.status==="admin"){
+                return "yellow";
+              }
+              if(d.status==="moderator"){
+                return "red";
+              }
+              return "steelblue";
+            });
+
             nodesUpdate.enter().append("circle")
             .attr('class', function(d){return "node "+d.status;})
-            .attr('r', function(d){return Math.sqrt(d.connections)*3+10})
+            // .attr('r', function(d){return Math.sqrt(d.connections)*3+10})
+            .attr('r', 10)
+            .style('fill',function(d){
+
+              if(that.isHighlighted(d.id)){
+                return "orange";
+              }
+              if(d.status==="admin"){
+                return "yellow";
+              }
+              if(d.status==="moderator"){
+                return "red";
+              }
+              return "steelblue";
+            })
             // .style("fill","steelblue")
             .call(drag)
             .on("mouseover",tooltipShow)
@@ -133,11 +194,15 @@ export default Ember.Component.extend({
                       .attr('cy', function(d){return d.y});
             });
 
+
+
+
             //prepare Highlighting
+            var linkedByIndex={};
             for (var i = 0; i < nodes.length; i++) {
                 linkedByIndex[i + "," + i] = 1;
             };
-            links.forEach(function (d) {
+            filteredLinks.forEach(function (d) {
                 linkedByIndex[d.source.index + "," + d.target.index] = 1;
             });
 
@@ -162,7 +227,7 @@ export default Ember.Component.extend({
                     nodesUpdate.style("opacity", function (o) {
                         return that.neighboring(d, o) | that.neighboring(o, d) ? 1 : 0.1;
                     });
-                    linksUpdate.style("opacity", function (o) {
+                    svg.selectAll(".link").style("opacity", function (o) {
                         return d.index==o.source.index | d.index==o.target.index ? 1 : 0.1;
                     });
                     //Reduce the op
@@ -170,14 +235,14 @@ export default Ember.Component.extend({
                 } else {
                     //Put them back to opacity=1
                     nodesUpdate.style("opacity", 1);
-                    linksUpdate.style("opacity", 1);
+                    svg.selectAll(".link").style("opacity", 0.7);
                     that.set("toggle",0);
                 }
             }
             function dragstarted(d) {
                 d3.event.sourceEvent.stopPropagation();
-                d3.select(this).classed("dragging", true);
-                force.stop();
+                // d3.select(this).classed("dragging", true);
+                // force.stop();
               }
 
               function dragged(d) {
@@ -196,16 +261,18 @@ export default Ember.Component.extend({
   },
   updateHelper:function(){
     this.update();
-  }.observes("data.links.@each.comments","data.nodes.@each"),
+  }.observes("data.links.@each.comments","data.nodes.@each","threshold","highlighted"),
    neighboring:function(a, b) {
       return this.get("linkedByIndex")[a.index + "," + b.index];
   },
   updateChargeAndLinkDistance:function(){
     var force=this.get("force");
     force.charge(this.get("charge"))
-          .linkDistance(this.get("linkDistance"));
+          .linkDistance(this.get("linkDistance"))
+          .gravity(this.get("gravity")/100);
     force.start();
-  }.observes("charge","linkDistance"),
+  }.observes("charge","linkDistance","gravity"),
+
   updateWidthAndHeight:function(){
     var svg=this.get("svg");
     var force=this.get("force");
@@ -213,4 +280,15 @@ export default Ember.Component.extend({
     force.size([this.get("width"),this.get("height")])
           .start();
   }.observes("width","height"),
+
+  isHighlighted(id){
+    var highlights = this.get("highlighted");
+    var temp = false;
+    highlights.forEach(function(h){
+      if(h.get("id")==id){
+        temp=true;
+      }
+    });
+    return temp;
+  },
 });

@@ -13,9 +13,25 @@
   <button {{action "removeAllUsers"}}>Niemanden ansehen</button>
 {{/if}}
 {{yield}}
-{{input type="range" min=-300 max=300 value=charge}}
-{{input type="range" min=0 max=300 value=linkDistance}}
+<h4>
+  charge -600 {{input type="range" min=-600 max=600 value=charge class="min-width"}} 600 ({{charge}})
+</h4>
+<h4>
+  link Distance 0{{input type="range" min=0 max=600 value=linkDistance class="min-width"}}  600 ({{linkDistance}})
+</h4>
+<h4> link threshold 0 {{input type="range" min=0 max=100 value=threshold class="min-width"}} 100 ({{threshold}})</h4>
+<h4>gravity -100 {{input type="range" min=-100 max=100 value=gravity class="min-width"}} 100 ({{gravity}})</h4>
 {{!-- {{input type="number" value=width placeholder="width"}} --}}
 {{!-- {{input type="number" value=height placeholder="height"}} --}}
-{{force-chart dblclick="showNodeInfo" data=graph charge=charge linkDistance=linkDistance class="force-chart-container"}}
+{{#power-select-multiple
+      options=selected
+      selected=highlighted
+      searchField="fullname"
+      placeholder="Highlight a user"
+      onchange=(action 'setHighlights' )
+      as |user|
+    }}
+      {{user.fullname}}
+    {{/power-select-multiple}}
+{{force-chart dblclick="showNodeInfo" data=graph charge=charge linkDistance=linkDistance threshold=threshold gravity=gravity class="force-chart-container" highlighted=highlighted}}
 {{show-node id=showNodeId}}

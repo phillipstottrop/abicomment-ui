@@ -8,8 +8,11 @@ indirectUsers:[],
 selected:[],
 charge:-120,
 linkDistance:50,
-width:2000,
-height:2000,
+threshold:1,
+gravity:10,
+highlighted:[],
+// width:2000,
+// height:2000,
 showNodeId:-1,
 didInsertElement(){
   var store=this.get("store");
@@ -90,12 +93,16 @@ var links=[];
 var that= this;
   var i = 0;
   nodes =relevantUsers.map(function(user){
+    //var highlighted = that.arrayContainsUser(that.get("highlighted"),user);
+
+
     var node = {
       id:user.get("id"),
       name:user.get("fullname"),
       index:i,
       connections:0,
-      status:user.get("status")
+      status:user.get("status"),
+      //highlighted:highlighted,
     };
     i++;
     return node;
@@ -149,7 +156,9 @@ getSameLink(source,target,links){
     // console.log(target +":"+link.target);
     // console.log("....");
 
-    if((link.source==source && link.target==target) || (link.source==target && link.target==source)){
+    // if((link.source==source && link.target==target) || (link.source==target && link.target==source)){
+    if(link.source==source && link.target==target){
+
       _link=link;
     }
   });
@@ -201,9 +210,12 @@ data:function(){
 
 }.property("selected"),
 actions:{
-  setCurrentUsers(user){
+  setCurrentUsers(users){
 
-    this.set("selected",user);
+    this.set("selected",users);
+  },
+  setHighlights(users){
+    this.set("highlighted",users)
   },
   addAllUsers(){
     this.set("selected",this.get("allUsers"));
