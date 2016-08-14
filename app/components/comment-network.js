@@ -11,6 +11,7 @@ linkDistance:50,
 threshold:1,
 gravity:10,
 highlighted:[],
+settingsShowing:false,
 // width:2000,
 // height:2000,
 showNodeId:-1,
@@ -227,5 +228,12 @@ actions:{
     console.log(d);
     this.set("showNodeId",d.id);
   },
+  toggleSettings(){
+    if(this.get("settingsShowing")){
+      this.set("settingsShowing",false);
+    }else{
+      this.set("settingsShowing",true);
+    }
+  }
 }
 });
