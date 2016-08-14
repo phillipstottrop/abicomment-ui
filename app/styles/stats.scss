@@ -1,0 +1,30 @@
+.force-chart-container{
+  width: 100%;
+  display: inline-block;
+  float: left;
+
+}
+.show-node-info{
+  width: 50%;
+  display: inline-block;
+  float: left;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.user-network-force{
+margin:10px;
+padding: 10px;
+width:45%;
+
+width: calc( 50% - 20px );
+box-sizing: border-box;
+}
+.settings{
+  position: absolute;
+  z-index: 100;
+  background:white;
+  border: 5px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
