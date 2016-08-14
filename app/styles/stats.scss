@@ -2,7 +2,9 @@
   width: 100%;
   display: inline-block;
   float: left;
-
+  svg{
+    border:1px solid black;
+  }
 }
 .show-node-info{
   width: 50%;
