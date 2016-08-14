@@ -71,7 +71,6 @@ this.update();
     .attr("fill", function(d, i) { return colors(i); })
     .attr("d", arc)
     .on("mouseover",function(d){
-      console.log(d3.event);
       tooltip.transition().duration(200)
       .style("opacity",0.9);
       tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/d3.sum(data,function(o){return o.value;})))/100+"%)")
