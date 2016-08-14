@@ -22,8 +22,9 @@
     {{/delete-dialogue}}
   </p>
   {{/if-moderator}}
+
   <p class="motto-user marginless">
-     von {{motto.user.fullname}}
+    {{#link-to 'users.user' motto.user.id}} von {{motto.user.fullname}} {{/link-to}}
   </p>
 {{yield}}
 </li>
