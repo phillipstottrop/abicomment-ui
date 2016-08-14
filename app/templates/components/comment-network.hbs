@@ -13,14 +13,14 @@
   <button {{action "removeAllUsers"}}>Niemanden ansehen</button>
 {{/if}}
 {{yield}}
-<h4>
+<h4 class="marginless">
   charge -600 {{input type="range" min=-600 max=600 value=charge class="min-width"}} 600 ({{charge}})
 </h4>
-<h4>
+<h4 class="marginless">
   link Distance 0{{input type="range" min=0 max=600 value=linkDistance class="min-width"}}  600 ({{linkDistance}})
 </h4>
-<h4> link threshold 0 {{input type="range" min=0 max=100 value=threshold class="min-width"}} 100 ({{threshold}})</h4>
-<h4>gravity -100 {{input type="range" min=-100 max=100 value=gravity class="min-width"}} 100 ({{gravity}})</h4>
+<h4 class="marginless"> link threshold 0 {{input type="range" min=0 max=100 value=threshold class="min-width"}} 100 ({{threshold}})</h4>
+<h4 class="marginless">gravity -100 {{input type="range" min=-100 max=100 value=gravity class="min-width"}} 100 ({{gravity}})</h4>
 {{!-- {{input type="number" value=width placeholder="width"}} --}}
 {{!-- {{input type="number" value=height placeholder="height"}} --}}
 {{#power-select-multiple

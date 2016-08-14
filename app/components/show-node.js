@@ -5,6 +5,11 @@ export default Ember.Component.extend({
   store:Ember.inject.service(),
   id:-1,
   user:function(){
-    return this.get("store").findRecord("user",this.get("id"));
+    if(this.get("id") >=0){
+      return this.get("store").findRecord("user",this.get("id"));
+
+    }else{
+      return this.get("store").peekRecord("user",this.get("id"));
+    }
   }.property("id"),
 });

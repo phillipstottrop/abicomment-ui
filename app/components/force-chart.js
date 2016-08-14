@@ -49,8 +49,28 @@ export default Ember.Component.extend({
     .attr("height", this.get("height"))
     .style("fill", "none")
     .style("pointer-events", "all");
+        var container = svg.append('g');
 
-    var container = svg.append('g');
+        var gridsize=20;
+
+    container.selectAll(".vertical-axis").data(d3.range(0,this.get("width"),gridsize))
+      .enter().append('line')
+      .attr('class', "vertical-axis")
+      .attr('x1', function(d){return d;})
+      .attr('y1', 0)
+      .attr('x2', function(d){return d})
+      .attr('y2', this.get("height"))
+      .style("stroke","black");
+
+      container.selectAll(".horizontal-axis").data(d3.range(0,this.get("height"),gridsize))
+        .enter().append('line')
+        .attr('class', "horizontal-axis")
+        .attr('x1', 0)
+        .attr('y1', function(d){return d})
+        .attr('x2', this.get("width"))
+        .attr('y2', function(d){return d})
+        .style("stroke","black");
+
 
     var tooltip=d3.select(this.$().get(0)).append('div')
         .attr('class', 'tooltip')
@@ -91,6 +111,18 @@ export default Ember.Component.extend({
     var filteredLinks=links.filter(function(link){
       return link.comments.length >= threshold;
     });
+
+    //prepare Highlighting
+    var linkedByIndex={};
+    for (var i = 0; i < nodes.length; i++) {
+        linkedByIndex[i + "," + i] = 1;
+    };
+    filteredLinks.forEach(function (d) {
+        linkedByIndex[d.source.index + "," + d.target.index] = 1;
+    });
+
+    this.set("linkedByIndex",linkedByIndex);
+
     console.log(filteredLinks);
     //prepare Node drag for pinning
     // var node_drag = d3.behavior.drag()
@@ -149,13 +181,13 @@ export default Ember.Component.extend({
             .style('fill',function(d){
 
               if(that.isHighlighted(d.id)){
-                return "orange";
+                return "red";
               }
               if(d.status==="admin"){
                 return "yellow";
               }
               if(d.status==="moderator"){
-                return "red";
+                return "green";
               }
               return "steelblue";
             });
@@ -197,16 +229,7 @@ export default Ember.Component.extend({
 
 
 
-            //prepare Highlighting
-            var linkedByIndex={};
-            for (var i = 0; i < nodes.length; i++) {
-                linkedByIndex[i + "," + i] = 1;
-            };
-            filteredLinks.forEach(function (d) {
-                linkedByIndex[d.source.index + "," + d.target.index] = 1;
-            });
 
-            this.set("linkedByIndex",linkedByIndex);
 
             function tooltipShow(d){
               tooltip.transition().duration(200)
