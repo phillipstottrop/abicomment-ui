@@ -1,0 +1,55 @@
+{{yield}}
+{{#if user}}
+<h2>{{user.fullname}}</h2>
+<p>
+  id: {{user.id}}
+</p>
+<h3>Kommentare bekommen</h3>
+<table class="max-width">
+  <thead>
+    <th>
+      Text
+    </th>
+    <th>
+      Von
+    </th>
+  </thead>
+  <tbody>
+
+  {{#each user.comments as |comment|}}
+  <tr>
+    <td>
+      {{comment.text}}
+    </td>
+    <td>
+      {{comment.commentor.fullname}}
+    </td>
+  </tr>
+  {{/each}}
+</tbody>
+</table>
+<h3>Kommentare geschrieben</h3>
+<table class="max-width">
+  <thead>
+    <th>
+      Text
+    </th>
+    <th>
+      An
+    </th>
+  </thead>
+  <tbody>
+
+  {{#each user.commentswritten as |comment|}}
+  <tr>
+    <td>
+      {{comment.text}}
+    </td>
+    <td>
+      {{comment.user.fullname}}
+    </td>
+  </tr>
+  {{/each}}
+</tbody>
+</table>
+{{/if}}

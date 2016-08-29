@@ -1,0 +1,31 @@
+.mottos{
+  text-align: center;
+}
+.motto-list{
+
+}
+.single-motto{
+  p{
+
+  }
+}
+.motto-votes{
+  color:$weak-font-color;
+  float: left;
+}
+.motto-text{
+
+}
+.motto-text.upvoted{
+  color:$positive-color;
+}
+.motto-user{
+  color:$weak-font-color;
+
+}
+.motto-upvote{
+  text-align: right;
+}
+.motto-delete{
+  float: none;
+}

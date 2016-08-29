@@ -7,6 +7,12 @@
   {{#link-to 'polls'}}Umfragen{{/link-to}}
   {{#link-to 'courses'}}Kurse{{/link-to}}
   {{#link-to 'facts'}}Fakten{{/link-to}}
+{{#if session.isAuthenticated}}
+  {{#if-admin}}
+    {{#link-to 'stats'}} Statistiken {{/link-to}}
+  {{/if-admin}}
+{{/if}}
+  {{#link-to 'mottos'}}Mottos{{/link-to}}
 
 
 </div>

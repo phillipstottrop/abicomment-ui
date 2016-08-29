@@ -18,7 +18,7 @@
 svg{
   /*background-color:#a1b4a2;*/
   border-radius: 10px;
-
+  // border:1px solid black;
   path{
     stroke:black;
     transition: fill 400ms ,stroke-width 400ms;
@@ -32,6 +32,30 @@ svg{
 
 
 }
+svg g rect {
+  fill:steelblue;
+  stroke:black;
+}
+svg g rect.admin {
+  fill:#aec304;
+}
+svg g rect.moderator {
+  fill:#d2d7aa;
+}
+svg g rect:hover{
+  fill:red;
+}
+ svg path{
+   stroke:black;
+   transition: fill 400ms ,stroke-width 400ms;
+
+  }
+
+ svg path:hover{
+   fill:white;
+  stroke-width:5px;
+  stroke-alignment:inner;
+ }
 .tooltip{
   position: absolute;
   text-align: center;
@@ -41,4 +65,38 @@ svg{
   border: 0px;
   border-radius: 8px;
   pointer-events: none;
+}
+
+.time-chart svg{
+  background-color:#a1b4a2;
+
+}
+.time-chart{
+  width: 100%;
+  max-width: 1000px;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.link{
+  stroke:black;
+}
+.node{
+  stroke:black;
+}
+.node.normal{
+  fill:steelblue;
+}
+.node.moderator{
+  fill:red;
+}
+.node.admin{
+  fill:yellow;
+}
+.node.highlighted{
+  fill:orange;
 }

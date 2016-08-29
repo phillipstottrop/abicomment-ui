@@ -1,0 +1,58 @@
+<div class="user-network-force">
+
+{{#if allUsers}}
+{{#power-select-multiple
+      options=allUsers
+      selected=selected
+      searchField="fullname"
+      placeholder="Select a user"
+      onchange=(action 'setCurrentUsers' )
+      as |user|
+    }}
+      {{user.fullname}}
+    {{/power-select-multiple}}
+  <button {{action "addAllUsers"}}>Alle ansehen</button>
+  <button {{action "removeAllUsers"}}>Niemanden ansehen</button>
+  {{#power-select-multiple
+        options=selected
+        selected=highlighted
+        searchField="fullname"
+        placeholder="Highlight a user"
+        onchange=(action 'setHighlights' )
+        as |user|
+      }}
+        {{user.fullname}}
+      {{/power-select-multiple}}
+{{/if}}
+{{yield}}
+<div class="relative">
+
+<div class="settings">
+{{#liquid-if settingsShowing}}
+<a class="action" {{action "toggleSettings"}}>
+  X
+</a>
+<h4 class="marginless">
+  charge -600 {{input type="range" min=-600 max=600 value=charge class="min-width"}} 600 ({{charge}})
+</h4>
+<h4 class="marginless">
+  link Distance 0{{input type="range" min=0 max=600 value=linkDistance class="min-width"}}  600 ({{linkDistance}})
+</h4>
+<h4 class="marginless"> link threshold 0 {{input type="range" min=0 max=100 value=threshold class="min-width"}} 100 ({{threshold}})</h4>
+<h4 class="marginless">gravity -100 {{input type="range" min=-100 max=100 value=gravity class="min-width"}} 100 ({{gravity}})</h4>
+{{!-- {{input type="number" value=width placeholder="width"}} --}}
+{{!-- {{input type="number" value=height placeholder="height"}} --}}
+
+{{else}}
+<a class="action" {{action "toggleSettings"}}>
+  S
+</a>
+{{/liquid-if}}
+</div>
+
+
+{{force-chart dblclick="showNodeInfo" data=graph charge=charge linkDistance=linkDistance threshold=threshold gravity=gravity class="force-chart-container" highlighted=highlighted}}
+</div>
+</div>
+
+{{show-node id=showNodeId}}
