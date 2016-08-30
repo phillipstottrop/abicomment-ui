@@ -1,14 +1,14 @@
 <div class="second-header horizontal-scroll">
   <div class="navbar">
 
-{{#current-user-favorites class="favorites"}} {{#link-to 'users.user' currentUserId}} Ich {{/link-to}} {{/current-user-favorites}}
+{{#current-user-favorites class="favorites" favorites=model.favorites}} {{#link-to 'users.user' currentUserId}} Ich {{/link-to}} {{/current-user-favorites}}
   </div>
 </div>
 <div class="users-container">
 
   <div class="users">
     <div class="element">
-      {{user-listing users=model transition="transition" selected=selected}}
+      {{user-listing users=model.users transition="transition" selected=selected}}
     </div>
   </div>
 {{liquid-outlet}}

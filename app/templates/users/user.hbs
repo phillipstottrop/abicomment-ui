@@ -1,8 +1,11 @@
 {{#liquid-bind model use="toLeft" class="user-model-bind" as |currentModel|}}
 <div class="user">
   <div class="user-name-container element">
-    <h2 class="top">{{currentModel.fullname}}</h2>
-
+    <h2 class="top">{{currentModel.fullname}}
+      {{#unless currentUser}}
+        {{user-favorite-star class="user-favorite-star" isfavorited=currentModel.isfavorited action="toggleFavorite"}}
+      {{/unless}}
+    </h2>
   </div>
 {{#single-user create="createComment" user=currentModel comments=currentModel.comments blur="blurBackground"}}
 {{#unless limitTooHigh}}<button type="button" {{action "loadMore"}}>Mehr laden</button> {{/unless}}

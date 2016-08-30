@@ -78,6 +78,29 @@ li{
     display: inline-block;
   }
 }
+
+.user-favorite-star{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+
+    svg{
+      path{
+        fill:white;
+        fill-opacity:1;
+        stroke:#7f7f7f;
+        stroke-width:2;
+        stroke-miterlimit:4;
+        stroke-dasharray:none;
+        stroke-opacity:1;
+      }
+      path.favorited{
+        fill:yellow;
+      }
+
+  }
+
+}
 .horizontal-scroll{
   overflow-x: scroll;
   overflow-y: hidden;
@@ -85,7 +108,7 @@ li{
   height:50px;
 }
 .horizontal-scroll::-webkit-scrollbar {
-    height:3px;
+    height:5px;
     border-radius: 2px;
     // background-color: $tertiary-color;
     border: 0;
@@ -95,10 +118,10 @@ background-color:$tertiary-color;
 border-radius:2px;
 }
 .horizontal-scroll::-webkit-scrollbar-thumb:hover{
-background-color:#666;
+background-color:#eee;
 //border:1px solid #171717;
 }
 .horizontal-scroll::-webkit-scrollbar-thumb:active{
-background-color:#505050;
+background-color:#fff;
 //border:1px solid #171717;
 }
