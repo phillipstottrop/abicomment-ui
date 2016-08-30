@@ -43,14 +43,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       if(!isFavorited){
         var f =this.store.createRecord("favorite",{
           favoritee:selectedUser
-        })
+        });
         f.save().then(()=>{this.refresh();});
         return;
       }
       var found = false;
       var favorites =this.store.peekAll("favorite");
       favorites.forEach((favorite)=>{
-        if(favorite.get("favoritee.id")==selectedUser.get("id")){
+        if(favorite.get("favoritee.id")===selectedUser.get("id")){
           found = true;
           favorite.destroyRecord().then(()=>{
             this.refresh();
@@ -62,8 +62,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       if(!found){
         this.store.findAll("favorite").then((favorites)=>{
           favorites.forEach((favorite)=>{
-            if(favorite.get("favoritee.id")==selectedUser.get("id")){
-              ffavorite.destroyRecord().then(()=>{
+            if(favorite.get("favoritee.id")===selectedUser.get("id")){
+              favorite.destroyRecord().then(()=>{
                 this.refresh();
               });
 
