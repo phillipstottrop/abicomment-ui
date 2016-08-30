@@ -36,7 +36,44 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       });
 
     },
+    toggleFavorite(){
+      var isFavorited=this.controllerFor('users.user').get("model.isfavorited");
+      var selectedUser=this.controllerFor('users.user').get("model");
+      console.log(isFavorited);
+      if(!isFavorited){
+        var f =this.store.createRecord("favorite",{
+          favoritee:selectedUser
+        })
+        f.save().then(()=>{this.refresh();});
+        return;
+      }
+      var found = false;
+      var favorites =this.store.peekAll("favorite");
+      favorites.forEach((favorite)=>{
+        if(favorite.get("favoritee.id")==selectedUser.get("id")){
+          found = true;
+          favorite.destroyRecord().then(()=>{
+            this.refresh();
+          });
 
+        }
+      });
+
+      if(!found){
+        this.store.findAll("favorite").then((favorites)=>{
+          favorites.forEach((favorite)=>{
+            if(favorite.get("favoritee.id")==selectedUser.get("id")){
+              ffavorite.destroyRecord().then(()=>{
+                this.refresh();
+              });
+
+            }
+          });
+        });
+      }
+
+
+    },
   blurBackground(blur) {
      this.controllerFor('application').set('blur', blur);
    }

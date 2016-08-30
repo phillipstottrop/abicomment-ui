@@ -8,12 +8,15 @@ export default DS.Model.extend({
   currentsigninip:DS.attr('string'),
   signincount:DS.attr('number'),
   status:DS.attr('string'),
+  isfavorited:DS.attr('boolean'), 
   comments: DS.hasMany('comment',{inverse:"user"}),
   commentswritten: DS.hasMany('comment',{inverse:"commentor"}),
   quotes: DS.hasMany('quote'),
-  attendings: DS.hasMany('attendings'),
+  attendings: DS.hasMany('attending'),
   anecdotes: DS.hasMany('anecdote'),
   courses: DS.hasMany('course'),
   mottos: DS.hasMany('motto'),
-  mottovotes: DS.hasMany('mottovotes')
+  mottovotes: DS.hasMany('mottovote'),
+  favorites:DS.hasMany('favorite'),
+  favorited:DS.hasMany('favorite',{inverse: "favoritee"})
 });

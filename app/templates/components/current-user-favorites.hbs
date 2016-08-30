@@ -1,0 +1,4 @@
+{{yield}}
+{{#each favorites as |favorite|}}
+  {{#link-to "users.user" favorite.favoritee.id}} {{favorite.favoritee.fullname}} {{/link-to}}
+{{/each}}
