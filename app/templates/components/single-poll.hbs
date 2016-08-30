@@ -9,7 +9,8 @@
 </h3>
 {{#unless poll.hasvoted}}
   <ul class="poll-options">
-    {{#each poll.options as |option|}}
+    {{input type="text" class="options-search" value=filter placeholder="suchen..."}}
+    {{#each filteredOptions as |option|}}
       {{single-option class="poll-option-container" option=option vote="vote" blur="blur"}}
     {{/each}}
 
