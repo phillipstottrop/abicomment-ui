@@ -24,8 +24,8 @@ $secondary-color:#b0a4a4;
 $tertiary-color:#ddd;
 //$quartenary-color:#767772;
 $quartenary-color:#6a8092;
-$primary-header-color:indigo;
-$secondary-header-color: #948bca;
+$primary-header-color: #2980b9;
+$secondary-header-color: #3498db;
 
 $primary-font-color:#2a2929;
 $primary-header-font-color:white;
@@ -50,7 +50,7 @@ $positive-color:$secondary-header-color;
 
 
 body {
-  font-family: "Roboto","FontAwesome", "Effra",sans-serif;
+  font-family: "Roboto", "FontAwesome", "Effra", sans-serif;
   font-size: 20px;
 
   /*background-color:#faf4f1;*/
@@ -67,7 +67,7 @@ background: linear-gradient(to left, $primary-color,$secondary-color);
 font-family: "Roboto", sans-serif;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
-margin: 1px;
+margin: 0px;
 }
 
 a{

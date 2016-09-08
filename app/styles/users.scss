@@ -88,16 +88,17 @@ li{
       path{
         fill:white;
         fill-opacity:1;
-        stroke:#7f7f7f;
+        stroke:none;
         stroke-width:2;
         stroke-miterlimit:4;
         stroke-dasharray:none;
         stroke-opacity:1;
       }
       path.favorited{
-        fill:yellow;
+        fill: #fff300;
       }
-
+      filter: drop-shadow(0px 4px 1px #f7f7f7);
+      -webkit-filter: drop-shadow(0px 1px 1px #a0a0a0);
   }
 
 }
@@ -105,13 +106,14 @@ li{
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
-  height:50px;
+  height: 46px;
 }
 .horizontal-scroll::-webkit-scrollbar {
     height:5px;
     border-radius: 2px;
     // background-color: $tertiary-color;
     border: 0;
+    display: none;
 }
 .horizontal-scroll::-webkit-scrollbar-thumb{
 background-color:$tertiary-color;
