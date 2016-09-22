@@ -8,8 +8,9 @@
 {{/if-moderator}}
 </h3>
 {{#unless poll.hasvoted}}
+  {{input type="text" class="options-search" value=filter placeholder="suchen"}}
   <ul class="poll-options">
-    {{input type="text" class="options-search" value=filter placeholder="suchen..."}}
+
     {{#each filteredOptions as |option|}}
       {{single-option class="poll-option-container" option=option vote="vote" blur="blur"}}
     {{/each}}
