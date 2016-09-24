@@ -42,11 +42,17 @@
   margin: 30px 0 0 0;
 }
 .options-search{
-  width: auto;
+  width: 10%;
   border-radius: 3px;
-  margin: 0 0 0 55%;
+  margin: 0 0 0 90%;
   position: relative;
-  top:-10px;
+  top:10px;
+  transition: all 400ms;
+}
+.options-search:focus{
+  width:45%;
+  margin: 0 0 0 55%;
+  
 }
 
 .poll-options::-webkit-scrollbar {

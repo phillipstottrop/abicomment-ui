@@ -4,15 +4,15 @@
   <h3 class="marginless">Kurse</h3>
   <ul>
     {{#each withNotes as |attending|}}
-    {{#link-to 'courses.course' attending.course}}
-      <li> <b>{{attending.note}}: </b>  {{attending.course.name}} {{attending.course.teacher}}</li>
-    {{/link-to}}
+      {{#link-to 'courses.course' attending.course}}
+        <li> <b>{{attending.note}}: </b>  {{attending.course.name}} {{attending.course.teacher}}</li>
+      {{/link-to}}
     {{/each}}
 
     {{#each withoutNotes as |attending|}}
-    {{#link-to 'courses.course' attending.course}}
-      <li>{{attending.course.name}} {{attending.course.teacher}}</li>
-    {{/link-to}}
+      {{#link-to 'courses.course' attending.course}}
+        <li>{{attending.course.name}} {{attending.course.teacher}}</li>
+      {{/link-to}}
     {{/each}}
   </ul>
 </div>
@@ -21,18 +21,18 @@
 {{#if comments}}
 <div class="element">
 
-<h3 class="marginless">Kommentare</h3>
-{{#unless currentUser}}
-{{simple-form create="create" placeholder="Kommentar" iconShow="plus" iconHide="minus" class="moretop"}}
-{{/unless}}
-{{comment-listing comments=comments blur="blur"}}
-{{yield}}
-</div>
+  <h3 class="marginless">Kommentare</h3>
+  {{#unless currentUser}}
+    {{simple-form create="create" placeholder="Kommentar" iconShow="plus" iconHide="minus" class="moretop"}}
+  {{/unless}}
+  {{comment-listing comments=comments blur="blur"}}
+  {{yield}}
+  </div>
 {{else}}
-{{#unless currentUser}}
-<div class="element">
-  {{simple-form create="create" placeholder="Kommentar" openText="Kommentar hinzufügen"}}
-</div>
-{{/unless}}
+  {{#unless currentUser}}
+    <div class="element">
+      {{simple-form create="create" placeholder="Kommentar" iconShow="plus" iconHide="minus"}}
+    </div>
+  {{/unless}}
 
 {{/if}}
