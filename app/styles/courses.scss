@@ -19,3 +19,12 @@
   text-align: right;
   color: $weak-font-color;
 }
+
+.anecdotes li {
+  padding: 6px 0px;
+  border-bottom: 1px dotted rgba(38, 38, 38, 0.15);
+}
+
+.anecdotes li:last-child {
+  border-bottom: none;
+}

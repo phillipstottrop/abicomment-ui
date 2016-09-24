@@ -29,8 +29,9 @@ border-radius: 5px;
   width: 100%;
 }
 .border{
-  border-color: $primary-border-color;
-  border-style: dotted;
+  //border-color: $primary-border-color;
+  //border-style: dotted;
+  display: none;
 }
 .action{
   cursor: pointer;

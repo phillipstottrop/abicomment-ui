@@ -8,7 +8,7 @@
     </h2>
   </div>
 {{#single-user create="createComment" user=currentModel comments=currentModel.comments blur="blurBackground"}}
-{{#unless limitTooHigh}}<button type="button" {{action "loadMore"}}>Mehr laden</button> {{/unless}}
+{{#unless limitTooHigh}}<button type="button" class="button" {{action "loadMore"}}>Mehr laden</button> {{/unless}}
 {{/single-user}}
 {{outlet}}
 
