@@ -2,31 +2,30 @@
 
 
 <div class="navbar">
-  {{#link-to 'users'}}Nutzer{{/link-to}}
-  {{#link-to 'quotes'}}Zitate{{/link-to}}
-  {{#link-to 'polls'}}Umfragen{{/link-to}}
-  {{#link-to 'courses'}}Kurse{{/link-to}}
-  {{#link-to 'facts'}}Fakten{{/link-to}}
+  {{#link-to 'users'}}<span class="navbar-text">Nutzer</span><i class="users-icon nav-icon"></i>{{/link-to}}
+  {{#link-to 'quotes'}}<span class="navbar-text">Zitate</span><i class="quotes-icon nav-icon"></i>{{/link-to}}
+  {{#link-to 'polls'}}<span class="navbar-text">Umfragen</span><i class="polls-icon nav-icon"></i>{{/link-to}}
+  {{#link-to 'courses'}}<span class="navbar-text">Kurse</span><i class="courses-icon nav-icon"></i>{{/link-to}}
+  {{#link-to 'facts'}}<span class="navbar-text">Fakten</span><i class="facts-icon nav-icon"></i>{{/link-to}}
 {{#if session.isAuthenticated}}
   {{#if-admin}}
-    {{#link-to 'stats'}} Statistiken {{/link-to}}
+    {{#link-to 'stats'}} <span class="navbar-text">Statistiken</span><i class="stats-icon nav-icon"></i> {{/link-to}}
   {{/if-admin}}
 {{/if}}
-  {{#link-to 'mottos'}}Mottos{{/link-to}}
+  {{#link-to 'mottos'}}<span class="navbar-text">Mottos</span><i class="mottos-icon nav-icon"></i>{{/link-to}}
 
 
 </div>
 
-
 <div class="login">
 
 {{#if session.isAuthenticated}}
-  <a {{action 'invalidateSession'}}>Logout</a>
+  <a {{action 'invalidateSession'}}><i class="logout-icon nav-icon"></i><span class="navbar-text">Logout</span></a>
 
 {{else}}
 
 
-  {{#link-to 'login'}}Login{{/link-to}}
+  {{#link-to 'login'}}<i class="login-icon nav-icon"></i><span class="navbar-text">Login</span>{{/link-to}}
 {{/if}}
 </div>
 </div>

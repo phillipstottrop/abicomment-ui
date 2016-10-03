@@ -28,3 +28,41 @@
 .eye{
   background-image: url("eye.png");
 }
+.nav-icon {
+  background-size: 100% auto;
+  width: 32px;
+  height: 32px;
+  margin: 0px 1.2vw;
+  border-radius: 4px;
+  background-repeat: no-repeat;
+  display: none;
+}
+.users-icon {
+  background-image: url("users.png");
+}
+.quotes-icon {
+  background-image: url("quotes.png");
+}
+.polls-icon {
+  background-image: url("polls.png");
+}
+.courses-icon {
+  background-image: url("class.png");
+}
+.facts-icon {
+  background-image: url("facts.png");
+}
+.stats-icon {
+  background-image: url("stats.png");
+}
+.mottos-icon {
+  background-image: url("mottos.png");
+}
+.login-icon {
+  background-image: url("login.png");
+  transform: translate(0px, -32px);
+}
+.logout-icon {
+  background-image: url("logout.png");
+  transform: translate(0px, -32px);
+}
