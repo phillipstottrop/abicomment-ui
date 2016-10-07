@@ -9,7 +9,7 @@ export default Ember.Component.extend({
     options.forEach(function(o){
 
       if(o.get("title")){
-      arr.push({key:o.get("title"),value:o.get("voteamount")});
+      arr.push({key:o.get("title"),value:o.get("voteamount"),id: +o.get("id")});
 }
 
     });

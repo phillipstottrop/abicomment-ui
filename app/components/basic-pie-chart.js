@@ -33,7 +33,9 @@ export default Ember.Component.extend({
                 .innerRadius(this.get("radius")/2));
   }.property("radius"),
   pie: d3.layout.pie()
-          .sort(null)
+          .sort(function(a,b){
+            return b.value-a.value;
+          })
           .value(function(d){return d.value;}),
   didInsertElement(){
     var svg = d3.select(this.$().get(0)).append("svg");
@@ -55,8 +57,8 @@ this.update();
   },
   update(){
     var data =this.get("data").map(function(d){return d;}).sort(function(a,b){
-      return b.value-a.value;
-    });
+       return b.value-a.value;
+     });
 
     var chart=this.get("chart");
     var tooltip=this.get("tooltip");
@@ -65,7 +67,7 @@ this.update();
       //pie.value(function(d) { return d.value; });
     var colors=this.get("colors");
     var path = chart.datum(data).selectAll("path").data(pie);
-
+    var that=this;
     //enter
     path.enter().append("path")
     .attr("fill", function(d, i) { return colors(i); })
@@ -76,6 +78,12 @@ this.update();
       tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/d3.sum(data,function(o){return o.value;})))/100+"%)")
       .style("left",d3.event.layerX+20+"px")
       .style("top",d3.event.layerY+"px");
+
+      //bring path to front
+      path.sort(function (a, b) { // select the parent and sort the path's
+      if (a.data.id != d.data.id) return -1;               // a is not the hovered element, send "a" to the back
+      else return 1;   });
+      path.order();
     })
     .on("mouseout",function(){
       tooltip.transition().duration(500)
@@ -85,19 +93,24 @@ this.update();
 
     //update
     path.on("mouseover",function(d){
-      console.log(d3.event);
+
       tooltip.transition().duration(200)
       .style("opacity",0.9);
       tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/d3.sum(data,function(o){return o.value;})))/100+"%)")
       .style("left",d3.event.layerX+20+"px")
       .style("top",d3.event.layerY+"px");
+
+      //bring path to front
+      path.sort(function (a, b) { // select the parent and sort the path's
+      if (a.data.id != d.data.id) return -1;               // a is not the hovered element, send "a" to the back
+      else return 1;   });
+      path.order();
     })
     .on("mouseout",function(){
       tooltip.transition().duration(500)
       .style("opacity",0);
-    })
+    });
 
-    var that=this;
     path=path.data(pie);
    path.transition().duration(750).attrTween('d',function(a){return that.get("arcTween")(a,that,this);});
   },
