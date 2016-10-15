@@ -1,6 +1,7 @@
 // DESKTOP
 .header {
   height: 55px;
+  z-index: 1;
 }
 .header,.second-header {
   font-weight: bolder;
@@ -30,7 +31,7 @@ border-radius: 4px;
 .navbar a{
   display: inline-block;
   float: left;
-  margin: 10px 2vw;
+  margin: 10px .9vw;
   transition: 150ms ease-in-out;
 }
 .navbar a.active{
@@ -49,30 +50,47 @@ border-radius: 4px;
     transition: 180ms ease-in-out;
 }
 .login a.active{
-
-  border-bottom: 3px solid $active-link-border-color;
-  border-radius: 3px;
+  box-shadow: 0px 20px 0px -16px white;
+  //border-bottom: 3px solid $active-link-border-color;
+  //border-radius: 3px;
+  transform: none;
 }
 .login{
   display: inline-block;
   margin: 10px;
   float: right;
   cursor: pointer;
+  transform: translateX(calc(-50vw + 41.225px));
 }
 .login a{
   margin: 10px 5px 10px 5px;
 }
+.logout {
+  display: inline-block;
+  margin: 10px;
+  float: right;
+  cursor: pointer;
+}
+.logout {
+  margin: 10px 10px 10px 5px;
+}
 
 //MOBILE
-@media only screen and (max-width: 945px) {
+@media only screen and (max-width: 940px) {
     .navbar-text {
       display: none;
     }
     .nav-icon {
       display: block;
     }
+    .navbar a {
+      margin: 10px 1vw;
+    }
     .navbar a.active{
       padding-bottom: 4px;
       box-shadow: 0px 20px 0px -17px white;
+    }
+    .login a span {
+      display: inline-block;
     }
 }
