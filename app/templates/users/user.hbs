@@ -6,7 +6,7 @@
         {{user-favorite-star class="user-favorite-star" isfavorited=currentModel.isfavorited action="toggleFavorite"}}
       {{/unless}}
       {{currentModel.fullname}}
-      <i class="icon badge {{currentModel.status}}"></i>
+      <i title="This user is {{currentModel.status}}." class="icon badge {{currentModel.status}}"></i>
     </h2>
   </div>
 {{#single-user create="createComment" user=currentModel comments=currentModel.comments blur="blurBackground"}}
