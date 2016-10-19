@@ -1,10 +1,10 @@
 <div class="user course">
   <div class="element">
-    <h2 class="top">{{model.name}} bei {{model.teacher}}</h2>
+    <h2 class="top">{{model.name}} <span class="course-teacher"> {{model.teacher}} </span></h2>
     {{#if-admin user=model.creator class="inline-block"}}
       {{#delete-dialogue confirm="deleteCourse" param=model}}
         <h3>Wirklich diesen Kurs löschen?</h3>
-     {{/delete-dialogue}}
+      {{/delete-dialogue}}
     {{/if-admin}}
   </div>
   <div class="element">

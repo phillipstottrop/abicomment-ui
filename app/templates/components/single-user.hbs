@@ -5,13 +5,13 @@
   <ul>
     {{#each withNotes as |attending|}}
       {{#link-to 'courses.course' attending.course}}
-        <li> <b>{{attending.note}}: </b>  {{attending.course.name}} {{attending.course.teacher}}</li>
+        <li> {{attending.course.name}} <span class="course-teacher">{{attending.course.teacher}}</span> <span class="course-note">{{attending.note}}</span></li>
       {{/link-to}}
     {{/each}}
 
     {{#each withoutNotes as |attending|}}
       {{#link-to 'courses.course' attending.course}}
-        <li>{{attending.course.name}} {{attending.course.teacher}}</li>
+        <li> {{attending.course.name}} <span class="course-teacher">{{attending.course.teacher}}</span> </li>
       {{/link-to}}
     {{/each}}
   </ul>

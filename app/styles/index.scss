@@ -2,12 +2,50 @@ html {
   background-color: $primary-color;
 }
 
-.background-filler {
-  //background-color: yellow;
-  height: calc(100vh - 55px);
-  margin: 0px;
-  display: inline-block;
-  width: 100vw;
+.wrapper {
+  background-color: #fbf4e1;
+  height: 300px;
+  margin: 20px auto;
+  display: block;
+  width: 480px;
   position: relative;
   z-index: 3;
+  box-shadow: 0px 8px 6px -7px rgba(34, 34, 34, .5);
 }
+
+.left-bar {
+  width: 80px;
+  height: 100%;
+  float: left;
+  box-shadow: 12px 0px 0px -11px rgba(34, 34, 34, .2);
+}
+
+.right-bar {
+  width: 370px;
+  height: 100%;
+  padding: 15px 20px 5px 10px;
+  float: right;
+  color: #444444;
+}
+
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .message {
+    font-size: 16px;
+  }
+
+  .message:nth-child(5) {
+    margin: 25px 0px 0px 0px;
+    text-align: right;
+  }
+
+  .handwritten {
+    font-size: 14px;
+    font-family: "Pacifico";
+    text-align: right;
+    color: #2980b9;
+    margin: 0px 10px;
+  }
