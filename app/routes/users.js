@@ -3,10 +3,10 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin,{
   model(){
     var that = this;
-    return {
+    return Ember.RSVP.hash({
       users:that.store.findAll("user"),
       favorites:that.store.findAll("favorite")
-  };
+  });
 },
   actions:{
     transition(user){
