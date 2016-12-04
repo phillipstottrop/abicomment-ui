@@ -7,6 +7,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   queryParams: {
     limit: {
       refreshModel: true
+    },
+    query : {
+      refreshModel: true
     }
   },
 
@@ -19,9 +22,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
       var model = this.controllerFor('quotes').get('model');
       if (model){
-        if(model.get("length") > 0){
+
           return false;
-        }
+        
       }
       return true;
     },

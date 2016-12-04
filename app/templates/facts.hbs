@@ -2,11 +2,13 @@
 <div class="element">
   <h3 class="marginless">Wusstest du schon ... ?</h3>
 </div>
+
 <div class="element">
   {{simple-form placeholder="Fakt" buttonText="Hinzufügen" iconShow="plus" iconHide="minus" create="createFact"}}
 </div>
 <div class="element">
   <ul class="fact-list">
+    {{input type="text" class="search marginless" value=query placeholder="suchen"}}
 
   {{#each model as |fact|}}
     {{single-fact fact=fact}}

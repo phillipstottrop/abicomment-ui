@@ -13,7 +13,9 @@
       {{/link-to}}
     </div>
   {{/if-moderator}}
-
+<div class="element">
+  {{input type="text" class="search marginless" value=query placeholder="suchen"}}
+</div>
 <ul>
 {{#each sortedPolls as |poll|}}
 {{single-poll poll=poll vote="voteForOption" administratable=administratable blur="blur"}}

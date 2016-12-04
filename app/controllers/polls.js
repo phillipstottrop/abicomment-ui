@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['limit'],
+  queryParams: ['limit','query'],
   limit: 5,
-
+  query:'',
   total: function(){
     return this.get('model.meta').total;
   }.property('model.meta'),

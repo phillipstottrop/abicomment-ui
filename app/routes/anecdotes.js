@@ -4,6 +4,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   queryParams: {
     limit: {
       refreshModel: true
+    },
+    query: {
+      refreshModel: true
     }
   },
   model(params){
@@ -14,9 +17,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
       var model = this.controllerFor('anecdotes').get('model');
       if (model){
-        if(model.get("length") > 0){
+
           return false;
-        }
+        
       }
       return true;
     },

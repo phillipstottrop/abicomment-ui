@@ -1,11 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['limit'],
+  queryParams: ['limit','query'],
   limit: 10,
-
+  query:'',
   total: function(){
-    var total =this.get('model.meta').total || 20;
+    var total = this.get('model.meta').total ;
+    
     return total;
   }.property('model.meta'),
 

@@ -2,10 +2,12 @@
   <div class="element">
     <h2 class="marginless">Zitate</h2>
   </div>
+
   <div class="element">
     {{quote-form create="createQuote" 1stph="Wer?" 2ndph="Zitat" iconShow="plus" iconHide="minus" }}
   </div>
   <div class="element">
+    {{input type="text" class="search marginless" value=query placeholder="suchen"}}
 
     {{#quote-listing quotes=model blur="blurBackground"}}
     {{#if notShowingAll}}

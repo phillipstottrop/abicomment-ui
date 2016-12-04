@@ -5,6 +5,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   queryParams: {
     limit: {
       refreshModel: true
+    },
+    query: {
+      refreshModel: true
     }
   },
   model(params){
@@ -15,9 +18,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
       var model = this.controllerFor('polls').get('model');
       if (model){
-        if(model.get("length") > 0){
+
           return false;
-        }
+        
       }
       return true;
     },
@@ -30,7 +33,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
         this.transitionTo({queryParams: { limit: limit+increment}});
       }
       else{
-    
+
        this.transitionTo({queryParams: { limit: total}});
       }
     },
