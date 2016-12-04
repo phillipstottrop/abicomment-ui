@@ -11,6 +11,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
     return this.store.query("motto",params);
   },
   actions:{
+    loading(transition, originRoute){
+
+      var model = this.controllerFor('mottos').get('model');
+      if (model){
+        if(model.get("length") > 0){
+          return false;
+        }
+      }
+      return true;
+    },
     showMore(){
       var increment=20;
       const total = this.controllerFor('mottos').get('total');

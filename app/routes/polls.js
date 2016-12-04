@@ -11,15 +11,27 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
     return this.store.query("poll",params);
   },
   actions:{
+    loading(transition, originRoute){
+
+      var model = this.controllerFor('polls').get('model');
+      if (model){
+        if(model.get("length") > 0){
+          return false;
+        }
+      }
+      return true;
+    },
     showMore(){
       var increment=5;
       const total = this.controllerFor('polls').get('total');
       const limit = this.controllerFor('polls').get('limit');
       if(limit+increment <total){
-      this.transitionTo({queryParams: { limit: limit+increment}});
+
+        this.transitionTo({queryParams: { limit: limit+increment}});
       }
       else{
-        this.transitionTo({queryParams: { limit: total}});
+    
+       this.transitionTo({queryParams: { limit: total}});
       }
     },
     voteForOption(option){

@@ -11,6 +11,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
     return this.store.query("fact",params);
   },
   actions:{
+    loading(transition, originRoute){
+
+      var model = this.controllerFor('facts').get('model');
+      if (model){
+        if(model.get("length") > 0){
+          return false;
+        }
+      }
+      return true;
+    },
     showMore(){
       var increment=10;
       const total = this.controllerFor('facts').get('total');
