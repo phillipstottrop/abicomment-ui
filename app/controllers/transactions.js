@@ -16,6 +16,13 @@ export default Ember.Controller.extend({
       var cardnumber = this.get("cardnumber");
       if(reason || date || value || receipt || excerpt || cardnumber){
         this.send("createTransaction",reason,date,value,receipt,excerpt,cardnumber);
+
+        this.set("reason",null);
+        this.set("date",null);
+        this.set("value",null);
+        this.set("receipt",null);
+        this.set("excerpt",null);
+        this.set("cardnumber",null);
       }
     }
   }
