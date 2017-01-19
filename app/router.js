@@ -20,6 +20,7 @@ Router.map(function() {
   this.route('anecdotes');
   this.route('stats');
   this.route('mottos');
+  this.route('transactions');
 });
 
 export default Router;

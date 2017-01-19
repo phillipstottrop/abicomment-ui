@@ -1,0 +1,27 @@
+<div class="transactions">
+  <div class="element">
+    <h2 class="marginless">Finanzen</h2>
+  </div>
+  <div class="element">
+    {{#simple-form placeholder="Grund" buttonText="Hinzufügen" iconShow="plus" iconHide="minus" create="create" noCreateable=true}}
+      {{bootstrap-datepicker-inline placeholder="Datum" value=date}}
+      {{input type="number" value=value placeholder="Änderung" }}
+      {{input type="number" value=receipt placeholder="Beleg" }}
+      {{input type="number" value=excerpt placeholder="Kontoauszug" }}
+      {{input type="number" value=cardnumber placeholder="Kartennummer" }}
+    {{/simple-form}}
+  </div>
+  <div class="element">
+    <ul>
+      {{#each transactions as |transaction|}}
+        <li> {{single-transaction transaction=transaction}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+
+
+{{outlet}}
+
+</div>

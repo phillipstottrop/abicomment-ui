@@ -18,7 +18,7 @@
   <form class="form" >
 
     {{input type="text" value=text placeholder=placeholder}}
+    {{yield}}
     <button type="submit" class={{if createable 'ok' 'disabled'}} {{action "create"}} >{{if buttonText buttonText 'Senden'}}</button>
   </form>
 {{/liquid-if}}
-{{yield}}

@@ -1,0 +1,23 @@
+<div class="single-transaction">
+  {{#if transaction.reason}}
+    <p>Grund:{{transaction.reason}}</p>
+  {{/if}}
+  {{#if transaction.reason}}
+    <p>Datum:{{transaction.reason}}</p>
+  {{/if}}
+  {{#if transaction.receipt}}
+    <p>Beleg:{{transaction.receipt}}</p>
+  {{/if}}
+  {{#if transaction.excerpt}}
+    <p>Kontoauszug:{{transaction.excerpt}}</p>
+  {{/if}}
+  {{#if transaction.value}}
+    <p>Änderung:{{transaction.value}}</p>
+  {{/if}}
+  {{#if transaction.balance}}
+    <p>Kontostand:{{transaction.balance}}</p>
+  {{/if}}
+</div>
+<hr class="border">
+
+{{yield}}
