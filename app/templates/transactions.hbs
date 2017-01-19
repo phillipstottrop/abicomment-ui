@@ -14,7 +14,7 @@
   <div class="element">
     <ul>
       {{#each transactions as |transaction|}}
-        <li> {{single-transaction transaction=transaction}}
+        <li> {{single-transaction transaction=transaction deleteTransaction="deleteTransaction"}}
         </li>
       {{/each}}
     </ul>

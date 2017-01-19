@@ -1,23 +1,77 @@
-<div class="single-transaction">
-  {{#if transaction.reason}}
-    <p>Grund:{{transaction.reason}}</p>
-  {{/if}}
-  {{#if transaction.reason}}
-    <p>Datum:{{transaction.reason}}</p>
-  {{/if}}
-  {{#if transaction.receipt}}
-    <p>Beleg:{{transaction.receipt}}</p>
-  {{/if}}
-  {{#if transaction.excerpt}}
-    <p>Kontoauszug:{{transaction.excerpt}}</p>
-  {{/if}}
-  {{#if transaction.value}}
-    <p>Änderung:{{transaction.value}}</p>
-  {{/if}}
-  {{#if transaction.balance}}
-    <p>Kontostand:{{transaction.balance}}</p>
-  {{/if}}
+<div class={{containerClass}} {{action "toggleShowing"}}>
+
+  <table>
+
+
+    <tr>
+      <td class="date">
+        {{#if date}}
+          {{date}}
+        {{/if}}
+      </td>
+       <td>
+
+         <a {{action 'open'}} class="action">
+           <i class="delete comment icon"></i>
+         </a>
+       </td>
+    </tr>
+    <tr>
+      <td>
+        {{#if transaction.reason}}
+          Grund:{{transaction.reason}}
+        {{/if}}
+      </td>
+
+
+      <td class={{changeClass}}>
+        {{#if transaction.value}}
+        {{transaction.value}}
+        {{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{#if transaction.receipt}}
+          Beleg:{{transaction.receipt}}
+        {{/if}}
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>
+        {{#if transaction.excerpt}}
+          Kontoauszug:{{transaction.excerpt}}
+        {{/if}}
+      </td>
+      <td>
+            {{#if transaction.balance}}
+              Kontostand: <span class="balance"> {{transaction.balance}} </span>
+            {{/if}}
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
-<hr class="border">
+
 
 {{yield}}
+
+{{#if showingModal}}
+{{#modal-dialog close="close" clickOutsideToClose=true}}
+<h2>Wirklich löschen?</h2>
+<button class="positive" type="button" {{action "delete" option}}>Ja</button>
+<button class="negative" type="button" {{action "close"}}>Nein</button>
+{{/modal-dialog}}
+{{/if}}

@@ -41,6 +41,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
       transaction.save().then(function(){
         that.refresh();
       });
+    },
+    deleteTransaction(transaction){
+      var that = this;
+      if(transaction){
+        transaction.destroyRecord().then(function(){
+          that.refresh();
+        });
+      }
     }
   }
 });

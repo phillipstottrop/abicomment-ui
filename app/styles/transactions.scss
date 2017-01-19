@@ -3,4 +3,64 @@
   .datepicker-inline{
     margin: 0 auto;
   }
+
+  ul{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    li{
+
+    margin: 15px auto;
+
+    .single-transaction{
+      position: relative;
+      border: 1px solid rgba(38,38,38,.1);
+      box-shadow: 0 4px 6px -4px rgba(38,38,38,.3);
+    }
+    .single-transaction.pos{
+      right: -5px;
+      box-shadow: 6px 0px 3px -5px green;
+    }
+    .single-transaction.neg{
+      left: -5px;
+      box-shadow: 6px 0px 3px -5px red;
+    }
+    .delete{
+      margin: 10px;
+    }
+    table{
+      width: 100%;
+      padding: 10px 20px;
+      tr{
+        padding: 0;
+      }
+      td{
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 50%;
+      }
+    }
+    .date{
+      text-align: left;
+      margin: 10px;
+    }
+    .change{
+      text-align: right;
+    }
+    .change.pay{
+      color:red;
+    }
+    .change.receive{
+      color:green;
+    }
+    .change.neutral{
+      color: inherit;
+    }
+    .balance{
+      float: right;
+      color: steelblue;
+    }
+    }
+  }
 }
