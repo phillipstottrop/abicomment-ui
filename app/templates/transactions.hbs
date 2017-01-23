@@ -11,6 +11,10 @@
       {{input type="number" value=cardnumber placeholder="Kartennummer" }}
     {{/simple-form}}
   </div>
+
+    {{transaction-graph transactions=transactions}}
+
+
   <div class="element">
     <ul>
       {{#each transactions as |transaction|}}
