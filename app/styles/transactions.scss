@@ -63,4 +63,39 @@
     }
     }
   }
+  .dotted-line-container{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .dotted-line{
+    border: 1px solid lightgrey;
+    width: 100%;
+
+    border-radius: 2px;
+    filter: none;
+    -webkit-filter: none;
+    margin: 20px auto;
+  }
+  .tooltip{
+    border-radius: 2px;
+    border: 1px solid lightgrey;
+    background-color: $tertiary-color;
+    transition: all 400ms;
+    .pos{
+      color: green;
+    }
+    .neg{
+      color:red;
+    }
+  }
+  .marker{
+    transition: stroke 400ms;
+    stroke:$tertiary-color;
+  }
+  .marker:hover{
+    stroke:black;
+
+  }
 }

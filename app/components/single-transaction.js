@@ -35,7 +35,6 @@ containerClass:function(){
   }else if (value > 0) {
     str += "pos";
   }
-  console.log(str);
   return str;
 }.property("transaction.value"),
 actions:{
