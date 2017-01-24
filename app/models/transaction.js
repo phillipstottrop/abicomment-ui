@@ -8,4 +8,6 @@ export default DS.Model.extend({
   value: DS.attr('number'),
   cardnumber: DS.attr('number'),
   balance: DS.attr('number'),
+
+  user:DS.belongsTo('user')
 });

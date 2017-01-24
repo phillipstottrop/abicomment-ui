@@ -8,7 +8,7 @@ export default DS.Model.extend({
   currentsigninip:DS.attr('string'),
   signincount:DS.attr('number'),
   status:DS.attr('string'),
-  isfavorited:DS.attr('boolean'), 
+  isfavorited:DS.attr('boolean'),
   comments: DS.hasMany('comment',{inverse:"user"}),
   commentswritten: DS.hasMany('comment',{inverse:"commentor"}),
   quotes: DS.hasMany('quote'),
@@ -18,5 +18,6 @@ export default DS.Model.extend({
   mottos: DS.hasMany('motto'),
   mottovotes: DS.hasMany('mottovote'),
   favorites:DS.hasMany('favorite'),
-  favorited:DS.hasMany('favorite',{inverse: "favoritee"})
+  favorited:DS.hasMany('favorite',{inverse: "favoritee"}),
+  transactions:DS.hasMany('transaction')
 });
