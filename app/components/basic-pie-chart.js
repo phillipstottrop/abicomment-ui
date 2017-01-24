@@ -1,5 +1,12 @@
 import Ember from 'ember';
-import d3 from 'd3';
+import { select,event } from 'd3-selection';
+import d3_scale from 'd3-scale';
+import { min, max,sum } from 'd3-array';
+import { transition } from 'd3-transition';
+import d3_interpolate from 'd3-interpolate';
+import axis from 'd3-axis';
+import d3_shape from 'd3-shape';
+import d3_time from 'd3-time-format';
 export default Ember.Component.extend({
   classNames:['chart','responsive-container'],
     outerWidth:500,
@@ -24,19 +31,23 @@ export default Ember.Component.extend({
     return (this.get("outerHeight")- (this.get("margins").top+this.get("margins").bottom));
   }.property("outerHeight","margins"),
   radius:function(){
-    return d3.min([this.get("width"),this.get("height")])/2;
+    console.log(d3_scale);
+    return min([this.get("width"),this.get("height")])/2;
   }.property("width","height"),
-  colors:d3.scale.category20(),
+  colors: function(i){
+    console.log(d3_scale);
+    return d3_scale.schemeCategory20[i%20];
+  },
   arc:function(){
-    return (  d3.svg.arc()
+    return (  d3_shape.arc()
                 .outerRadius(this.get("radius")-10)
                 .innerRadius(this.get("radius")/2));
   }.property("radius"),
-  pie: d3.layout.pie()
+  pie: d3_shape.pie()
           .sort(null)
           .value(function(d){return d.value;}),
   didInsertElement(){
-    var svg = d3.select(this.$().get(0)).append("svg");
+    var svg = select(this.$().get(0)).append("svg");
         svg.attr('viewBox', '0 0 '+this.get("outerWidth")+" "+this.get("outerHeight"))
         //.attr('width', this.get("outerWidth"))
         .attr('class', 'responsive-svg')
@@ -45,7 +56,7 @@ export default Ember.Component.extend({
         .attr('transform', 'translate('+(this.get("margins").left+this.get("width")/2)+","+(this.get("margins").top+this.get("height")/2)+")")
         .attr('width', this.get("width"))
         .attr('height', this.get("height"));
-    var tooltip=d3.select(this.$().get(0)).append('div')
+    var tooltip=select(this.$().get(0)).append('div')
         .attr('class', 'tooltip')
         .style("opacity",0);
     this.set("svg",svg);
@@ -73,9 +84,9 @@ this.update();
     .on("mouseover",function(d){
       tooltip.transition().duration(200)
       .style("opacity",0.9);
-      tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/d3.sum(data,function(o){return o.value;})))/100+"%)")
-      .style("left",d3.event.layerX+20+"px")
-      .style("top",d3.event.layerY+"px");
+      tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/sum(data,function(o){return o.value;})))/100+"%)")
+      .style("left",event.layerX+20+"px")
+      .style("top",event.layerY+"px");
     })
     .on("mouseout",function(){
       tooltip.transition().duration(500)
@@ -87,9 +98,9 @@ this.update();
     path.on("mouseover",function(d){
       tooltip.transition().duration(200)
       .style("opacity",0.9);
-      tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/d3.sum(data,function(o){return o.value;})))/100+"%)")
-      .style("left",d3.event.layerX+20+"px")
-      .style("top",d3.event.layerY+"px");
+      tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/sum(data,function(o){return o.value;})))/100+"%)")
+      .style("left",event.layerX+20+"px")
+      .style("top",event.layerY+"px");
     })
     .on("mouseout",function(){
       tooltip.transition().duration(500)
@@ -103,7 +114,8 @@ this.update();
   arcTween : function(a,that,thot) {
     var arc = that.get("arc");
     thot._current =thot._current || 0;
-     var i = d3.interpolate(thot._current, a);
+     var i = d3_interpolate.interpolate(thot._current, a);
+     console.log(i);
      thot._current = i(0);
      return function(t) {
        return arc(i(t));
