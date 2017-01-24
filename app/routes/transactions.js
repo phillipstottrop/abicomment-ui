@@ -33,7 +33,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   actions:{
     createTransaction(reason,date,value,receipt,excerpt,cardnumber){
       var that = this;
-      var _date = new Date(date.setHours(12)));
+      var _date= new Date( date.setHours(12) );
       var transaction = this.store.createRecord("transaction",{
         reason:reason,
         date:_date,

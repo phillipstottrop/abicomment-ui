@@ -9,6 +9,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   isAdmin(){
     return this.getResponseJSON().status === "admin";
   },
+  isTrusted(){
+    return this.getResponseJSON().status === "trusted";
+  },
   isModerator(){
     return this.getResponseJSON().status === "moderator";
   },
@@ -19,7 +22,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
 
   beforeModel() {
-    if(this.isAdmin()  || this.isModerator()){
+    if(this.isAdmin()  || this.isModerator() || this.isTrusted()){
 
     }else{
       this.transitionTo('polls');

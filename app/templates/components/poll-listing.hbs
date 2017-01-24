@@ -13,6 +13,15 @@
       {{/link-to}}
     </div>
   {{/if-moderator}}
+  {{#if-admin status="trusted"}}
+    <div class="element">
+      {{#link-to 'poll-creator'}}
+        <a class="action">
+          <i class="plus icon"></i>
+        </a>
+      {{/link-to}}
+    </div>
+  {{/if-admin}}
 <div class="element">
   {{input type="text" class="search marginless" value=query placeholder="suchen"}}
 </div>
