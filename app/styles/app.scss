@@ -80,7 +80,8 @@ a{
   float: left;
   margin:0;
   box-sizing: border-box;
-  height: calc(100vh - 55px);
+  height: 100%;
+  min-height: calc(100vh - 55px);
 }
 
 @import "index.scss";
@@ -92,7 +93,7 @@ a{
 @import "icons.scss";
 @import "headers.scss";
 
-
+@import "footer.scss";
 @import "users.scss";
 @import "quotes.scss";
 @import "polls.scss";

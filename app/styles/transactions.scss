@@ -3,11 +3,15 @@
   .datepicker-inline{
     margin: 0 auto;
   }
-  svg path:hover {
+  svg .axis path:hover {
     fill: none;
     stroke: black;
     stroke-width: 1px;
 
+  }
+  .line {
+    stroke: steelblue;
+    stroke-width: 2px;
   }
   ul{
     width: 100%;

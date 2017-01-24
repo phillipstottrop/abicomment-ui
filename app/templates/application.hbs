@@ -12,9 +12,9 @@
     {{#link-to 'stats'}} <span class="navbar-text">Statistiken</span><i class="stats-icon nav-icon"></i> {{/link-to}}
   {{/if-admin}}
   {{#if-admin status="trusted"}}
-    {{#link-to 'transactions'}} <span class="navbar-text">Finanzen</span><i class="courses-icon nav-icon"></i>{{/link-to}}
+    {{#link-to 'transactions'}} <span class="navbar-text">Finanzen</span><i class="transactions-icon nav-icon"></i>{{/link-to}}
   {{/if-admin}}
-  {{#link-to 'mottos'}}<span class="navbar-text">Mottos</span><i class="mottos-icon nav-icon"></i>{{/link-to}}
+  {{!-- {{#link-to 'mottos'}}<span class="navbar-text">Mottos</span><i class="mottos-icon nav-icon"></i>{{/link-to}} --}}
 {{/if}}
 
 
@@ -34,4 +34,7 @@
 <div class="maincontent {{if blur 'blur-background' ''}}">
     {{!-- <button type="button" name="button" {{action "debugSession"}}>bla </button> --}}
  {{liquid-outlet}}
+</div>
+<div class="footer">
+  <div>Icons made by <a href="http://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 </div>
