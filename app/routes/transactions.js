@@ -9,13 +9,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
   isAdmin(){
     return this.getResponseJSON().status === "admin";
   },
+  isTrusted(){
+    return this.getResponseJSON().status === "trusted";
+  },
   isModerator(){
     return this.getResponseJSON().status === "moderator";
   },
 
 
   beforeModel() {
-    if(this.isAdmin()){
+    if(this.isAdmin() || this.isTrusted()){
 
     }else{
       this.transitionTo('index');
