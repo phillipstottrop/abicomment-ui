@@ -4,16 +4,8 @@
   <h2 class="marginless">Umfragen</h2>
 </div>
 
-  {{#if-moderator}}
-    <div class="element">
-      {{#link-to 'poll-creator'}}
-        <a class="action">
-          <i class="plus icon"></i>
-        </a>
-      {{/link-to}}
-    </div>
-  {{/if-moderator}}
-  {{#if-admin status="trusted"}}
+
+  {{#if-admin status="trusted moderator"}}
     <div class="element">
       {{#link-to 'poll-creator'}}
         <a class="action">
