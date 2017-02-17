@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
+sortBy : ["time:asc","value:asc"],
+graph : Ember.computed.sort("graphData","sortBy"),
 graphData : function(){
   var data = [];
   var transactions = this.get("transactions");
@@ -20,6 +21,7 @@ graphData : function(){
       })
     }
   })}
+
   return data;
 
 }.property("transactions.@each","transactions.@each.balance"),
