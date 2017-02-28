@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   didInsertElement(){
     var that = this;
   this.get("store").findAll("user").then(function(users){
-    console.log(users);
+
     that.set("rawData",users);
   })
 },
@@ -27,20 +27,19 @@ export default Ember.Component.extend({
           status:user.get("status")
         }
       }else{
-        return null
+        return null;
       }
       });
       arr=arr.filter(function(d){
         return d!=null;
-      })
-      console.log(arr);
+      });
+
   return  arr;
 
 }.property("rawData","selected"),
 actions:{
   setCurrentUsers(user){
-    console.log(user);
-    console.log(this.get("selected"));
+
     this.set("selected",user);
   },
   addAllUsers(){

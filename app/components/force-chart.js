@@ -85,7 +85,7 @@ export default Ember.Component.extend({
         .start();
 
 
-      console.log(data);
+
 
 
 
@@ -106,8 +106,7 @@ export default Ember.Component.extend({
     var links= this.get("data.links");
     var threshold=this.get("threshold")
     var that=this;
-    console.log(threshold);
-    console.log(links);
+
     var filteredLinks=links.filter(function(link){
       return link.comments.length >= threshold;
     });
@@ -123,7 +122,7 @@ export default Ember.Component.extend({
 
     this.set("linkedByIndex",linkedByIndex);
 
-    console.log(filteredLinks);
+
     //prepare Node drag for pinning
     // var node_drag = d3.behavior.drag()
     //         .on("dragstart", dragstart)
@@ -148,7 +147,7 @@ export default Ember.Component.extend({
     //     }
 
     this.set("toggle",0);
-    console.log(data);
+  
      force
           .nodes(nodes)
           .links(filteredLinks)

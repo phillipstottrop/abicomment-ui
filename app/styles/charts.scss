@@ -16,7 +16,7 @@
 	left: 0;
   transform: translateY(20px);
 }
-svg{
+svg.poll-chart{
   /*background-color:#a1b4a2;*/
   border-radius: 10px;
   // border:1px solid black;
@@ -35,40 +35,60 @@ svg{
    filter: drop-shadow(0px 4px 0px #34495e);
    -webkit-filter: drop-shadow(0px 4px 0px #34495e);
 }
-svg g rect {
+svg.time-chart g rect {
   fill:steelblue;
   stroke:black;
 }
-svg g rect.admin {
+svg.time-chart g rect.admin {
   fill:#aec304;
 }
-svg g rect.moderator {
+svg.time-chart g rect.moderator {
   fill:#d2d7aa;
 }
-svg g rect:hover{
+svg.time-chart g rect:hover{
   fill:red;
 }
- svg path{
+ svg.time-chart path{
    stroke:black;
    transition: fill 400ms ,stroke-width 400ms;
 
   }
+// .tooltip{
+//   position: absolute;
+//   text-align: center;
+//   padding: 5px;
+//   font: 18px sans-serif;
+//   background-color: lightsteelblue;
+//   border: 0px;
+//   border-radius: 8px;
+//   pointer-events: none;
+// }
 .tooltip{
+  border-radius: 2px;
+  border: 1px solid lightgrey;
+  background-color: $tertiary-color;
+  transition: all 400ms;
   position: absolute;
   text-align: center;
   padding: 5px;
   font: 18px sans-serif;
-  background-color: lightsteelblue;
-  border: 0px;
-  border-radius: 8px;
-  pointer-events: none;
+  .pos{
+    color: green;
+  }
+  .neg{
+    color:red;
+  }
 }
 
-.time-chart svg{
-  background-color:#a1b4a2;
+
+svg.time-chart {
+  border: 1px solid lightgrey;
+  width: 100%;
+  border-radius: 2px;
+  margin: 20px auto;
 
 }
-.time-chart{
+.time-chart-container{
   width: 100%;
   max-width: 1000px;
 }

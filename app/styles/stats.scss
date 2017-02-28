@@ -5,6 +5,7 @@
   svg{
     border:1px solid black;
   }
+
 }
 .show-node-info{
   width: 50%;
@@ -29,4 +30,9 @@ box-sizing: border-box;
   border: 5px solid black;
   border-radius: 5px;
   padding: 10px;
+}
+.float-correction{
+  float: left;
+  width: 97%;
+  width: calc(100% - 40px);
 }

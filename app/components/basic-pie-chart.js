@@ -39,7 +39,7 @@ export default Ember.Component.extend({
     var svg = d3.select(this.$().get(0)).append("svg");
         svg.attr('viewBox', '0 0 '+this.get("outerWidth")+" "+this.get("outerHeight"))
         //.attr('width', this.get("outerWidth"))
-        .attr('class', 'responsive-svg')
+        .attr('class', 'responsive-svg poll-chart')
         .attr('preserveAspectRatio', 'xMinYMin meet');
       var chart = svg.append('g')
         .attr('transform', 'translate('+(this.get("margins").left+this.get("width")/2)+","+(this.get("margins").top+this.get("height")/2)+")")
@@ -72,7 +72,7 @@ this.update();
     .attr("d", arc)
     .on("mouseover",function(d){
       tooltip.transition().duration(200)
-      .style("opacity",0.9);
+      .style("opacity",0.93);
       tooltip.html(d.data.key+" : "+d.value+" Stimmen ("+ Math.round(100*(d.data.value*100/d3.sum(data,function(o){return o.value;})))/100+"%)")
       .style("left",d3.event.layerX+20+"px")
       .style("top",d3.event.layerY+"px");

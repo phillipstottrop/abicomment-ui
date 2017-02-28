@@ -1,14 +1,14 @@
 import Ember from 'ember';
 import d3 from 'd3';
 export default Ember.Component.extend({
-  classNames:['time-chart','responsive-container'],
+  classNames:['time-chart-container','responsive-container'],
     outerWidth:1000,
     outerHeight:600,
     margins:{
       top:40,
       right:40,
       bottom:40,
-      left:40,
+      left:70,
     },
 
 
@@ -30,10 +30,9 @@ export default Ember.Component.extend({
     var width=this.get("width");
     var lowest=d3.min(data,function(datum){return datum.time;});
     var now=new Date();
-    var min = new Date().setDate( lowest.getDate()-1);
-    var max= new Date().setDate( now.getDate()+1);
+
     return d3.time.scale()
-            .domain([min, max])
+            .domain([lowest, now])
             .range([0,width]);
   }.property("data","width"),
 
@@ -74,7 +73,7 @@ export default Ember.Component.extend({
     var svg = d3.select(this.$().get(0)).append("svg");
         svg.attr('viewBox', '0 0 '+this.get("outerWidth")+" "+this.get("outerHeight"))
         //.attr('width', this.get("outerWidth"))
-        .attr('class', 'responsive-svg')
+        .attr('class', 'responsive-svg time-chart')
         .attr('preserveAspectRatio', 'xMinYMin meet');
       var chart = svg.append('g')
         .attr('transform', 'translate('+this.get("margins").left+","+this.get("margins").top+")")
@@ -91,7 +90,7 @@ export default Ember.Component.extend({
 
         chart.append('g')
         .attr('class', 'y axis')
-        .attr('transform', 'translate('+(-1)+',0)')
+        .attr('transform', 'translate('+(-5)+',0)')
         .call(this.get("yAxis"));
 
 

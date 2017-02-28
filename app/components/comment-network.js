@@ -22,7 +22,7 @@ didInsertElement(){
     store.query("comment",{limit:5000}).then(function(){
       that.set("allUsers",users);
     });
-  })
+  });
 },
 // relevantUsers:function(){
 //   var rev = [];
@@ -78,7 +78,7 @@ didInsertElement(){
 arrayContainsUser:function(arr,u){
   var temp = false;
   arr.forEach(function(item){
-    if(item.get("id")==u.get("id")){
+    if(item.get("id")===u.get("id")){
       // console.log("huh?");
       temp= true;
     }
@@ -129,7 +129,7 @@ var that= this;
       comments:[_comment],
       source:source,
       target:target
-    }
+    };
     links.push(link);
   }
 
@@ -143,7 +143,7 @@ var that= this;
 //  console.log(nodes);
   _graph.nodes=nodes;
   _graph.links=links;
-  console.log(_graph);
+
   return _graph;
 }.property("data.directComments","data.relevantUsers"),
 addConnectionToIdInNodes(id,nodes){
@@ -158,7 +158,7 @@ getSameLink(source,target,links){
     // console.log("....");
 
     // if((link.source==source && link.target==target) || (link.source==target && link.target==source)){
-    if(link.source==source && link.target==target){
+    if(link.source===source && link.target===target){
 
       _link=link;
     }
@@ -168,7 +168,7 @@ getSameLink(source,target,links){
 getIndexOfUserID:function(id,arr){
   var index = -1;
   arr.forEach(function(item){
-    if(item.id == id){
+    if(item.id === id){
       index=item.index;
     }
   });
@@ -191,8 +191,7 @@ data:function(){
 
     });
  });
-    console.log("directComments");
-    console.log(directComments);
+
 
   directComments.forEach(function(comment){
     var receiver=comment.get("user");
@@ -201,8 +200,7 @@ data:function(){
     }
   });
 
-  console.log("relevantUsers");
-  console.log(relevantUsers);
+
 
   return {
     relevantUsers:relevantUsers,
@@ -216,7 +214,7 @@ actions:{
     this.set("selected",users);
   },
   setHighlights(users){
-    this.set("highlighted",users)
+    this.set("highlighted",users);
   },
   addAllUsers(){
     this.set("selected",this.get("allUsers"));
