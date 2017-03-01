@@ -65,6 +65,7 @@ svg.time-chart g rect:hover{
 // }
 .tooltip{
   border-radius: 2px;
+  pointer-events: none;
   border: 1px solid lightgrey;
   background-color: $tertiary-color;
   transition: all 400ms;
