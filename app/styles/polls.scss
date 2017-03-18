@@ -14,6 +14,13 @@
   padding: 2px 5px 10px 5px;
   min-height: 460px;
   }
+.voted{
+  opacity: .4;
+  font-weight: 500;
+  float: right;
+  font-size: 13px;
+  font-style: italic;
+}
 .poll-options{
   max-height: 340px;
   overflow-y: scroll;

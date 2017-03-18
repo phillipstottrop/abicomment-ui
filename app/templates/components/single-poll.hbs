@@ -19,12 +19,14 @@
   {{/unless}}
   {{#if poll.hasvoted}}
 
-    {{#toggle-action on="startReload" off="stopReload"}}
+    {{!-- {{#toggle-action on="startReload" off="stopReload"}}
       <i class="icon eye"></i>
-    {{/toggle-action}}
+    {{/toggle-action}} --}}
 
     {{poll-chart options=poll.options}}
-
+    {{#if shouldShowVoteAmount}}
+      <span class="voted"> {{voteAmount}} abgestimmt</span>
+    {{/if}}
   {{/if}}
 </li>
 {{yield}}

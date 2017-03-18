@@ -19,6 +19,31 @@ export default Ember.Component.extend({
 
     return options;
   }.property("poll.options.@each.title","filter"),
+  voteAmount:function(){
+    var amount = 0;
+
+    var options = this.get("poll.options");
+    if (options) {
+
+    options.forEach(function(o){
+      amount+=o.get("voteamount");
+    });
+    }
+
+    return amount;
+
+
+  }.property("poll.options.@each.voteamount"),
+  shouldShowVoteAmount:function(){
+    var voteAmount=this.get("voteAmount");
+    console.log(voteAmount);
+
+    if (!isNaN(voteAmount) && voteAmount != undefined && voteAmount != 0) {
+      return true;
+    }else{
+      return false;
+    }
+  }.property("voteAmount"),
   actions:{
     vote(option){
       if(option){
