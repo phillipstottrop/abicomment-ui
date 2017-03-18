@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   queryParams: ['limit'],
-  limit: 10,
+  limit: 50,
 
 
   limitTooHigh:function(){

@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   queryParams: ['limit'],
-  limit: 20,
+  limit: 50,
 
   sortBy:['upvotes:desc','id:asc'],
   orderedMottos:Ember.computed.sort("model","sortBy"),
