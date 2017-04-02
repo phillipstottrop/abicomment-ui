@@ -25,7 +25,7 @@
         {{/confirm-button}}
       {{/if}}
 
-      {{#each model.attendings as |attending|}}
+      {{#each sortedAttendings as |attending|}}
 
         <li>
           {{#link-to 'users.user' attending.user.id }}
@@ -46,7 +46,7 @@
       <h3 class="marginless">Anekdoten</h3>
       {{simple-form placeholder="Text" buttonText="Speichern" create="createAnecdote" iconShow="plus" iconHide="minus"}}
 
-      {{#each model.anecdotes as |anecdote|}}
+      {{#each sortedAnecdotes as |anecdote|}}
         <hr class="border">
         <li>{{anecdote.text}}
 

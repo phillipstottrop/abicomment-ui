@@ -71,7 +71,7 @@ export default Ember.Component.extend({
     var xScale=this.get("xScale");
     var yScale=this.get("yScale");
     return d3.svg.line()
-    .interpolate("step-after") 
+    .interpolate("step-after")
     .x(function(d) { return xScale(d.time); })
     .y(function(d) { return yScale(d.value); });
 
@@ -113,7 +113,7 @@ export default Ember.Component.extend({
         this.update();
   },
   update(){
-    console.log("update");
+    
     var width=this.get("width");
     var height=this.get("height");
     var data=this.get("data");

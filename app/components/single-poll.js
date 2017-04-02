@@ -36,7 +36,6 @@ export default Ember.Component.extend({
   }.property("poll.options.@each.voteamount"),
   shouldShowVoteAmount:function(){
     var voteAmount=this.get("voteAmount");
-    console.log(voteAmount);
 
     if (!isNaN(voteAmount) && voteAmount != undefined && voteAmount != 0) {
       return true;

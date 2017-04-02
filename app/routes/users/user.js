@@ -39,7 +39,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
     toggleFavorite(){
       var isFavorited=this.controllerFor('users.user').get("model.isfavorited");
       var selectedUser=this.controllerFor('users.user').get("model");
-      console.log(isFavorited);
+      
       if(!isFavorited){
         var f =this.store.createRecord("favorite",{
           favoritee:selectedUser

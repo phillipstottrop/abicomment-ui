@@ -1,6 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    session: Ember.inject.service('session'),
+    courses:function(){
+      var attendings = this.get("user.attendings");
+      var courses = [];
+      attendings.forEach(function(a){
+        courses.push(a.get("course"));
+      })
+      return courses;
+    }.property("user.attendings.@each.course"),
     withNotes:function(){
       var attendings = this.get("user.attendings");
       var arr=[];
@@ -9,6 +18,11 @@ export default Ember.Component.extend({
           arr.push(a);
         }
       });
+
+      arr = arr.sort(function(a,b){
+        return a.get("note")>b.get("note");
+      });
+
       return arr;
     }.property('user.attendings.@each.note'),
     withoutNotes:function(){
@@ -20,10 +34,14 @@ export default Ember.Component.extend({
           arr.push(a);
         }
       });
+      arr = arr.sort(function(a,b){
+        return a.get("course.name").toLowerCase()>b.get("course.name").toLowerCase();
+      });
 
       return arr;
-    }.property('user.attendings.@each.note'),
-    session: Ember.inject.service('session'),
+    }.property('user.attendings.@each.note','courses.@each.name'),
+
+
     getResponseJSON(){
       return this.get("session.data").authenticated.responseJSON;
     },

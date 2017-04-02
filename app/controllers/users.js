@@ -2,6 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 session: Ember.inject.service('session'),
+
+sortFavoritesBy:["favoritee.name:asc","favoritee.forename:asc"],
+sortedFavorties:Ember.computed.sort("model.favorites","sortFavoritesBy"),
+
 getResponseJSON(){
   return this.get("session.data").authenticated.responseJSON;
 },
