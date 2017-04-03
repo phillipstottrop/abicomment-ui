@@ -135,7 +135,7 @@ export default Ember.Component.extend({
         tooltip.transition().duration(200)
         .style("opacity",0.9);
         tooltip.html(
-          d.fullname+", id: "+d.id+", sign ins: "+d.value+", time:"+d3.time.format("%X")(d.time)
+          d.fullname+", id: "+d.id+", sign ins: "+d.value+", time: "+d3.time.format("%d.%m.%Y %X")(d.time)
         )
         .style("left",d3.event.layerX+20+"px")
         .style("top",d3.event.layerY+"px");
