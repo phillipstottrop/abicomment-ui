@@ -7,7 +7,7 @@ export default Ember.Component.extend({
     else {return this.get("iconHide")+" icon";}
   }.property("iconShow","iconHide","showing"),
   createable:function(){
-    if(this.get("noCreateable")) return true;
+    if(this.get("noCreateable")){return true;}
     var text=this.get("text");
     return text;
   }.property("text"),

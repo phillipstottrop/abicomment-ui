@@ -2,13 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   //sortBy:['id:desc'],
-  //sortedPolls:Ember.computed.sort("polls","sortBy"),
-  sortedPolls:function(){
-    var polls = this.get("polls");
-    return polls.map(function(p){return p}).sort(function(a,b){
-      return +b.get("id") - +a.get("id");
-    });
-    }.property("polls"),
+  sortedPolls:Ember.computed.sort("polls",function(a,b){
+    return +a.get("id") < +b.get("id");
+  }),
+
   actions:{
     voteForOption(option){
       if(option){

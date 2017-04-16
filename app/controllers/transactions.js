@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   sortBy:["date:desc"],
   transactions:Ember.computed.sort("model","sortBy"),
-
   total: function(){
     return this.get("model.meta").total
   }.property("model.meta.total"),
@@ -14,7 +13,7 @@ export default Ember.Controller.extend({
       var receipt = this.get("receipt");
       var excerpt = this.get("excerpt");
       var cardnumber = this.get("cardnumber");
-      if(reason || date || value || receipt || excerpt || cardnumber){
+      if(reason && date && value){
         this.send("createTransaction",reason,date,value,receipt,excerpt,cardnumber);
 
         this.set("reason",null);
