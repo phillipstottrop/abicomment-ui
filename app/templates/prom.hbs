@@ -1,0 +1,21 @@
+<div class="prom">
+  <div class="element">
+    <h2 class="marginless">Tische</h2>
+  </div>
+  {{#if-admin}}
+    <div class="element">
+      {{#confirm-button buttonText="Erstellen" confirm="addTable" }}
+        <h3>Tisch erstellen</h3>
+        {{input value=seats placeholder="Sitze" type="number"}}
+      {{/confirm-button}}
+    </div>
+  {{/if-admin}}
+  {{#each model as |promtable|}}
+    {{show-promtable
+      promtable=promtable
+      addEntry="createEntry"
+      destroyEntry="destroyEntry"
+      destroyTable="destroyTable"}}
+  {{/each}}
+  {{outlet}}
+</div>
