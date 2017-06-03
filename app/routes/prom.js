@@ -18,13 +18,17 @@ export default Ember.Route.extend({
     },
     addTable(){
       var seats = this.controllerFor("prom").get("seats");
-      if(seats){
-        var table = this.store.createRecord("promtable",{
-          seats:seats
-        });
-        table.save().then(()=>{
-          this.refresh();
-        });
+      var times = this.controllerFor("prom").get("times");
+      if(seats && times){
+        for (var i = 0; i < times; i++) {
+          var table = this.store.createRecord("promtable",{
+            seats:seats
+          });
+          table.save().then(()=>{
+            this.refresh();
+          });
+        }
+
       }
     },
     destroyEntry(entry){
