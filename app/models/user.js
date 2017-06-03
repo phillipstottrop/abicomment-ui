@@ -19,5 +19,7 @@ export default DS.Model.extend({
   mottovotes: DS.hasMany('mottovote'),
   favorites:DS.hasMany('favorite'),
   favorited:DS.hasMany('favorite',{inverse: "favoritee"}),
-  transactions:DS.hasMany('transaction')
+  transactions:DS.hasMany('transaction'),
+  promtables:DS.hasMany('promtable'),
+  promtableentry:DS.belongsTo('promtableentry')
 });

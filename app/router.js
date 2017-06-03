@@ -21,6 +21,7 @@ Router.map(function() {
   this.route('stats');
   this.route('mottos');
   this.route('transactions');
+  this.route('prom');
 });
 
 export default Router;

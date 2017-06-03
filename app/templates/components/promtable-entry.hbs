@@ -1,0 +1,12 @@
+<li class="entry">
+  {{#link-to 'users.user' entry.user.id}}
+    {{entry.user.fullname}}
+   {{/link-to}} : {{entry.seats}}
+   {{#if-admin user=entry.user class="inline-block"}}
+     {{#delete-dialogue confirm="leaveTable" param=entry}}
+       <h3>Wirklich diesen Tisch verlassen?</h3>
+     {{/delete-dialogue}}
+   {{/if-admin}}
+</li>
+
+{{yield}}

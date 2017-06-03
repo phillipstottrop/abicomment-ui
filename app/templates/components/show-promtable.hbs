@@ -1,0 +1,22 @@
+<div class="element">
+  <h4>{{promtable.seats}}er Tisch, noch {{promtable.free}} frei
+  {{#if-admin class="inline-block"}}
+    {{#delete-dialogue confirm="destroyTable" param=promtable}}
+      <h3>Wirklich diesen Tisch zerstören?</h3>
+    {{/delete-dialogue}}
+  {{/if-admin}}
+  </h4>
+  {{#if promtable.entryallowed}}
+    {{#confirm-button buttonText="Beitreten" confirm="joinTable" class="moretop"}}
+      <h3>Willst du wirklich an diesem Tisch sitzen?</h3>
+      {{input value=seats placeholder="Plätze" type="number"}}
+    {{/confirm-button}}
+  {{/if}}
+<ul>
+  {{#each promtable.promtableentries as |entry|}}
+  {{promtable-entry entry=entry destroyEntry="destroyEntry" }}
+  {{/each}}
+</ul>
+</div>
+
+{{yield}}
