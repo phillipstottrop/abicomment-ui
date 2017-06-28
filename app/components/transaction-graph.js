@@ -12,12 +12,14 @@ graphData : function(){
     var time = transaction.get("date");
     var value = transaction.get("balance");
     var difference = transaction.get("value");
+    var reason = transaction.get("reason");
     if(id && time && value && difference){
       data.push({
         id:id,
         time:time,
         value:value,
-        difference:difference
+        difference:difference,
+        reason:reason
       })
     }
   })}

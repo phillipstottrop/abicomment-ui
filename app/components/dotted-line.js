@@ -113,7 +113,7 @@ export default Ember.Component.extend({
         this.update();
   },
   update(){
-    
+
     var width=this.get("width");
     var height=this.get("height");
     var data=this.get("data");
@@ -150,8 +150,9 @@ export default Ember.Component.extend({
       var valueSpanClass = d.value > 0 ? "pos" : "neg";
       var differenceSpanClass = d.difference > 0 ? "pos" : "neg";
       tooltip.html(
-        ""+d3.time.format("%a %d %B %Y")(d.time) + "<br>"
-        +"Kontostand: "+"<span class="+valueSpanClass+">"+d.value+"</span>" +"<br>"+" Änderung: "+"<span class="+differenceSpanClass+">"+d.difference+"</span>"
+        "<span class="+"transaction-reason"+">"+d.reason+"</span>"
+         +"<br>"+"<span class="+differenceSpanClass+">"+d.difference+"</span>"
+         +"<br>"+"= "+"<span class="+valueSpanClass+">"+d.value+"</span>"
       )
       .style("left",d3.event.layerX+20+"px")
       .style("top",d3.event.layerY+"px");
