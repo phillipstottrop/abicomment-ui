@@ -1,7 +1,11 @@
 # Abicomment-ui
-
+Hosted on https://abi17.herokuapp.com .
+Want to see it in action? I added a visitor account:
+ * email: visitor@abi17.de
+ * password: 12345678
+However you are restricted to the functionality of a 'normal' user.
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+
 
 ## Prerequisites
 
@@ -22,7 +26,7 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-* `ember server --proxy http://127.0.0.1:3000` (proxies to Api-server)
+* `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Code Generators
@@ -41,7 +45,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+Simply push to master -> heroku takes care of the rest
 
 ## Further Reading / Useful Links
 
