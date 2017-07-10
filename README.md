@@ -1,9 +1,9 @@
 # Abicomment-ui
 Hosted on https://abi17.herokuapp.com .
-Want to see it in action? I added a visitor account:
+Want to see it in action? I added a visitor account(However you are restricted to the functionality of a 'normal' user):
  * email: visitor@abi17.de
  * password: 12345678
-However you are restricted to the functionality of a 'normal' user.
+
 This README outlines the details of collaborating on this Ember application.
 
 
