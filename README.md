@@ -5,8 +5,13 @@ Want to see it in action? I added a visitor account(However you are restricted t
  * password: 12345678
 
 This README outlines the details of collaborating on this Ember application.
-
-
+![image](/readme-images/image0.png)
+![image](/readme-images/image1.png)
+![image](/readme-images/image2.png)
+![image](/readme-images/image3.png)
+![image](/readme-images/image4.png)
+![image](/readme-images/image5.png)
+![image](/readme-images/image6.png)
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
