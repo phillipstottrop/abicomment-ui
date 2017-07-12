@@ -9,7 +9,7 @@ This README outlines the details of collaborating on this Ember application.
 ![image](/readme-images/image1.png)
 ![image](/readme-images/image2.png)
 ![image](/readme-images/image3.png)
-![image](/readme-images/image4.png)
+
 ![image](/readme-images/image5.png)
 ![image](/readme-images/image6.png)
 ## Prerequisites
